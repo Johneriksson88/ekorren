@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    type="text/css" />
+  <link rel="stylesheet" href="/assets/css/styles.css" type="text/css">
+  <title>Ekorren Förråd - hyr förråd i Uppsala</title>
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="nav-brand">Ekorren</div>
+    <a href="#" class="toggle-btn">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </a>
+    <div class="navbar-links">
+      <ul>
+        <li><a href="#">Hem</a></li>
+        <li><a href="#">Förråd</a></li>
+        <li><a href="#">Kontakt</a></li>
+        <li><a href="#">För företag</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    {% block content %}
+    {% endblock %}
+  </div>
+  <footer>
+    <p class="copyright">Copyright &copy; John Eriksson <span id="copyright"></span></p>
+  </footer>
+
+  <!-- JavaScript, Jquery -->
+
+  <script src="/assets/js/script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script>
+    $("#copyright").text(new Date().getFullYear());
+  </script>
+</body>
+
+</html>
