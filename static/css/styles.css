@@ -116,3 +116,24 @@ body {
         display: flex;
     }
 }
+
+/* HERO IMAGE AND JUMBOTRON */
+
+.jumbotron {
+    background-color:#d9d2b1;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    width: 100%;
+}
+
+/* PRODUCT CARDS */
+
+.low-price {
+    background-color: greenyellow;
+}
+
+/* FOOTER */
+
+footer {
+    background-color: #72310b;
+}
