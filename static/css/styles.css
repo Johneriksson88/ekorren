@@ -132,6 +132,14 @@ body {
     background-color: greenyellow;
 }
 
+.card-btn {
+    border-radius: 0;
+}
+
+.discount {
+    padding-left: 5px;
+}
+
 /* FOOTER */
 
 footer {
