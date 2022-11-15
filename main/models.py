@@ -12,10 +12,11 @@ class StorageUnit(models.Model):
 
     """ class Meta:
         ordering = ['-'] """
-    
+
+
     def __str__(self):
         return self.name
-    
+
 
 class Customer(models.Model):
     fullname = models.CharField(max_length=100, blank=True)
@@ -33,5 +34,9 @@ class Customer(models.Model):
     def __str__(self):
         return self.name
 
-# ORDER
 
+class Order(models.Model):
+    order_date = models.DateField(auto_now=True)
+    start_date = models.DateField()
+    storage_unit = models.ForeignKey(StorageUnit, on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
