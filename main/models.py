@@ -10,6 +10,13 @@ class StorageUnit(models.Model):
     floor = models.IntegerField(choices=FLOOR, default=0)
     available = models.BooleanField(default=True)
 
+    """ class Meta:
+        ordering = ['-'] """
+    
+    def __str__(self):
+        return self.name
+    
+
 class Customer(models.Model):
     fullname = models.CharField(max_length=100)
     address = models.CharField(max_length=100)
@@ -19,6 +26,12 @@ class Customer(models.Model):
     phone = models.IntegerField
     username = models.CharField(max_length=100)
     password = models.CharField(max_length=100)
+
+    class Meta:
+        ordering = ['-fullname']
+
+    def __str__(self):
+        return self.name
 
 # ORDER
 
