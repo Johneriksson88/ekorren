@@ -15,3 +15,7 @@ def section(request, num):
 
 def user_panel(request):
     return render(request, 'user_panel.html')
+
+
+def user_login(request):
+    return render(request, 'user_login.html')
