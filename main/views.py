@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, Http404
+from django.views import View
+from .models import StorageUnit, Customer, Order
 
 
 def index(request):
@@ -19,3 +21,8 @@ def user_panel(request):
 
 def user_login(request):
     return render(request, 'user_login.html')
+
+
+def form(request):
+    return render(request, 'form.html')
+
