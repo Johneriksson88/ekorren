@@ -17,10 +17,10 @@ class StorageUnit(models.Model):
 class Customer(models.Model):
     fullname = models.CharField(max_length=100, blank=True)
     address = models.CharField(max_length=100, blank=True)
-    zipcode = models.IntegerField
+    zipcode = models.IntegerField()
     city = models.CharField(max_length=100, blank=True)
     email = models.EmailField(max_length=200, blank=True)
-    phone = models.IntegerField
+    phone = models.IntegerField()
     username = models.CharField(max_length=100, blank=True)
     password = models.CharField(max_length=100, blank=True)
 
