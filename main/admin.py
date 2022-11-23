@@ -1,4 +1,6 @@
 from django.contrib import admin
-from .models import StorageUnit, Customer
+from .models import StorageUnit, Customer, Order
 
-admin.site.register(StorageUnit)
+
+my_models = [StorageUnit, Customer, Order]
+admin.site.register(my_models)

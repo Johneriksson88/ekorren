@@ -11,16 +11,16 @@ class StorageUnit(models.Model):
     available = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.name
+        return 'Storage Unit ' + str(self.pk)
 
 
 class Customer(models.Model):
     fullname = models.CharField(max_length=100, blank=True)
     address = models.CharField(max_length=100, blank=True)
-    zipcode = models.IntegerField(default="12345")
+    zipcode = models.CharField(max_length=5, blank=True)
     city = models.CharField(max_length=100, blank=True)
     email = models.EmailField(max_length=200, blank=True)
-    phone = models.IntegerField(default='0000000000')
+    phone = models.CharField(max_length=100, blank=True)
     username = models.CharField(max_length=100, blank=True)
     password = models.CharField(max_length=100, blank=True)
 
@@ -28,7 +28,7 @@ class Customer(models.Model):
         ordering = ['-fullname']
 
     def __str__(self):
-        return self.name
+        return self.fullname
 
 
 class Order(models.Model):
@@ -37,6 +37,11 @@ class Order(models.Model):
     storage_unit = models.ForeignKey(StorageUnit, on_delete=models.CASCADE)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
 
+    class Meta:
+        ordering = ['-order_date']
+     
+    def __str__(self):
+        return 'Order ' + str(self.pk)
 
 class User(models.Model):
     user_name = models.CharField(max_length=100)

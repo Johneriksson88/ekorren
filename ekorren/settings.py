@@ -52,7 +52,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -142,6 +141,6 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ['https://*8000-johneriksson88-ekorren-du01z9ylq1j.ws-eu75.gitpod.io/']
+CSRF_TRUSTED_ORIGINS = ['https://*8000-johneriksson88-ekorren-siq4qmxd8k7.ws-eu77.gitpod.io']
 
 CSRF_COOKIE_SECURE = False
