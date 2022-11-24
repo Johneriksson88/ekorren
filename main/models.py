@@ -42,6 +42,3 @@ class Order(models.Model):
      
     def __str__(self):
         return 'Order ' + str(self.pk)
-
-class User(models.Model):
-    user_name = models.CharField(max_length=100)

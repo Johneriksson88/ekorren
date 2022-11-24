@@ -51,9 +51,14 @@ def order_form(request):
     return render(request, 'order_form.html', context)
 
 
-def user_form(request):
+def register_form(request):
 
     form = UserCreationForm()
 
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+
     context = {'form': form}
-    return render(request, 'user_form.html', context)
+    return render(request, 'register_form.html', context)
