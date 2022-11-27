@@ -9,6 +9,7 @@ class StorageUnit(models.Model):
     size = models.IntegerField(choices=SIZES, default=0)
     floor = models.IntegerField(choices=FLOOR, default=0)
     available = models.BooleanField(default=True)
+    price = models.IntegerField(default=0)
 
     def __str__(self):
         return 'Storage Unit ' + str(self.pk)

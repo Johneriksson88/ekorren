@@ -39,6 +39,8 @@
         <li><a href="#">För företag</a></li>
       </ul>
     </div>
+    <span>Hello, {{ request.user }}</span>
+    <span class="btn btn-alert"><a href="{% url 'logout' %}"></a>Log out</span>
   </nav>
     {% block content %}
     {% endblock %}
