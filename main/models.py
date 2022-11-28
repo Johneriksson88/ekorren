@@ -16,14 +16,14 @@ class StorageUnit(models.Model):
 
 
 class Customer(models.Model):
-    fullname = models.CharField(max_length=100, blank=True)
-    address = models.CharField(max_length=100, blank=True)
-    zipcode = models.CharField(max_length=5, blank=True)
-    city = models.CharField(max_length=100, blank=True)
-    email = models.EmailField(max_length=200, blank=True)
-    phone = models.CharField(max_length=100, blank=True)
-    username = models.CharField(max_length=100, blank=True)
-    password = models.CharField(max_length=100, blank=True)
+    fullname = models.CharField(max_length=100, required=True)
+    address = models.CharField(max_length=100, required=True)
+    zipcode = models.CharField(max_length=5, required=True)
+    city = models.CharField(max_length=100, required=True)
+    email = models.EmailField(max_length=200, required=True)
+    phone = models.CharField(max_length=100, required=True)
+    username = models.CharField(max_length=100, required=True)
+    password = models.CharField(max_length=100, required=True)
 
     class Meta:
         ordering = ['-fullname']
@@ -34,9 +34,9 @@ class Customer(models.Model):
 
 class Order(models.Model):
     order_date = models.DateField(auto_now=True)
-    start_date = models.DateField()
-    storage_unit = models.ForeignKey(StorageUnit, on_delete=models.CASCADE)
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    start_date = models.DateField(required=True)
+    storage_unit = models.ForeignKey(StorageUnit, on_delete=models.CASCADE, required=True)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, required=True)
 
     class Meta:
         ordering = ['-order_date']
