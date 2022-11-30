@@ -13,6 +13,11 @@ body {
     font-family: "Lato", sans-serif;
 }
 
+/* TEXT */
+
+h2 {
+    margin-bottom: 40px;
+}
 
 /* VARIABLES */
 
@@ -144,10 +149,10 @@ body {
 
 /* PRODUCT CARDS */
 
-.product-cards-section {
+#product-cards-section {
     margin-top: 40px;
     padding: 50px;
-    margin-bottom: 100px;
+    margin-bottom: 70px;
 }
 
 .product-cards-section h1 {
@@ -174,9 +179,10 @@ body {
 
 /* WHY US SECTION */
 
-.why-us-container {
+#why-us-section {
     margin-top: 30px;
     margin-bottom: 30px;
+    padding-top: 30px;
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -211,9 +217,12 @@ body {
     margin-bottom: 50px ;
 }
 
-/* FORM SECTION */
+/* ABOUT US SECTION */
 
-
+#about-us-section {
+    padding-left: 30px;
+    padding-right: 30px;
+}
 
 /* FOOTER */
 

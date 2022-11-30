@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<section class="container-fluid hero-section">
+<section class="container-fluid" id="hero-section">
 <div class="text-center jumbotron-fluid">
     <div class="row">
         <div class="container">
@@ -20,7 +20,7 @@
     </div>
 </div>
 </section>
-<section class="product-cards-section container-fluid mt-5">
+<section class="container-fluid mt-5" id="product-cards-section">
     <h2 class="text-center">Välj ett förråd</h2>
     <div class="row">
         <div class="col-md-3 product-card-container">
@@ -146,7 +146,7 @@
     </div>
 </section>
 
-<section class="container-fluid no-gutter why-us-container bg-grey">
+<section class="container-fluid no-gutter bg-info" id="why-us-section">
     <h2 class="text-center">Varför hyra förråd hos oss?</h2>
     <div class="row">
 
@@ -198,8 +198,24 @@
 
 </section>
 
-<section class="container-fluid form-section">
-    
+<section class="container-fluid" id="about-us-section">
+    <h2 class="text-center">About us</h2>
+    <div class="row">
+        <div class="col-md-4 text-left" id="find-us">
+            <h3>Find us</h3>
+            <p><b>Address:</b> Näs-Edeby 1, 755 91, Uppsala</p>
+            <p><b>Telephone:</b> <a href="tel:0706499977">+46 706 499 977</a></p>
+            <p><b>Email:</b> <a href="mailto:edebyhus@gmail.com"></a>edebyhus@gmail.comr</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1003.2338192110516!2d17.51058145837107!3d59.80815064433253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465fca935deccc6f%3A0xff820e9149c41d66!2sN%C3%84S-EDEBY%201%2C%20755%2091%20Uppsala!5e0!3m2!1sen!2sse!4v1669815744762!5m2!1sen!2sse" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="col-md-4 bg-grey" id="about-us">
+            <h2>About Us</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, laboriosam. Sed neque natus, architecto eveniet eum, autem quia sit ad laboriosam quasi explicabo reprehenderit error sint deserunt officia aperiam recusandae!</p>
+        </div>
+        <div class="col-md-4" id="contact-us">
+            <h3>Contact Us</h3>
+        </div>
+    </div>
 </section>
 
 {% endblock %}

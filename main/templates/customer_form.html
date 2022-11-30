@@ -3,10 +3,10 @@
 {% load bootstrap %}
 <div class="row">
     <div class="col-md-6">
-        <form method="POST">
+        <form method="POST" action="{% url 'register' %}">
             {% csrf_token %}
             {{ form | bootstrap}}
-            <input type="submit">
+            <input type="submit" value="Next">
         </form>
     </div>
 </div>

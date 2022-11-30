@@ -58,7 +58,7 @@ def customer_form(request):
             form.save()
 
     context = {'form': form}
-    return render(request, 'customer_form.html', context)
+    return render(request, 'order_form.html', context)
 
 
 def order_form(request):

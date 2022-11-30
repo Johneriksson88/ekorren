@@ -16,26 +16,26 @@ class StorageUnit(models.Model):
 
 
 class Customer(models.Model):
-    fullname = models.CharField(max_length=100, blank=True)
-    address = models.CharField(max_length=100, blank=True)
-    zipcode = models.CharField(max_length=5, blank=True)
-    city = models.CharField(max_length=100, blank=True)
-    email = models.EmailField(max_length=200, blank=True)
-    phone = models.CharField(max_length=100, blank=True)
-    username = models.CharField(max_length=100, blank=True)
-    password = models.CharField(max_length=100, blank=True)
+    fullname = models.CharField(max_length=100)
+    address = models.CharField(max_length=100)
+    zipcode = models.CharField(max_length=5)
+    city = models.CharField(max_length=100)
+    email = models.EmailField(max_length=200)
+    phone = models.CharField(max_length=100)
+    username = models.CharField(max_length=100)
+    password = models.CharField(max_length=100)
 
     class Meta:
         ordering = ['-fullname']
 
     def __str__(self):
-        return self.fullname
+        return str(self.pk) + " " + self.fullname
 
 
 class Order(models.Model):
     order_date = models.DateField(auto_now=True)
     start_date = models.DateField()
-    storage_unit = models.ForeignKey(StorageUnit, on_delete=models.CASCADE, blank=True)
+    storage_unit = models.ForeignKey(StorageUnit, on_delete=models.CASCADE)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
 
     class Meta:
