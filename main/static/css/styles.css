@@ -284,3 +284,18 @@ footer {
     box-shadow: none;
     outline: 0px;
   }
+
+
+/* FORMS */
+
+.form-card {
+    margin-top: 70px;
+    margin-bottom: 70px;
+    
+}
+
+.form-container {
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}

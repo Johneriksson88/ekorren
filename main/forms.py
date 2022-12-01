@@ -12,7 +12,41 @@ class CustomerForm(ModelForm):
         model = Customer
         fields = ('fullname', 'address', 'zipcode', 'city', 'email', 'phone')
         widgets = {
-            'email': forms.EmailInput(),
+            
+            'fullname': forms.TextInput(attrs={
+                'class': "form-control",
+                'style': 'max-width: 300px;',
+                'placeholder': 'John Doe'
+                }),
+            'address': forms.TextInput(attrs={
+                'class': "form-control",
+                'style': 'max-width: 300px;',
+                'placeholder': 'King Street 1'
+                }),
+            'zipcode': forms.TextInput(attrs={
+                'class': "form-control",
+                'style': 'max-width: 300px;',
+                'placeholder': '123 45'
+                }),
+            'city': forms.TextInput(attrs={
+                'class': "form-control",
+                'style': 'max-width: 300px;',
+                'placeholder': 'Stockholm'
+                }),
+            'email': forms.EmailInput(attrs={
+                'class': "form-control",
+                'style': 'max-width: 300px;',
+                'placeholder': 'your@email.com'
+                }),
+            'phone': forms.TextInput(attrs={
+                'class': "form-control",
+                'style': 'max-width: 300px;',
+                'placeholder': '07xxxxxxxx'
+                }),
+        }
+
+        labels = {
+            'fullname': 'Full name'
         }
 
 

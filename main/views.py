@@ -28,17 +28,11 @@ def index(request):
 
             send_mail('subject', 'message', 'john.e.eriksson@gmail.com', ['john.e.eriksson@gmail.com'], html_message=html)
             return redirect('index')
-            
+
     else:
         form = ContactForm()
     return render(request, 'index.html', {'form': form})
 
-
-def section(request, num):
-    if 1 <= num <= 3:
-        return HttpResponse(texts[num-1])
-    else:
-        raise Http404("No such section")
 
 @login_required(login_url='login')
 def user_panel(request):
@@ -79,7 +73,7 @@ def customer_form(request):
             form.save()
 
     context = {'form': form}
-    return render(request, 'order_form.html', context)
+    return render(request, 'customer_form.html', context)
 
 
 def order_form(request):
