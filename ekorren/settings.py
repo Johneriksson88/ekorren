@@ -144,3 +144,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_TRUSTED_ORIGINS = ['https://*8000-johneriksson88-ekorren-siq4qmxd8k7.ws-eu77.gitpod.io']
 
 CSRF_COOKIE_SECURE = False
+
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = 'd7c7b2d303d617'
+EMAIL_HOST_PASSWORD = 'e65dcdf898eda0'
+EMAIL_PORT = '2525'

@@ -2,15 +2,36 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, Http404
 from django.views import View
 from .models import StorageUnit, Customer, Order
-from .forms import CustomerForm, OrderForm
+from .forms import CustomerForm, OrderForm, ContactForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 
 
 def index(request):
-    return render(request, 'index.html')
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            message = form.cleaned_data['message']
+
+            html = render_to_string('contact_form.html', {
+                'name': name,
+                'email': email,
+                'message': message
+            })
+
+            send_mail('subject', 'message', 'john.e.eriksson@gmail.com', ['john.e.eriksson@gmail.com'], html_message=html)
+            return redirect('index')
+            
+    else:
+        form = ContactForm()
+    return render(request, 'index.html', {'form': form})
 
 
 def section(request, num):
