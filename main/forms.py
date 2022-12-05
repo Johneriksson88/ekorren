@@ -53,7 +53,7 @@ class CustomerForm(ModelForm):
 class OrderForm(ModelForm):
     class Meta:
         model = Order
-        fields = ('storage_unit', 'start_date')
+        fields = ('storage_unit', 'start_date', 'customer')
         widgets = {
             'start_date': forms.widgets.SelectDateWidget()
         }

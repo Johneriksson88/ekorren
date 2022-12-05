@@ -9,6 +9,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
+from django.template.context_processors import csrf
 
 
 def index(request):
@@ -90,18 +91,44 @@ def order_form(request):
 
 
 def register_form(request):
-    if request.user.is_authenticated:
+    """ if request.user.is_authenticated:
         return redirect('index')
     else:
-        form = UserCreationForm()
+         """
+    form = UserCreationForm()
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            user = form.cleaned_data.get('username')
+            messages.success(request, 'Account successfully created for ' + user)
+            return redirect('login')
 
-        if request.method == 'POST':
-            form = UserCreationForm(request.POST)
-            if form.is_valid():
-                form.save()
-                user = form.cleaned_data.get('username')
-                messages.success(request, 'Account successfully created for ' + user)
-                return redirect('login')
+    context = {'form': form}
+    return render(request, 'register_form.html', context)
 
-        context = {'form': form}
-        return render(request, 'register_form.html', context)
+
+def multi_form(request):
+
+    if request.method == 'POST':
+        customer_form = CustomerForm(request.POST)
+        order_form = OrderForm(request.POST)
+        
+        if customer_form.is_valid() and order_form.is_valid():
+            customer = customer_form.save()
+            order = order_form.save(False)
+
+            order.customer = customer
+            order.save()
+
+            return redirect('index')
+    else:
+        customer_form = CustomerForm()
+        order_form = OrderForm()
+    
+    args = {}
+    args.update(csrf(request))
+    args['customer_form'] = customer_form
+    args['order_form'] = order_form
+
+    return render(request, 'multi_form.html', args)
