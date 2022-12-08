@@ -6,18 +6,18 @@
 <div class="row">
     <div class="col-md-4 mx-auto mt-2 bg-grey border form-card">
         <div class="md-col-4 text-center>
-            <p><i class="fa-solid fa-circle-info"></i><b>Step 1: </b>Personal information</p>
+            <p><i class=" fa-solid fa-circle-info"></i><b>Step 1: </b>Personal information</p>
         </div>
         <div class="form-container">
-            <form method="POST" action="{% url 'register' %}">
+            <form method="POST" action="#">
                 {% csrf_token %}
                 {{ customer_form | bootstrap }}
                 {{ order_form | bootstrap }}
                 {{ register_form | bootstrap }}
-                <input type="submit" class="btn btn-primary mt-4" value="Submit">
+                <input type="submit" class="btn btn-success" value="Submit">
             </form>
         </div>
-        
+
     </div>
 </div>
 

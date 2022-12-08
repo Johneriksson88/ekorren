@@ -11,6 +11,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.template.context_processors import csrf
+from django.views.decorators.csrf import csrf_protect
 from django.urls import reverse_lazy
 
 
@@ -109,7 +110,7 @@ def register_form(request):
     context = {'form': form}
     return render(request, 'register_form.html', context)
 
-@csrf_protect
+
 def multi_form(request):
     if request.method == 'POST':
         customer_form = CustomerForm(request.POST)
@@ -121,9 +122,9 @@ def multi_form(request):
             order = order_form.save(False)
             user = register_form.save(False)
             
-            customer.order=customer
+            customer.order = customer
             order.save()
-            customer.user=customer
+            customer.user = customer
             user.save()
 
             return redirect(reverse('order_success.html'))

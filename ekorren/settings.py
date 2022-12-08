@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'betterforms',
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'crispy_forms',
@@ -142,7 +141,7 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ['https://*8000-johneriksson88-ekorren-siq4qmxd8k7.ws-eu77.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://*']
 
 CSRF_COOKIE_SECURE = False
 
