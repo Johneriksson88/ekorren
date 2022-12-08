@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, Http404
 from django.views import View
+from django.views.generic import CreateView
 from .models import StorageUnit, Customer, Order
-from .forms import CustomerForm, OrderForm, ContactForm
+from .forms import CustomerForm, OrderForm, RegisterForm, ContactForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -10,6 +11,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.template.context_processors import csrf
+from django.urls import reverse_lazy
 
 
 def index(request):
@@ -107,28 +109,33 @@ def register_form(request):
     context = {'form': form}
     return render(request, 'register_form.html', context)
 
-
+@csrf_protect
 def multi_form(request):
-
     if request.method == 'POST':
         customer_form = CustomerForm(request.POST)
         order_form = OrderForm(request.POST)
-        
-        if customer_form.is_valid() and order_form.is_valid():
+        register_form = RegisterForm(request.POST)
+
+        if customer_form.is_valid() and order_form.is_valid() and register_form.is_valid():
             customer = customer_form.save()
             order = order_form.save(False)
-
-            order.customer = customer
+            user = register_form.save(False)
+            
+            customer.order=customer
             order.save()
+            customer.user=customer
+            user.save()
 
-            return redirect('index')
+            return redirect(reverse('order_success.html'))
     else:
         customer_form = CustomerForm()
         order_form = OrderForm()
-    
+        register_form = RegisterForm()
+
     args = {}
     args.update(csrf(request))
     args['customer_form'] = customer_form
     args['order_form'] = order_form
+    args['register_form'] = register_form
 
-    return render(request, 'multi_form.html', args)
+    return render(request, "multi_form.html", args)
