@@ -43,6 +43,9 @@ def user_panel(request):
     return render(request, 'user_panel.html')
 
 
+def order_success(request):
+    return render(request, 'order_success.html')
+
 def user_login(request):
     if request.user.is_authenticated:
         return redirect('index')
@@ -127,7 +130,7 @@ def multi_form(request):
             customer.user = customer
             user.save()
 
-            return redirect(reverse('order_success.html'))
+            return redirect(reverse_lazy('order_success'))
     else:
         customer_form = CustomerForm()
         order_form = OrderForm()
