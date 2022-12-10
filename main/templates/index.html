@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<section class="container-fluid p-0" id="hero-section">
+<!-- <section class="container-fluid p-0" id="hero-section">
 <div class="text-center jumbotron-fluid">
     <div class="row">
         <div class="container">
@@ -19,6 +19,34 @@
         <div class="col-xs-12 col-md-6 hero-info-text"><h5>Alla förråd är varma och torra. För bästa pris, välj ett förråd på vårt nyöppnade plan 2.</h5></div>
     </div>
 </div>
+</section> -->
+<div class="row">
+    <div class="col-md-12 container-fluid text-center py-3" id="header-banner">
+        <p class="mx-auto my-auto">
+            <h5 class="text-light">Just nu: få den första månaden gratis!</h5>
+        </p>
+    </div>
+</div>
+<section class="container-fluid">
+    <div class="row">
+        <div class="col-md-4 hero-left">
+            <img class="img-fluid" src="/static/images/ekorren_logo.jpg">
+
+        </div>
+        <div class="col-md-8 col-s-12 hero-right d-flex flex-wrap justify-content-center align-items-center">
+            <h2 class="text-white text-center">Nya och fräscha förråd, bara 10 minuter från Uppsala!</h2>
+            <p class="lead">
+                <a class="btn btn-primary btn-lg btn-warning" href="{% url 'multiform' %}" role="button">Hyr
+                    idag!</a>
+            </p>
+
+            <p class="lead text-white">Få den första månaden gratis! Pris från <span class="bg-warning">599</span>
+                kr/månad.
+            </p>
+
+
+        </div>
+    </div>
 </section>
 <section class="container-fluid mt-5" id="product-cards-section">
     <h2 class="text-center">Välj ett förråd</h2>
@@ -201,22 +229,31 @@
 <section class="container-fluid text-center mr-6 ml-6" id="about-us-section">
     <h2 class="text-center">About us</h2>
     <div class="row">
-        <div class="col-md-6 mx-auto" id="find-us">
+        <div class="col-md-6 p-3 offset-md-3 border shadow rounded" id="find-us">
             <h3><i class="fa-regular fa-map"></i> Find us</h3>
             <p><b>Address:</b> Näs-Edeby 1, 755 91, Uppsala</p>
-            <iframe class="embedded-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1003.2338192110516!2d17.51058145837107!3d59.80815064433253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465fca935deccc6f%3A0xff820e9149c41d66!2sN%C3%84S-EDEBY%201%2C%20755%2091%20Uppsala!5e0!3m2!1sen!2sse!4v1669815744762!5m2!1sen!2sse" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe class="embedded-map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1003.2338192110516!2d17.51058145837107!3d59.80815064433253!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465fca935deccc6f%3A0xff820e9149c41d66!2sN%C3%84S-EDEBY%201%2C%20755%2091%20Uppsala!5e0!3m2!1sen!2sse!4v1669815744762!5m2!1sen!2sse"
+                width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-        </div>
-        <div class="row">
-        <div class="col-md-6 mx-auto mt-4" id="about-us">
+    </div>
+    <div class="row">
+        <div class="col-md-6 p-3 mt-4 offset-md-3 border shadow rounded" id="about-us">
             <h2><i class="fa-solid fa-circle-info"></i> Who are we?</h2>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, laboriosam. Sed neque natus, architecto eveniet eum, autem quia sit ad laboriosam quasi explicabo reprehenderit error sint deserunt officia aperiam recusandae!</p>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet, atque accusantium odio, ratione nostrum pariatur cumque cum omnis ut, sunt assumenda exercitationem magnam. At architecto, aspernatur maiores et vel sed.
-            Quae debitis ex sequi ut atque, ratione facere tempora mollitia beatae accusantium quos accusamus magni consequuntur esse ducimus iure veniam officia quisquam dolores! Doloremque corrupti eum praesentium quam illum in?</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, laboriosam. Sed neque natus,
+                architecto eveniet eum, autem quia sit ad laboriosam quasi explicabo reprehenderit error sint deserunt
+                officia aperiam recusandae!</p>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eveniet, atque accusantium odio, ratione
+                nostrum pariatur cumque cum omnis ut, sunt assumenda exercitationem magnam. At architecto, aspernatur
+                maiores et vel sed.
+                Quae debitis ex sequi ut atque, ratione facere tempora mollitia beatae accusantium quos accusamus magni
+                consequuntur esse ducimus iure veniam officia quisquam dolores! Doloremque corrupti eum praesentium quam
+                illum in?</p>
         </div>
-        </div>
-        <div class="row">
-        <div class="col-md-6 mx-auto mt-4" id="contact-us">
+    </div>
+    <div class="row">
+        <div class="col-md-6 p-3 mt-4 offset-md-3 border shadow rounded" id="contact-us">
             <h3><i class="fa-regular fa-envelope"></i> Contact Us</h3>
             <p><b>Telephone:</b> <a href="tel:0706499977">+46 706 499 977</a></p>
             <p><b>Email:</b> <a href="mailto:edebyhus@gmail.com">edebyhus@gmail.com</a></p>

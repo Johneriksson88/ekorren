@@ -2,6 +2,7 @@
 /* FONTS */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Lato:ital,wght@0,400;0,700;1,300&family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
 
 * {
     box-sizing: border-box;
@@ -43,9 +44,52 @@ h2 {
 
 /* NAVIGATION */
 
+.navbar {
+    padding: 35px;
+    padding-left: 180px;
+    padding-right: 180px;
+    background-color: #eb693f;
+}
 
+@media only screen and (max-width: 990px) {
+    .navbar {
+        padding: 10px;
+        padding-left: 90px;
+        padding-right: 90px;
 
+    }
+
+}
+
+@media only screen and (max-width: 550px) {
+    .navbar {
+        padding: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+
+    }
+
+}
+
+.navbar-brand {
+    font-size: 32px;
+    font-family: "Cinzel Decorative", sans-serif;
+}
+
+#header-banner {
+    background-color: #00203d;
+}
 /* HERO IMAGE AND JUMBOTRON */
+
+/* .hero-left {
+    background-image: url(main/static/images/ekorren_logo.jpg);
+} */
+
+.hero-right {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(/static/images/boxes_small.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
 
 .jumbotron-fluid {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/static/images/storage.jpg);
@@ -142,7 +186,7 @@ h2 {
 /* FOOTER */
 
 footer {
-    background-color: #72310b;
+    background-color: #eb693f;
 }
 
 /* USER REGISTRATION PAGE */
