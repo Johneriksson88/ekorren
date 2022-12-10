@@ -6,10 +6,13 @@ from django.contrib.auth.models import User
 from django import forms
 from django.contrib.admin.widgets import AdminDateWidget
 from collections import OrderedDict
-from localflavor.se.forms import SEPersonalIdentityNumberField, SEOrganisationNumberField
+from localflavor.se.forms import SEPersonalIdentityNumberField, SEOrganisationNumberField, SEPostalCodeField
 
 
 class CustomerForm(ModelForm):
+    personnr = SEPersonalIdentityNumberField()
+    orgnr = SEOrganisationNumberField()
+    zipcode = SEPostalCodeField()
     class Meta:
         model = Customer
         fields = ('fullname', 'address', 'zipcode', 'city', 'email', 'phone', 'personnr','company', 'orgnr' )
@@ -35,7 +38,7 @@ class CustomerForm(ModelForm):
                 'style': 'max-width: 300px;',
                 'placeholder': 'Stockholm'
                 }),
-            'email': forms.EmailInput(attrs={
+            'email': forms.TextInput(attrs={
                 'class': "form-control",
                 'style': 'max-width: 300px;',
                 'placeholder': 'your@email.com'

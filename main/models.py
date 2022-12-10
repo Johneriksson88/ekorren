@@ -24,7 +24,7 @@ class StorageUnit(models.Model):
 class Customer(models.Model):
     fullname = models.CharField(max_length=100)
     address = models.CharField(max_length=100)
-    zipcode = models.CharField(max_length=5)
+    zipcode = models.CharField(max_length=6)
     city = models.CharField(max_length=100)
     email = models.EmailField(max_length=200)
     phone = models.CharField(max_length=100)
@@ -49,6 +49,6 @@ class Order(models.Model):
 
     class Meta:
         ordering = ['-order_date']
-     
+
     def __str__(self):
         return 'Order ' + str(self.pk)
