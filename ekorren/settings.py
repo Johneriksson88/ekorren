@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'bootstrapform',
     'main',
+    'localflavor',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -141,7 +142,7 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ['https://*8000-johneriksson88-ekorren-us6khvjs3ar.ws-eu77.gitpod.io/']
+CSRF_TRUSTED_ORIGINS = ['https://*8000-johneriksson88-ekorren-us6khvjs3ar.ws-eu78.gitpod.io/']
 
 
 

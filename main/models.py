@@ -1,18 +1,24 @@
 from django.db import models
 from django.contrib.auth.models import User
+from localflavor.se.forms import SEPersonalIdentityNumberField, SEOrganisationNumberField
 
-SIZES = ((0, "5 m2"), (1, "6 m2"), (2, ("12 m2")))
-FLOOR = ((0, 1), (1, 2))
+StorageUnitTypeChoices = (
+    ('5m2 first floor', 'S 1:st floor'),
+    ('6m2 first floor', 'M 1:st floor'),
+    ('10m2 first floor', 'L 1:st floor'),
+    ('5m2 second floor', 'S 2:nd floor'),
+    ('6m2 second floor', 'M 2:nd floor'),
+    ('10m2 second floor', 'L 2:nd floor'),
+    ('12m2 second floor', 'XL 2:nd floor')
+    )
 
 
 class StorageUnit(models.Model):
-    size = models.IntegerField(choices=SIZES, default=0)
-    floor = models.IntegerField(choices=FLOOR, default=0)
-    available = models.BooleanField(default=True)
-    price = models.IntegerField(default=0)
+    type = models.CharField(choices=StorageUnitTypeChoices, max_length=100)
+    price = models.CharField(max_length=5)
 
     def __str__(self):
-        return 'Storage Unit ' + str(self.pk)
+        return self.type
 
 
 class Customer(models.Model):
@@ -24,6 +30,9 @@ class Customer(models.Model):
     phone = models.CharField(max_length=100)
     username = models.CharField(max_length=100)
     password = models.CharField(max_length=100)
+    personnr = models.CharField(max_length=100)
+    orgnr = models.CharField(max_length=100)
+    company = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['-fullname']

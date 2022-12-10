@@ -15,6 +15,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.urls import reverse_lazy
 
 
+
 def index(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
