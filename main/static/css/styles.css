@@ -48,7 +48,7 @@ h2 {
     padding: 35px;
     padding-left: 180px;
     padding-right: 180px;
-    background-color: #eb693f;
+    background-color:#eaa653;
 }
 
 @media only screen and (max-width: 990px) {
@@ -102,8 +102,8 @@ h2 {
     color: white;
 }
 
-.hero-info-text {
-    padding: 70px;
+#hero-lead {
+    width: 30%;
 }
 
 /* PRODUCT CARDS */
