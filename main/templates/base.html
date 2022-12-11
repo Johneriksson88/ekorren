@@ -52,7 +52,13 @@
         <img src="/static/images//icons/united-kingdom.png">
       </li>
     </ul>
-      <a class="btn" href="#">Login</a>
+      {% if user.is_authenticated %}
+      <span class="alert-primary">Hello, {{ request.user }}!</span>
+      <a class="btn btn-danger" href="{% url 'logout' %}">Logout</a>
+      {% else %}
+      <a class="btn btn-primary" href="{% url 'logout' %}">Login</a>
+      {% endif %}
+      
   </nav>
   {% block content %}
   {% endblock %}

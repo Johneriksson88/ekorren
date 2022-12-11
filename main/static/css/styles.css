@@ -258,3 +258,10 @@ footer {
     justify-content: center;
     margin: 0 auto;
 }
+
+.errorlist {
+    background-color: rgb(228, 62, 62);
+    color: #fafafa;
+    margin-top: 1rem;
+    border-radius: 3px;
+}

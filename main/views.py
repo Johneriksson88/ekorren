@@ -47,8 +47,14 @@ def user_panel(request):
 def order_success(request):
     return render(request, 'order_success.html')
 
+
+def register_success(request):
+    return render(request, 'register_success.html')
+
+
 def user_login(request):
     if request.user.is_authenticated:
+        messages.info(request, 'You are already logged in.')
         return redirect('index')
     else:
         if request.method == 'POST':
