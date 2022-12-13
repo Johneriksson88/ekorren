@@ -16,8 +16,20 @@ body {
 
 /* TEXT */
 
+a {
+    text-decoration: none;
+}
+
 h2 {
     margin-bottom: 40px;
+}
+
+.text-green {
+    color: rgb(3, 163, 3);
+}
+
+.text-red {
+    color: red;
 }
 
 /* VARIABLES */

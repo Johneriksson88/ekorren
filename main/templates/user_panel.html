@@ -2,39 +2,79 @@
 
 {% block content %}
 <div class="container border border-3 rounded my-4 p-3">
-    <h3>My account</h3>
-    <span><a href="#" class="text-danger pull-right">Remove account</a></span>
+    <ul>
+        <li class="d-flex justify-content-between">
+            <h3>My account</h3>
+            <span><a href="#" class="text-danger pull-right">Remove account</a></span>
+        </li>
+    </ul>
+
     <hr>
+    
     <div class="row">
-        <div class="col-md-6 mx-auto">
-            <div class="card" style="width: 18rem;">
+        <div class="col-md-6">
+            <div class="card mx-auto">
                 <div class="card-header">
-                    My orders
+                    <u>My orders</u>
                 </div>
+                <table class="table table-sm">
+                <tr>
+                    <th>Storage unit</th>
+                    <th>Date ordered</th>
+                    <th>Start date</th>
+                    <th>Price</th>
+                    <th>Remove</th>
+                </tr>
+                {% for order in orders %}
+                <tr>
+                    <td>{{order.storage_unit}}</td>
+                    <td>{{order.order_date}}</td>
+                    <td>{{order.start_date}}</td>
+                    <td>{{order.storage_unit.price}} kr</td>
+                    <td><a href="#"><i class="fa-solid fa-trash-can text-red"></i></a></td>
+                </tr>
+                {% endfor %}
+            </table>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                    <a href="#" class="btn btn-primary">Add order</a>
-                    <a href="#" class="btn btn-danger">Remove order</a>
+                    <li class="list-group-item bg-light d-flex justify-content-between">New order<span class="mx-0 my-0">
+                            <a href="#"><h4 class="mx-0 my-0"><i class="fa-regular fa-square-plus text-green"></i></h4></a>
+                        </span></li>
+                    
+                    
                 </ul>
             </div>
         </div>
-        <div class="col-md-6 mx-auto">
-            <div class="card" style="width: 18rem;">
+        <div class="col-md-6">
+            <div class="card mx-auto" style="width: 18rem;">
                 <div class="card-header d-flex justify-content-between">
-                    <span>My information</span>
-                    <a href="#" class="text-primary"><b>Edit</b></a>
+                    <span><u>My information</u></span>
+                    <a href="#" class="text-primary"><b>Edit <i class="fa-solid fa-pencil"></i></b></a>
 
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
+                    <li class="list-group-item bg-light"><b>Name</b></li>
+                    <li class="list-group-item">{{ request.user.customer.fullname }}</li>
+                    <li class="list-group-item bg-light"><b>Address</b></li>
+                    <li class="list-group-item">{{ request.user.customer.address }}</li>
+                    <li class="list-group-item bg-light"><b>Zipcode</b></li>
+                    <li class="list-group-item">{{ request.user.customer.zipcode }}</li>
+                    <li class="list-group-item bg-light"><b>City</b></li>
+                    <li class="list-group-item">{{ request.user.customer.city }}</li>
+                    <li class="list-group-item bg-light"><b>Email</b></li>
+                    <li class="list-group-item">{{ request.user.customer.email }}</li>
+                    <li class="list-group-item bg-light"><b>Phone</b></li>
+                    <li class="list-group-item">{{ request.user.customer.phone }}</li>
+                    {% if request.user.customer.orgnr == "" %}
+                        <li class="list-group-item"><b>Personnr</b></li>
+                        <li class="list-group-item bg-light">{{ request.user.customer.personnr }}</li>
+                    {% else %}
+                        <li class="list-group-item"><b>Orgnr</b>></li>
+                        <li class="list-group-item">{{ request.user.customer.orgnr }}</li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
 
     </div>
-
-    {% endblock %}
+</div>
+{% endblock %}

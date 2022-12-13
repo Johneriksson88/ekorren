@@ -41,7 +41,10 @@ def index(request):
 
 @login_required(login_url='login')
 def user_panel(request):
-    return render(request, 'user_panel.html')
+    orders = request.user.customer.order_set.all()
+    
+    context = {'orders': orders}
+    return render(request, 'user_panel.html', context)
 
 
 def order_success(request):
