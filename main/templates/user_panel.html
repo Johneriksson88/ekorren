@@ -1,5 +1,40 @@
 {% extends "base.html" %}
 
 {% block content %}
-<p>This is the user panel.</p>
-{% endblock %}
+<div class="container border border-3 rounded my-4 p-3">
+    <h3>My account</h3>
+    <span><a href="#" class="text-danger pull-right">Remove account</a></span>
+    <hr>
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    My orders
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">An item</li>
+                    <li class="list-group-item">A second item</li>
+                    <li class="list-group-item">A third item</li>
+                    <a href="#" class="btn btn-primary">Add order</a>
+                    <a href="#" class="btn btn-danger">Remove order</a>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6 mx-auto">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header d-flex justify-content-between">
+                    <span>My information</span>
+                    <a href="#" class="text-primary"><b>Edit</b></a>
+
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">An item</li>
+                    <li class="list-group-item">A second item</li>
+                    <li class="list-group-item">A third item</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    {% endblock %}

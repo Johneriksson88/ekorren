@@ -22,14 +22,13 @@ class StorageUnit(models.Model):
 
 
 class Customer(models.Model):
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     fullname = models.CharField(max_length=100)
     address = models.CharField(max_length=100)
     zipcode = models.CharField(max_length=6)
     city = models.CharField(max_length=100)
     email = models.EmailField(max_length=200)
     phone = models.CharField(max_length=100)
-    username = models.CharField(max_length=100)
-    password = models.CharField(max_length=100)
     personnr = models.CharField(max_length=100)
     orgnr = models.CharField(max_length=100)
     company = models.BooleanField(default=False)
