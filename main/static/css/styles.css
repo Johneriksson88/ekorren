@@ -63,7 +63,8 @@ h2 {
     padding: 35px;
     padding-left: 180px;
     padding-right: 180px;
-    background-color: #eaa653;
+    /* background-color: #eaa653; */
+    background: linear-gradient(to bottom, #eaa653, #eb693f );
 }
 
 @media only screen and (max-width: 990px) {
@@ -95,6 +96,10 @@ h2 {
     background-color: #00203d;
 }
 
+#loginout-btn {
+    padding: 3px;
+    margin-left: 5px;
+}
 /* HERO IMAGE AND JUMBOTRON */
 
 /* .hero-left {
@@ -202,7 +207,7 @@ h2 {
 /* FOOTER */
 
 footer {
-    background-color: #eb693f;
+    background: linear-gradient(to top, #eaa653, #eb693f );
 }
 
 /* USER REGISTRATION PAGE */

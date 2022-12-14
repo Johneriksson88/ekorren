@@ -43,13 +43,12 @@ def index(request):
 
 @login_required(login_url='login')
 def user_panel(request):
-
+    user = request.user
     personnr = request.user.customer.personnr
     size = len(request.user.customer.personnr)
     replacement = "****"
     personnr = personnr.replace(personnr[size - 4:], replacement)
     print(personnr)
-
     orders = request.user.customer.order_set.all()
     if request.method == 'POST':
         update_customer_form = UpdateCustomerForm(request.POST, instance=request.user.customer)
@@ -61,7 +60,7 @@ def user_panel(request):
     else:
         update_customer_form = UpdateCustomerForm(instance=request.user.customer)
 
-    context = {'orders': orders, 'update_customer_form': update_customer_form, 'personnr_c': personnr}
+    context = {'orders': orders, 'update_customer_form': update_customer_form, 'personnr_c': personnr, 'user': user}
     return render(request, 'user_panel.html', context)
 
 
@@ -110,7 +109,7 @@ def customer_form(request):
     context = {'form': form}
     return render(request, 'customer_form.html', context)
 
-
+@login_required(login_url='login')
 def order_form(request):
 
     form = OrderForm()

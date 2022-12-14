@@ -55,9 +55,9 @@
     </ul>
     {% if user.is_authenticated %}
     <span class="alert-primary">Hello, {{ request.user }}!</span>
-    <a class="btn btn-danger" href="{% url 'logout' %}">Logout</a>
+    <a class="btn btn-danger" id="loginout-btn" href="{% url 'logout' %}">Logout</a>
     {% else %}
-    <a class="btn btn-primary" href="{% url 'logout' %}">Login</a>
+    <a class="btn btn-primary" id="loginout-btn" href="{% url 'logout' %}">Login</a>
     {% endif %}
 
   </nav>
