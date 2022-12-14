@@ -13,50 +13,43 @@ class CustomerForm(ModelForm):
     personnr = SEPersonalIdentityNumberField()
     orgnr = SEOrganisationNumberField()
     zipcode = SEPostalCodeField()
+
     class Meta:
         model = Customer
-        fields = ('fullname', 'address', 'zipcode', 'city', 'email', 'phone', 'personnr','company', 'orgnr' )
+        fields = ('fullname', 'address', 'zipcode', 'city', 'email', 'phone', 'personnr', 'company', 'orgnr' )
         widgets = {
-            
+
             'fullname': forms.TextInput(attrs={
                 'class': "form-control",
-                'style': 'max-width: 300px;',
                 'placeholder': 'John Doe'
                 }),
             'address': forms.TextInput(attrs={
                 'class': "form-control",
-                'style': 'max-width: 300px;',
                 'placeholder': 'King Street 1'
                 }),
             'zipcode': forms.TextInput(attrs={
                 'class': "form-control",
-                'style': 'max-width: 300px;',
                 'placeholder': '123 45'
                 }),
             'city': forms.TextInput(attrs={
                 'class': "form-control",
-                'style': 'max-width: 300px;',
                 'placeholder': 'Stockholm'
                 }),
             'email': forms.TextInput(attrs={
                 'class': "form-control",
-                'style': 'max-width: 300px;',
                 'placeholder': 'your@email.com'
                 }),
             'phone': forms.TextInput(attrs={
                 'class': "form-control",
-                'style': 'max-width: 300px;',
                 'placeholder': '07xxxxxxxx'
                 }),
             'company': forms.CheckboxInput(),
             'personnr': forms.TextInput(attrs={
                 'class': "form-control",
-                'style': 'max-width: 300px;',
                 'placeholder': 'YYYYMMDDXXXX'
                 }),
             'orgnr': forms.TextInput(attrs={
                 'class': "form-control",
-                'style': 'max-width: 300px;',
                 'placeholder': 'YYYYMMDDXXXX or NNNNNNNNNN'
                 }),
         }
@@ -71,12 +64,8 @@ class OrderForm(ModelForm):
         model = Order
         fields = ('storage_unit', 'start_date', 'customer')
         widgets = {
-            'storage_unit': forms.RadioSelect(attrs={
-                'style': 'max-width: 300px;'
-            }),
-            'start_date': forms.widgets.SelectDateWidget(attrs={
-                'style': 'max-width: 300px;'
-            })
+            'storage_unit': forms.RadioSelect(),
+            'start_date': forms.widgets.SelectDateWidget()
         }
 
 
@@ -87,17 +76,14 @@ class RegisterForm(UserCreationForm):
         widgets = {
             'username': forms.TextInput(attrs={
                 'class': "form-control",
-                'style': 'max-width: 300px;',
                 'placeholder': 'Your username'
                 }),
             'password1': forms.PasswordInput(attrs={
                 'class': "form-control",
-                'style': 'max-width: 300px;',
                 'placeholder': 'Password'
                 }),
             'password2': forms.PasswordInput(attrs={
                 'class': "form-control",
-                'style': 'max-width: 300px;',
                 'placeholder': 'Repeat password'
                 })
         }
@@ -108,3 +94,51 @@ class ContactForm(forms.Form):
     email = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder': 'Your email', 'style': 'width: 80%;'}))
     message = forms.CharField(widget=forms.Textarea(attrs={'placeholder' :'Your message here', 'style': 'width: 80%;'}))
 
+
+class UpdateCustomerForm(ModelForm):
+    personnr = SEPersonalIdentityNumberField()
+    orgnr = SEOrganisationNumberField()
+    zipcode = SEPostalCodeField()
+
+    class Meta:
+        model = Customer
+        fields = ('fullname', 'address', 'zipcode', 'city', 'email', 'phone', 'personnr', 'company', 'orgnr')
+        widgets = {
+            
+            'fullname': forms.TextInput(attrs={
+                'class': "form-control",
+                'placeholder': 'John Doe'
+                }),
+            'address': forms.TextInput(attrs={
+                'class': "form-control",
+                'placeholder': 'King Street 1'
+                }),
+            'zipcode': forms.TextInput(attrs={
+                'class': "form-control",
+                'placeholder': '123 45'
+                }),
+            'city': forms.TextInput(attrs={
+                'class': "form-control",
+                'placeholder': 'Stockholm'
+                }),
+            'email': forms.TextInput(attrs={
+                'class': "form-control",
+                'placeholder': 'your@email.com'
+                }),
+            'phone': forms.TextInput(attrs={
+                'class': "form-control",
+                'placeholder': '07xxxxxxxx'
+                }),
+            'company': forms.CheckboxInput(),
+            'personnr': forms.TextInput(attrs={
+                'class': "form-control",
+                'placeholder': 'YYYYMMDDXXXX'
+                }),
+            'orgnr': forms.TextInput(attrs={
+                'class': "form-control",
+                'placeholder': 'YYYYMMDDXXXX or NNNNNNNNNN'
+                }),
+        }
+        labels = {
+            'fullname': 'Full name'
+        }

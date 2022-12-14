@@ -3,7 +3,7 @@ from django.http import HttpResponse, Http404
 from django.views import View
 from django.views.generic import CreateView
 from .models import StorageUnit, Customer, Order
-from .forms import CustomerForm, OrderForm, RegisterForm, ContactForm
+from .forms import CustomerForm, OrderForm, RegisterForm, ContactForm, UpdateCustomerForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -32,6 +32,7 @@ def index(request):
             })
 
             send_mail('subject', 'message', 'john.e.eriksson@gmail.com', ['john.e.eriksson@gmail.com'], html_message=html)
+            messages.success(request, 'Thank you for contacting us! We will get back to you shortly.')
             return redirect('index')
 
     else:
@@ -42,8 +43,17 @@ def index(request):
 @login_required(login_url='login')
 def user_panel(request):
     orders = request.user.customer.order_set.all()
-    
-    context = {'orders': orders}
+    if request.method == 'POST':
+        update_customer_form = UpdateCustomerForm(request.POST, instance=request.user.customer)
+        if update_customer_form.is_valid():
+            update_customer_form.save()
+            messages.success(request, 'Your information has been updated.')
+            return redirect('user_panel')
+
+    else:
+        update_customer_form = UpdateCustomerForm(instance=request.user.customer)
+
+    context = {'orders': orders, 'update_customer_form': update_customer_form}
     return render(request, 'user_panel.html', context)
 
 

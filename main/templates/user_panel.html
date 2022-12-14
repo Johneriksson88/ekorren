@@ -1,56 +1,60 @@
 {% extends "base.html" %}
-
+{% load bootstrap %}
 {% block content %}
 <div class="container border border-3 rounded my-4 p-3">
-    <ul>
-        <li class="d-flex justify-content-between">
-            <h3>My account</h3>
-            <span><a href="#" class="text-danger pull-right">Remove account</a></span>
-        </li>
-    </ul>
+    <div class="col-md-6 mx-auto">
+        <ul>
+            <li class="d-flex justify-content-between">
+                <h3>My account</h3>
+                <span><a href="#" class="text-danger pull-right"><u>Remove account</u></a></span>
+            </li>
+        </ul>
+    </div>
+
 
     <hr>
-    
+
     <div class="row">
-        <div class="col-md-6">
-            <div class="card mx-auto">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
                 <div class="card-header">
                     <u>My orders</u>
                 </div>
                 <table class="table table-sm">
-                <tr>
-                    <th>Storage unit</th>
-                    <th>Date ordered</th>
-                    <th>Start date</th>
-                    <th>Price</th>
-                    <th>Remove</th>
-                </tr>
-                {% for order in orders %}
-                <tr>
-                    <td>{{order.storage_unit}}</td>
-                    <td>{{order.order_date}}</td>
-                    <td>{{order.start_date}}</td>
-                    <td>{{order.storage_unit.price}} kr</td>
-                    <td><a href="#"><i class="fa-solid fa-trash-can text-red"></i></a></td>
-                </tr>
-                {% endfor %}
-            </table>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item bg-light d-flex justify-content-between">New order<span class="mx-0 my-0">
-                            <a href="#"><h4 class="mx-0 my-0"><i class="fa-regular fa-square-plus text-green"></i></h4></a>
-                        </span></li>
-                    
-                    
-                </ul>
+                    <tr>
+                        <th>Storage unit</th>
+                        <th>Date ordered</th>
+                        <th>Start date</th>
+                        <th>Price</th>
+                        <th>Remove</th>
+                    </tr>
+                    {% for order in orders %}
+                    <tr>
+                        <td>{{order.storage_unit}}</td>
+                        <td>{{order.order_date}}</td>
+                        <td>{{order.start_date}}</td>
+                        <td>{{order.storage_unit.price}} kr</td>
+                        <td><a href="#"><i class="fa-solid fa-trash-can text-red"></i></a></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+                <div class="text-center my-2">
+                    <a href="#" class="btn btn-primary">New order</a>
+                </div>
+                
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="card mx-auto" style="width: 18rem;">
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mx-auto mt-4" id="user-info">
+            <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     <span><u>My information</u></span>
-                    <a href="#" class="text-primary"><b>Edit <i class="fa-solid fa-pencil"></i></b></a>
+                    <a href="#" id="toggle-form" class="text-primary"><b>Edit <i class="fa-solid fa-pencil"></i></b></a>
 
                 </div>
+
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item bg-light"><b>Name</b></li>
                     <li class="list-group-item">{{ request.user.customer.fullname }}</li>
@@ -65,13 +69,32 @@
                     <li class="list-group-item bg-light"><b>Phone</b></li>
                     <li class="list-group-item">{{ request.user.customer.phone }}</li>
                     {% if request.user.customer.orgnr == "" %}
-                        <li class="list-group-item"><b>Personnr</b></li>
-                        <li class="list-group-item bg-light">{{ request.user.customer.personnr }}</li>
+                    <li class="list-group-item"><b>Personnr</b></li>
+                    <li class="list-group-item bg-light">{{ request.user.customer.personnr }}</li>
                     {% else %}
-                        <li class="list-group-item"><b>Orgnr</b>></li>
-                        <li class="list-group-item">{{ request.user.customer.orgnr }}</li>
+                    <li class="list-group-item"><b>Orgnr</b></li>
+                    <li class="list-group-item">{{ request.user.customer.orgnr }}</li>
                     {% endif %}
                 </ul>
+            </div>
+        </div>
+        <div class="col-md-6 mx-auto mt-4" id="user-info-edit">
+            <div class="card">
+                <div class="card-header">
+                    <span><u>My information</u></span>
+
+                </div>
+                <form method="POST">
+                    {% csrf_token %}
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">{{ update_customer_form | bootstrap}}</li>
+                    </ul>
+                    <div class="text-center my-2">
+                        <input type="submit" class="btn btn-success" value="Update">
+                    </div>
+
+                </form>
+
             </div>
         </div>
 

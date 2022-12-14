@@ -1,4 +1,3 @@
-
 /* FONTS */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Lato:ital,wght@0,400;0,700;1,300&family=Shrikhand&display=swap');
@@ -24,6 +23,10 @@ h2 {
     margin-bottom: 40px;
 }
 
+.card-header {
+    background-color: #33ccff;
+}
+
 .text-green {
     color: rgb(3, 163, 3);
 }
@@ -45,7 +48,7 @@ h2 {
     --bg-color-yellow: #c9d874;
     --bg-color-orange: #68a500;
     --bg-color-secondary: rgb(242, 236, 253);
-    
+
 }
 
 /* CUSTOM BG-COLORS */
@@ -60,7 +63,7 @@ h2 {
     padding: 35px;
     padding-left: 180px;
     padding-right: 180px;
-    background-color:#eaa653;
+    background-color: #eaa653;
 }
 
 @media only screen and (max-width: 990px) {
@@ -91,6 +94,7 @@ h2 {
 #header-banner {
     background-color: #00203d;
 }
+
 /* HERO IMAGE AND JUMBOTRON */
 
 /* .hero-left {
@@ -185,7 +189,7 @@ h2 {
 }
 
 .why-us-container h2 {
-    margin-bottom: 50px ;
+    margin-bottom: 50px;
 }
 
 /* ABOUT US SECTION */
@@ -218,43 +222,59 @@ footer {
     -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 5px;
 
-  }
+}
 
-  .form_container {
+.form_container {
     margin-top: 20px;
-  }
+}
 
-  #form-title {
+.form-control {
+    margin-bottom: 5px;
+    max-width: 300px;
+}
+
+.hide {
+    display: none;
+}
+
+.help-block {
+    background-color: red;
+    border-radius: 2px;
+    border: 1px solid black;
+    color: #fafafa;
+}
+
+#form-title {
     color: #fff;
-  }
+}
 
-  .login_btn {
+.login_btn {
     width: 100%;
     background: #33ccff;
     color: white;
-  }
+}
 
-  .login_btn:focus {
+.login_btn:focus {
     box-shadow: none;
     outline: 0px;
-  }
+}
 
-  .login_container {
+.login_container {
     padding: 0 2rem;
-  }
+}
 
-  .input-group-text {
+.input-group-text {
     background: #f7ba5b;
     color: white;
     border: 0;
     border-radius: 0.25rem 0 0 0.25rem;
-  }
+}
 
-  .input_user,
-  .input_pass:focus {
+.input_user,
+.input_pass:focus {
     box-shadow: none;
     outline: 0px;
-  }
+}
 
 
 /* FORMS */
@@ -262,7 +282,7 @@ footer {
 .form-card {
     margin-top: 70px;
     margin-bottom: 70px;
-    
+
 }
 
 .form-container {
@@ -277,3 +297,6 @@ footer {
     margin-top: 1rem;
     border-radius: 3px;
 }
+
+/* USER PANEL */
+
