@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import StorageUnit, Customer, Order, StorageUnitTypeChoices
+from .models import StorageUnit, Customer, Order
 from django.db import models
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
@@ -62,7 +62,7 @@ class CustomerForm(ModelForm):
 class OrderForm(ModelForm):
     class Meta:
         model = Order
-        fields = ('storage_unit', 'start_date', 'customer')
+        fields = ('storage_unit', 'start_date')
         widgets = {
             'storage_unit': forms.RadioSelect(),
             'start_date': forms.widgets.SelectDateWidget()
@@ -96,8 +96,8 @@ class ContactForm(forms.Form):
 
 
 class UpdateCustomerForm(ModelForm):
-    personnr = SEPersonalIdentityNumberField()
-    orgnr = SEOrganisationNumberField()
+    personnr = SEPersonalIdentityNumberField(required=False)
+    orgnr = SEOrganisationNumberField(required=False)
     zipcode = SEPostalCodeField()
 
     class Meta:

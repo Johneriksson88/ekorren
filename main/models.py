@@ -2,19 +2,41 @@ from django.db import models
 from django.contrib.auth.models import User
 from localflavor.se.forms import SEPersonalIdentityNumberField, SEOrganisationNumberField
 
-StorageUnitTypeChoices = (
-    ('5m2 first floor', 'S 1:st floor'),
-    ('6m2 first floor', 'M 1:st floor'),
-    ('10m2 first floor', 'L 1:st floor'),
-    ('5m2 second floor', 'S 2:nd floor'),
-    ('6m2 second floor', 'M 2:nd floor'),
-    ('10m2 second floor', 'L 2:nd floor'),
-    ('12m2 second floor', 'XL 2:nd floor')
+TypeChoices = (
+    ('S', 'S'),
+    ('M', 'M'),
+    ('L', 'L'),
+    ('XL', 'XL')
     )
 
+SizeChoices = (
+    ('5 m2', '5 m2'),
+    ('6 m2', '6 m2'),
+    ('10 m2', '10 m2'),
+    ('12 m2', '12 m2'),
+)
+
+FloorChoices = (
+    ('1st', '1st'),
+    ('2nd', '2nd')
+)
+
+NameChoices = (
+    ('S1', 'S1'),
+    ('M1', 'M1'),
+    ('L1', 'L1'),
+    ('S2', 'S2'),
+    ('M2', 'M2'),
+    ('L2', 'S2'),
+    ('XL2', 'XL2')
+
+)
 
 class StorageUnit(models.Model):
-    type = models.CharField(choices=StorageUnitTypeChoices, max_length=100)
+    name = models.CharField(choices=NameChoices, max_length=100)
+    type = models.CharField(choices=TypeChoices, max_length=100)
+    size = models.CharField(choices=SizeChoices, max_length=100)
+    floor = models.CharField(choices=FloorChoices, max_length=100)
     price = models.CharField(max_length=5)
 
     def __str__(self):

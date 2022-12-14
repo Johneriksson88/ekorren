@@ -12,5 +12,6 @@ urlpatterns = [
     path("register/", views.register_form, name='register'),
     path("multiform/", views.multi_form, name='multiform'),
     path("order_success/", views.order_success, name='order_success'),
-    path("register_success/", views.register_success, name='register_success')
+    path("register_success/", views.register_success, name='register_success'),
+    path("delete_order/<str:pk>/", views.delete_order, name="delete_order"),
 ]

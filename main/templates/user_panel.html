@@ -22,6 +22,7 @@
                 </div>
                 <table class="table table-sm">
                     <tr>
+                        <th>Order no.</th>
                         <th>Storage unit</th>
                         <th>Date ordered</th>
                         <th>Start date</th>
@@ -30,11 +31,12 @@
                     </tr>
                     {% for order in orders %}
                     <tr>
+                        <td>{{order.pk}}</td>
                         <td>{{order.storage_unit}}</td>
                         <td>{{order.order_date}}</td>
                         <td>{{order.start_date}}</td>
                         <td>{{order.storage_unit.price}} kr</td>
-                        <td><a href="#"><i class="fa-solid fa-trash-can text-red"></i></a></td>
+                        <td><a href="{% url 'delete_order' order.pk %}"><i class="fa-solid fa-trash-can text-red"></i></a></td>
                     </tr>
                     {% endfor %}
                 </table>
@@ -70,7 +72,7 @@
                     <li class="list-group-item">{{ request.user.customer.phone }}</li>
                     {% if request.user.customer.orgnr == "" %}
                     <li class="list-group-item"><b>Personnr</b></li>
-                    <li class="list-group-item bg-light">{{ request.user.customer.personnr }}</li>
+                    <li class="list-group-item bg-light">{{ personnr_c }}</li>
                     {% else %}
                     <li class="list-group-item"><b>Orgnr</b></li>
                     <li class="list-group-item">{{ request.user.customer.orgnr }}</li>

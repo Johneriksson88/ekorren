@@ -13,6 +13,7 @@ from django.template.loader import render_to_string
 from django.template.context_processors import csrf
 from django.views.decorators.csrf import csrf_protect
 from django.urls import reverse_lazy
+from datetime import datetime
 
 
 
@@ -42,6 +43,13 @@ def index(request):
 
 @login_required(login_url='login')
 def user_panel(request):
+
+    personnr = request.user.customer.personnr
+    size = len(request.user.customer.personnr)
+    replacement = "****"
+    personnr = personnr.replace(personnr[size - 4:], replacement)
+    print(personnr)
+
     orders = request.user.customer.order_set.all()
     if request.method == 'POST':
         update_customer_form = UpdateCustomerForm(request.POST, instance=request.user.customer)
@@ -53,7 +61,7 @@ def user_panel(request):
     else:
         update_customer_form = UpdateCustomerForm(instance=request.user.customer)
 
-    context = {'orders': orders, 'update_customer_form': update_customer_form}
+    context = {'orders': orders, 'update_customer_form': update_customer_form, 'personnr_c': personnr}
     return render(request, 'user_panel.html', context)
 
 
@@ -106,13 +114,13 @@ def customer_form(request):
 def order_form(request):
 
     form = OrderForm()
-
+    customer = request.user.customer
     if request.method == 'POST':
         form = OrderForm(request.POST)
         if form.is_valid():
             form.save()
 
-    context = {'form': form}
+    context = {'form': form, 'customer': customer}
     return render(request, 'order_form.html', context)
 
 
@@ -144,7 +152,7 @@ def multi_form(request):
             customer = customer_form.save()
             order = order_form.save(False)
             user = register_form.save(False)
-            
+
             customer.order = customer
             order.save()
             customer.user = customer
@@ -163,3 +171,12 @@ def multi_form(request):
     args['register_form'] = register_form
 
     return render(request, "multi_form.html", args)
+
+
+def delete_order(request, pk):
+    order = Order.objects.get(pk=pk)
+    if request.method == 'POST':
+        order.delete()
+        return redirect('user_panel')
+    context = {'order': order}
+    return render(request, 'delete.html', context)
