@@ -54,7 +54,7 @@
       </li>
     </ul>
     {% if user.is_authenticated %}
-    <span class="alert-primary">Hello, {{ request.user }}!</span>
+    <span class="alert-primary">Hello, <a href="{% url 'user_panel' %}" class="user-name-link">{{ request.user }}!</a></span>
     <a class="btn btn-danger" id="loginout-btn" href="{% url 'logout' %}">Logout</a>
     {% else %}
     <a class="btn btn-primary" id="loginout-btn" href="{% url 'logout' %}">Login</a>

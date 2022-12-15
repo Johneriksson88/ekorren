@@ -1,34 +1,39 @@
 {% extends "base.html" %}
 {% block content %}
 
-<!-- <section class="container-fluid p-0" id="hero-section">
-<div class="text-center jumbotron-fluid">
-    <div class="row">
-        <div class="container">
-            <h1 class="display-4">Hyr ett förråd idag!</h1>
-            <p class="lead">Få den första månaden gratis! Pris från <span class="bg-warning">599</span> kr/månad.
-            </p>
-            <p>Bindningstid 3 månader, flytta ut när du vill!</p>
-            <p class="lead">
-                <a class="btn btn-primary btn-lg btn-warning" href="{% url 'customer_form' %}" role="button">Hyr idag!</a>
-            </p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12 col-md-6 hero-info-text"><h5>Bara 10 minuter från Uppsala finns nya och fräscha förråd som har rejält med plats för möbler, cyklar, kartonger m.m.</h5></div>
-        <div class="col-xs-12 col-md-6 hero-info-text"><h5>Alla förråd är varma och torra. För bästa pris, välj ett förråd på vårt nyöppnade plan 2.</h5></div>
-    </div>
-</div>
-</section> -->
 
 <div class="row">
     <div class="col-md-12 container-fluid text-center pt-2" id="header-banner">
         <p class="mx-auto my-auto">
-            <h5 class="text-light">Just nu: få den första månaden <span class="text-warning">gratis!</span></h5>
+            <h5 class="text-light">Limited offer: first month for <span class="text-warning">free!</span></h5>
         </p>
     </div>
 </div>
-<section class="container-fluid">
+
+<section class="container-fluid" id="hero-section">
+    <div class="jumbotron-fluid">
+        <div class="jumbotron-layer">
+            <div class="row">
+                <div class="container text-center text-black">
+                    <h1 class="display-4">Need storage?</h1>
+                    <p class="lead">Prices from <span class="bg-warning">599</span>
+                        kr/month.
+                    </p>
+                    <ul class="list-group mb-2">
+                        <li class="list-item">Warm and dry</li>
+                        <li class="list-item">Quick loading</li>
+                        <li class="list-item">Move out when you want</li>
+                        <li class="list-item">10 minutes from Uppsala</li>
+                    </ul>
+                    <p class="lead">
+                        <a class="btn btn-primary btn-lg" href="{% url 'customer_form' %}" role="button">Rent now</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- <section class="container-fluid">
     <div class="row">
         <div class="col-md-4 hero-left">
             <img class="img-fluid" src="/static/images/ekorren_logo.jpg">
@@ -52,9 +57,10 @@
 
         </div>
     </div>
-</section>
+</section> -->
+
 <section class="container-fluid mt-5" id="product-cards-section">
-    <h2 class="text-center">Välj ett förråd</h2>
+    <h2 class="text-center">Pick a storage unit</h2>
     <div class="row">
         <div class="col-md-3 product-card-container">
             <div class="card">

@@ -111,7 +111,7 @@ def customer_form(request):
 
 @login_required(login_url='login')
 def order_form(request):
-
+    
     form = OrderForm()
     customer = request.user.customer
     if request.method == 'POST':
