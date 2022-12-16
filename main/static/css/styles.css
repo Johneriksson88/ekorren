@@ -33,8 +33,16 @@ h2, h3, h4, h5, h6 {
     color: red;
 }
 
+.text-acorn-green {
+    color: #ffb74d;
+}
+
 .user-name-link {
     color: #6f25e5;
+}
+
+.low-price {
+    color: #73973a;
 }
 
 /* VARIABLES */
@@ -93,8 +101,14 @@ h2, h3, h4, h5, h6 {
     font-family: "Cinzel Decorative", sans-serif;
 }
 
+.nav-link-color {
+    color: rgba(0, 0, 0, 0.55);
+}
+
+
 #header-banner {
     background-color: #D1D1D1;
+    color: black;
 }
 
 #loginout-btn {
@@ -143,7 +157,7 @@ h2, h3, h4, h5, h6 {
 
 .card-header {
     width: 100%;
-    background-color: #a6b3df;
+    background-color: #29d53b;
     font-weight: bold;
 }
 
