@@ -66,7 +66,7 @@ class Order(models.Model):
     order_date = models.DateField(auto_now=True)
     start_date = models.DateField()
     storage_unit = models.ForeignKey(StorageUnit, on_delete=models.CASCADE)
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE, null=True)
 
     class Meta:
         ordering = ['-order_date']

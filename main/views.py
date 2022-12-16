@@ -43,13 +43,18 @@ def index(request):
 
 @login_required(login_url='login')
 def user_panel(request):
-    user = request.user
+    customer = request.user.customer
+    print(customer.pk)
+
+    # Hide last 4 digits of person number
+
     personnr = request.user.customer.personnr
     size = len(request.user.customer.personnr)
     replacement = "****"
     personnr = personnr.replace(personnr[size - 4:], replacement)
-    print(personnr)
+
     orders = request.user.customer.order_set.all()
+
     if request.method == 'POST':
         update_customer_form = UpdateCustomerForm(request.POST, instance=request.user.customer)
         if update_customer_form.is_valid():
@@ -60,7 +65,7 @@ def user_panel(request):
     else:
         update_customer_form = UpdateCustomerForm(instance=request.user.customer)
 
-    context = {'orders': orders, 'update_customer_form': update_customer_form, 'personnr_c': personnr, 'user': user}
+    context = {'orders': orders, 'update_customer_form': update_customer_form, 'personnr_c': personnr, 'customer': customer}
     return render(request, 'user_panel.html', context)
 
 
@@ -94,7 +99,8 @@ def user_login(request):
 
 def user_logout(request):
     logout(request)
-    return redirect('login')
+    messages.info(request, 'You have been logged out.')
+    return redirect('index')
 
 
 def customer_form(request):

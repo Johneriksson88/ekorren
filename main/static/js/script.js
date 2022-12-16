@@ -6,7 +6,7 @@ $("#copyright").text(new Date().getFullYear());
 
 setTimeout(function () {
     if ($('.alert').length > 0) {
-        $('.alert').remove();
+        $('.alert').slideUp('100');
     }
 }, 5000)
 

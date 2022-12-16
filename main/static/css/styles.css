@@ -1,7 +1,7 @@
 /* FONTS */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Lato:ital,wght@0,400;0,700;1,300&family=Shrikhand&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bevan&family=Cinzel+Decorative:wght@700&family=Poiret+One&display=swap');
 
 * {
     box-sizing: border-box;
@@ -19,13 +19,11 @@ a {
     text-decoration: none;
 }
 
-h2 {
-    margin-bottom: 40px;
+h2, h3, h4, h5, h6 {
+    font-family: "Bevan", sans-serif;
+    font-weight: 200;
 }
 
-.card-header {
-    background-color: #33ccff;
-}
 
 .text-green {
     color: rgb(3, 163, 3);
@@ -67,7 +65,7 @@ h2 {
     padding: 35px;
     padding-left: 180px;
     padding-right: 180px;
-    background-color: #FAEAB1;
+    background-color: #7882A4;
 }
 
 @media only screen and (max-width: 990px) {
@@ -96,7 +94,7 @@ h2 {
 }
 
 #header-banner {
-    background-color: #C58940;
+    background-color: #D1D1D1;
 }
 
 #loginout-btn {
@@ -136,10 +134,24 @@ h2 {
 #hero-lead {
     width: 30%;
 }
-
+ 
 /* PRODUCT CARDS */
 
-#product-cards-section {
+.product-card {
+    width: 19rem;
+}
+
+.card-header {
+    width: 100%;
+    background-color: #a6b3df;
+    font-weight: bold;
+}
+
+.list-group {
+    list-style-position: inside;
+}
+
+/* #product-cards-section {
     margin-top: 40px;
     padding: 50px;
     margin-bottom: 70px;
@@ -159,7 +171,7 @@ h2 {
 
 .discount {
     padding-left: 5px;
-}
+} */
 
 @media screen and (max-width: 767px) {
     .card {
@@ -188,7 +200,6 @@ h2 {
     margin-top: 10px;
     align-items: center;
     justify-content: center;
-    box-shadow: -9px 9px 7px rgb(88, 87, 87);
 }
 
 .circle-text {

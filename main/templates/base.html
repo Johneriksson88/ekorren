@@ -26,6 +26,7 @@
     </button>
   </div>
   <nav class="navbar navbar-expand-lg navbar-light">
+
     <a class="navbar-brand" href="{% url 'index' %}">Magasinet <br> Ekorren <span><img class="pl-5"
           src="/static/images/acorn.png"></span></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
@@ -45,6 +46,13 @@
         </li>
       </ul>
     </div>
+    {% if user.is_authenticated %}
+    <span class="alert-primary">Hello, {{ request.user }}! <a href="{% url 'user_panel' %}" class="user-name-link"><i
+          class="fa-solid fa-user-gear"></i></a></span>
+    <a class="btn btn-danger" id="loginout-btn" href="{% url 'logout' %}">Log out</a>
+    {% else %}
+    <a class="btn btn-primary" id="loginout-btn" href="{% url 'login' %}">Log in</a>
+    {% endif %}
     <ul class="navbar-nav ml-auto">
       <li class="nav-item m-1">
         <img src="/static/images/icons/sweden.png">
@@ -53,16 +61,9 @@
         <img src="/static/images//icons/united-kingdom.png">
       </li>
     </ul>
-    {% if user.is_authenticated %}
-    <span class="alert-primary">Hello, <a href="{% url 'user_panel' %}" class="user-name-link">{{ request.user }}!</a></span>
-    <a class="btn btn-danger" id="loginout-btn" href="{% url 'logout' %}">Logout</a>
-    {% else %}
-    <a class="btn btn-primary" id="loginout-btn" href="{% url 'logout' %}">Login</a>
-    {% endif %}
-
   </nav>
   {% for message in messages %}
-    <p class="alert alert-success my-2 text-center">{{message}}</p>
+  <p class="alert alert-success my-2 text-center">{{message}}</p>
   {% endfor %}
   {% block content %}
   {% endblock %}
