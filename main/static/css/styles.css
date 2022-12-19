@@ -271,6 +271,7 @@ footer {
 .form-control {
     margin-bottom: 5px;
     max-width: 300px;
+    min-width: 250px;
 }
 
 .hide {

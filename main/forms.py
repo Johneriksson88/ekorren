@@ -10,10 +10,9 @@ from localflavor.se.forms import SEPersonalIdentityNumberField, SEOrganisationNu
 
 
 class CustomerForm(ModelForm):
-    personnr = SEPersonalIdentityNumberField()
+    personnr = SEPersonalIdentityNumberField(required=False)
     orgnr = SEOrganisationNumberField()
     zipcode = SEPostalCodeField()
-
     class Meta:
         model = Customer
         fields = ('fullname', 'address', 'zipcode', 'city', 'email', 'phone', 'personnr', 'company', 'orgnr' )
@@ -46,11 +45,13 @@ class CustomerForm(ModelForm):
             'company': forms.CheckboxInput(),
             'personnr': forms.TextInput(attrs={
                 'class': "form-control",
-                'placeholder': 'YYYYMMDDXXXX'
+                'placeholder': 'YYYYMMDDXXXX',
+                'required': False
                 }),
             'orgnr': forms.TextInput(attrs={
                 'class': "form-control",
-                'placeholder': 'YYYYMMDDXXXX or NNNNNNNNNN'
+                'placeholder': 'YYYYMMDDXXXX or NNNNNNNNNN',
+                'required': False
                 }),
         }
 
@@ -64,8 +65,8 @@ class OrderForm(ModelForm):
         model = Order
         fields = ('storage_unit', 'start_date')
         widgets = {
-            'storage_unit': forms.RadioSelect(),
-            'start_date': forms.widgets.SelectDateWidget()
+            'storage_unit': forms.Select(),
+            'start_date': forms.SelectDateWidget()
         }
 
 

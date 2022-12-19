@@ -45,8 +45,8 @@ class Customer(models.Model):
     city = models.CharField(max_length=100)
     email = models.EmailField(max_length=200)
     phone = models.CharField(max_length=100)
-    personnr = models.CharField(max_length=100, blank=True)
-    orgnr = models.CharField(max_length=100, blank=True)
+    personnr = models.CharField(max_length=100, blank=True, null=True)
+    orgnr = models.CharField(max_length=100, blank=True, null=True)
     company = models.BooleanField(default=False)
 
     class Meta:

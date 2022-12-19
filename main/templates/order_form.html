@@ -4,11 +4,11 @@
 <h1 class="text-center mb-2">Rent a storage unit</h1>
 <div class="row">
     <div class="col-md-4 mx-auto mt-2 bg-grey border form-card">
-        <div class="form-container">
+        <div class="form-container m-4 d-flex justify-content-center">
             
             <form method="POST" action="#">
                 {% csrf_token %}
-                {{ form | bootstrap}}
+                {{ form | bootstrap }}
                 <input type="submit" class="btn btn-primary mt-4" value="Order">
             </form>
         </div>
