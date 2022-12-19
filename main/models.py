@@ -1,13 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from localflavor.se.forms import SEPersonalIdentityNumberField, SEOrganisationNumberField
-
-TypeChoices = (
-    ('S', 'S'),
-    ('M', 'M'),
-    ('L', 'L'),
-    ('XL', 'XL')
-    )
 
 SizeChoices = (
     ('5 m2', '5 m2'),
@@ -22,29 +16,29 @@ FloorChoices = (
 )
 
 NameChoices = (
-    ('S1', 'S1'),
-    ('M1', 'M1'),
-    ('L1', 'L1'),
-    ('S2', 'S2'),
-    ('M2', 'M2'),
-    ('L2', 'S2'),
-    ('XL2', 'XL2')
+    ('Small 1st floor', 'Small 1st floor'),
+    ('Medium 1st floor', 'Medium 1st floor'),
+    ('Large 1st floor', 'Large 1st floor'),
+    ('Small 2nd floor', 'Small 2nd floor'),
+    ('Medium 2nd floor', 'Medium 2nd floor'),
+    ('Large 2nd floor', 'Large 2nd floor'),
+    ('X-Large 2nd floor', 'X-Large 2nd floor')
 
 )
 
+
 class StorageUnit(models.Model):
     name = models.CharField(choices=NameChoices, max_length=100)
-    type = models.CharField(choices=TypeChoices, max_length=100)
     size = models.CharField(choices=SizeChoices, max_length=100)
     floor = models.CharField(choices=FloorChoices, max_length=100)
-    price = models.CharField(max_length=5)
+    price = models.IntegerField()
 
     def __str__(self):
-        return self.type
+        return self.name
 
 
 class Customer(models.Model):
-    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, null=True, on_delete=models.SET_NULL)
     fullname = models.CharField(max_length=100)
     address = models.CharField(max_length=100)
     zipcode = models.CharField(max_length=6)
@@ -60,6 +54,7 @@ class Customer(models.Model):
 
     def __str__(self):
         return str(self.pk) + " " + self.fullname
+
 
 
 class Order(models.Model):

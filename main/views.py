@@ -43,8 +43,8 @@ def index(request):
 
 @login_required(login_url='login')
 def user_panel(request):
-    customer = request.user.customer
-    print(customer.pk)
+    customer = request.user.customer.pk
+    print(customer)
 
     # Hide last 4 digits of person number
 
@@ -117,15 +117,17 @@ def customer_form(request):
 
 @login_required(login_url='login')
 def order_form(request):
-    
+    customer = Customer.objects.get(user=request.user)
     form = OrderForm()
-    customer = request.user.customer
     if request.method == 'POST':
         form = OrderForm(request.POST)
         if form.is_valid():
+            form.instance.customer = customer
             form.save()
+            messages.success(request, "Order successfully submitted!")
+            return redirect("user_panel")
 
-    context = {'form': form, 'customer': customer}
+    context = {'form': form}
     return render(request, 'order_form.html', context)
 
 
