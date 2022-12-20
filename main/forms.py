@@ -9,9 +9,12 @@ from collections import OrderedDict
 from localflavor.se.forms import SEPersonalIdentityNumberField, SEOrganisationNumberField, SEPostalCodeField
 
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
 class CustomerForm(ModelForm):
     personnr = SEPersonalIdentityNumberField(required=False)
-    orgnr = SEOrganisationNumberField()
+    orgnr = SEOrganisationNumberField(required=False)
     zipcode = SEPostalCodeField()
     class Meta:
         model = Customer
@@ -52,11 +55,13 @@ class CustomerForm(ModelForm):
                 'class': "form-control",
                 'placeholder': 'YYYYMMDDXXXX or NNNNNNNNNN',
                 'required': False
-                }),
+                })
         }
 
         labels = {
-            'fullname': 'Full name'
+            'fullname': 'Full name',
+            'personnr': "Person number (<i>If you're a person</i>)",
+            'orgnr': "Organisation number (<i>If you're a company</i>"
         }
 
 
@@ -66,7 +71,7 @@ class OrderForm(ModelForm):
         fields = ('storage_unit', 'start_date')
         widgets = {
             'storage_unit': forms.Select(),
-            'start_date': forms.SelectDateWidget()
+            'start_date': DateInput()
         }
 
 
@@ -77,28 +82,48 @@ class RegisterForm(UserCreationForm):
         widgets = {
             'username': forms.TextInput(attrs={
                 'class': "form-control",
-                'placeholder': 'Your username'
+                'placeholder': 'Your username',
+                'required': False
                 }),
             'password1': forms.PasswordInput(attrs={
                 'class': "form-control",
-                'placeholder': 'Password'
+                'placeholder': 'Password',
+                'required': False
                 }),
             'password2': forms.PasswordInput(attrs={
                 'class': "form-control",
-                'placeholder': 'Repeat password'
+                'placeholder': 'Repeat password',
+                'required': False
                 })
+        }
+        help_texts = {
+            'username': None,
+            'password1': None,
+            'password2': None,
         }
 
 
 class ContactForm(forms.Form):
-    name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={'placeholder': 'Your name', 'style': 'width: 80%;'}))
-    email = forms.EmailField(widget=forms.EmailInput(attrs={'placeholder': 'Your email', 'style': 'width: 80%;'}))
-    message = forms.CharField(widget=forms.Textarea(attrs={'placeholder' :'Your message here', 'style': 'width: 80%;'}))
+    name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={
+        'placeholder': 'Your name',
+        'style': 'width: 80%;'
+        })
+    )
+    email = forms.EmailField(widget=forms.EmailInput(attrs={
+        'placeholder': 'Your email',
+        'style': 'width: 80%;'
+        })
+    )
+    message = forms.CharField(widget=forms.Textarea(attrs={
+        'placeholder' :'Your message here',
+        'style': 'width: 80%;'
+        })
+    )
 
 
 class UpdateCustomerForm(ModelForm):
-    personnr = SEPersonalIdentityNumberField(required=False)
-    orgnr = SEOrganisationNumberField(required=False)
+    personnr = SEPersonalIdentityNumberField()
+    orgnr = SEOrganisationNumberField()
     zipcode = SEPostalCodeField()
 
     class Meta:
@@ -133,11 +158,13 @@ class UpdateCustomerForm(ModelForm):
             'company': forms.CheckboxInput(),
             'personnr': forms.TextInput(attrs={
                 'class': "form-control",
-                'placeholder': 'YYYYMMDDXXXX'
+                'placeholder': 'YYYYMMDDXXXX',
+                'required': False
                 }),
             'orgnr': forms.TextInput(attrs={
                 'class': "form-control",
-                'placeholder': 'YYYYMMDDXXXX or NNNNNNNNNN'
+                'placeholder': 'YYYYMMDDXXXX or NNNNNNNNNN',
+                'required': False
                 }),
         }
         labels = {

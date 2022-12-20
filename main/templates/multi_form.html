@@ -7,7 +7,7 @@
     <div class="col-md-4 mx-auto mt-2 pt-2 bg-grey border form-card">
         <h2 class="card-title">Rent a storage unit</h2>
         <div class="form-container">
-            <form method="POST" action="#">
+            <form method="POST" action="#" id="multi-form">
                 {% csrf_token %}
                 <div class="md-col-4 mb-3 text-center>
                     <p><i class=" fa-solid fa-circle-info"></i><b>Step 1: </b>Personal information</p>
@@ -25,10 +25,10 @@
                     <hr>
                     {{ register_form | bootstrap }}
                 </div>
-                <input type="date">
+                <p id="price">{{ price }}</p>
                 
                 
-                <input type="submit" class="btn btn-primary mb-2" value="Submit">
+                <input type="submit" class="btn btn-primary mb-2" value="Submit" id="submit">
             </form>
         </div>
 

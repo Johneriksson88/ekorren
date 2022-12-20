@@ -22,3 +22,34 @@ $(document).ready(function () {
         $("#user-info").toggle();
     });
 });
+
+
+// Hide help text from UserCreationForm
+
+/* $('.help-block').hide();
+ */
+// Validation for multiform
+
+$(document).ready(function() {
+    $("#basic-form").validate({
+        errorClass: "error fail-alert",
+        validClass: "valid success-alert",
+        rules: {
+            personnr: {
+                 required: '#id_orgnr:blank'
+            },
+            orgnr: {
+                 required: '#id_personnr:blank'
+            }
+       },
+
+       messages: {
+            personnr: {
+            required: "Enter a valid swedish person number"
+            },
+            orgnr: {
+                required: "Enter a valid swedish organisation number"
+            }
+        }
+})
+    });

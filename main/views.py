@@ -14,6 +14,7 @@ from django.template.context_processors import csrf
 from django.views.decorators.csrf import csrf_protect
 from django.urls import reverse_lazy
 from datetime import datetime
+import csv
 
 
 
@@ -164,7 +165,7 @@ def multi_form(request):
             order.save()
             customer.user = customer
             user.save()
-
+            messages.success(request, "Thank you for your order! You will recieve an email confimation shortly.")
             return redirect(reverse_lazy('order_success'))
     else:
         customer_form = CustomerForm()
@@ -187,3 +188,15 @@ def delete_order(request, pk):
         return redirect('user_panel')
     context = {'order': order}
     return render(request, 'delete.html', context)
+
+
+def export_csv(request):
+    response = HttpResponse(content_type='text/csv')
+    
+    writer = csv.writer(response)
+    writer.writerow(['Namn', 'Adress', 'Postnummer', 'Stad', 'Email', 'Telefon', 'Personnr', 'Organisationsnr'])
+    for customer in Customer.objects.all().values_list('fullname', 'address', 'zipcode', 'city', 'email', 'phone', 'personnr', 'orgnr'):
+        writer.writerow(customer)
+    
+    response['Content-Disposition'] = 'attatchment; filename="customers.csv"'
+    return response
