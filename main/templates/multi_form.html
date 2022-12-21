@@ -20,11 +20,13 @@
                     {{ order_form | bootstrap }}
                     <p>Price/month: <span id="price">{{ storage_unit.price }}</span></p>
                 </div>
+                {% comment %}
                 <div class="md-col-4 text-center>
                     <p><i class=" fa-solid fa-circle-info"></i><b>Step 3: </b>Create an account</p>
                     <hr>
                     {{ register_form | bootstrap }}
                 </div>
+                {% endcomment %}
                 <p id="price">{{ price }}</p>
                 
                 
@@ -34,6 +36,7 @@
 
     </div>
 </div>
+{% comment %}
 <!-- <div class="row">
     <div class="col-md-4 mx-auto mt-2 pt-2 bg-grey border form-card">
         
@@ -65,6 +68,6 @@
 
     </div>
 </div> -->
-
+{% endcomment %}
 
 {% endblock %}

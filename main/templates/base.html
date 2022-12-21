@@ -50,6 +50,9 @@
     <span class="text-white">Hello, <b>{{ request.user }}</b>! <a href="{% url 'user_panel' %}" class="user-name-link"><i
           class="fa-solid fa-user-gear 
           text-acorn-green"></i></a></span>
+          {% if user.is_superuser %}
+          <a class="nav-link" href="{% url 'admin:index' %}"><b>Admin Panel</b></a>
+          {% endif %}
     <a class="btn btn-danger" id="loginout-btn" href="{% url 'logout' %}"><b>Log out</b></a>
     {% else %}
     <a class="btn btn-primary" id="loginout-btn" href="{% url 'login' %}"><b>Log in</b></a>

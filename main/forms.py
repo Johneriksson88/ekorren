@@ -12,10 +12,12 @@ from localflavor.se.forms import SEPersonalIdentityNumberField, SEOrganisationNu
 class DateInput(forms.DateInput):
     input_type = 'date'
 
+
 class CustomerForm(ModelForm):
     personnr = SEPersonalIdentityNumberField(required=False)
     orgnr = SEOrganisationNumberField(required=False)
     zipcode = SEPostalCodeField()
+
     class Meta:
         model = Customer
         fields = ('fullname', 'address', 'zipcode', 'city', 'email', 'phone', 'personnr', 'company', 'orgnr' )
@@ -76,24 +78,24 @@ class OrderForm(ModelForm):
 
 
 class RegisterForm(UserCreationForm):
+    username = forms.CharField(required=False)
+    password1 = forms.CharField(required=False)
+    password2 = forms.CharField(required=False)
     class Meta:
         model = User
         fields = ['username', 'password1', 'password2']
         widgets = {
             'username': forms.TextInput(attrs={
                 'class': "form-control",
-                'placeholder': 'Your username',
-                'required': False
+                'placeholder': 'Your username'
                 }),
             'password1': forms.PasswordInput(attrs={
                 'class': "form-control",
-                'placeholder': 'Password',
-                'required': False
+                'placeholder': 'Password'
                 }),
             'password2': forms.PasswordInput(attrs={
                 'class': "form-control",
-                'placeholder': 'Repeat password',
-                'required': False
+                'placeholder': 'Repeat password'
                 })
         }
         help_texts = {

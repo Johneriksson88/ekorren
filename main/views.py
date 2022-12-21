@@ -15,7 +15,7 @@ from django.views.decorators.csrf import csrf_protect
 from django.urls import reverse_lazy
 from datetime import datetime
 import csv
-
+from django.contrib.admin.views.decorators import staff_member_required
 
 
 def index(request):
@@ -149,7 +149,7 @@ def register_form(request):
     context = {'form': form}
     return render(request, 'register_form.html', context)
 
-
+""" 
 def multi_form(request):
     if request.method == 'POST':
         customer_form = CustomerForm(request.POST)
@@ -180,6 +180,33 @@ def multi_form(request):
 
     return render(request, "multi_form.html", args)
 
+ """
+
+
+def multi_form(request):
+    if request.method == 'POST':
+        customer_form = CustomerForm(request.POST)
+        order_form = OrderForm(request.POST)
+
+        if customer_form.is_valid() and order_form.is_valid():
+            customer = customer_form.save()
+            order = order_form.save(False)
+
+            customer.order = customer
+            order.save()
+            messages.success(request, "Thank you for your order! You will recieve an email confimation shortly.")
+            return redirect(reverse_lazy('index'))
+    else:
+        customer_form = CustomerForm()
+        order_form = OrderForm()
+
+    args = {}
+    args.update(csrf(request))
+    args['customer_form'] = customer_form
+    args['order_form'] = order_form
+
+    return render(request, "multi_form.html", args)
+
 
 def delete_order(request, pk):
     order = Order.objects.get(pk=pk)
@@ -189,7 +216,7 @@ def delete_order(request, pk):
     context = {'order': order}
     return render(request, 'delete.html', context)
 
-
+@staff_member_required
 def export_csv(request):
     response = HttpResponse(content_type='text/csv')
     
