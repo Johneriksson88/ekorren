@@ -30,7 +30,7 @@ $(document).ready(function () {
  */
 // Validation for multiform
 
-$(document).ready(function() {
+/* $(document).ready(function() {
     $("#basic-form").validate({
         errorClass: "error fail-alert",
         validClass: "valid success-alert",
@@ -52,4 +52,4 @@ $(document).ready(function() {
             }
         }
 })
-    });
+    }); */

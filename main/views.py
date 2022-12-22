@@ -42,10 +42,16 @@ def index(request):
     return render(request, 'index.html', {'form': form})
 
 
+# HOW DO I CHECK IF THE USER HAS A CUSTOMER ATTATCHED AND IF NOT CREATE A NEW CUSTOMER CONNECTED TO THE USER?
+# BELOW IF STATEMENT DOESNT WORK
 @login_required(login_url='login')
 def user_panel(request):
-    customer = request.user.customer.pk
-    print(customer)
+    customer = Customer.objects.get(user=request.user)
+    """ if user.customer.exists():
+        new_customer = Customer.objects.get(user=request.user)
+    else:
+        new_customer = Customer(user=request.user)
+        new_customer.save() """
 
     # Hide last 4 digits of person number
 
@@ -81,7 +87,7 @@ def register_success(request):
 def user_login(request):
     if request.user.is_authenticated:
         messages.info(request, 'You are already logged in.')
-        return redirect('index')
+        return redirect('user_panel')
     else:
         if request.method == 'POST':
             username = request.POST.get('username')
@@ -133,10 +139,7 @@ def order_form(request):
 
 
 def register_form(request):
-    """ if request.user.is_authenticated:
-        return redirect('index')
-    else:
-         """
+
     form = UserCreationForm()
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -144,7 +147,7 @@ def register_form(request):
             form.save()
             user = form.cleaned_data.get('username')
             messages.success(request, 'Account successfully created for ' + user)
-            return redirect('login')
+            return redirect('user_panel')
 
     context = {'form': form}
     return render(request, 'register_form.html', context)
@@ -182,18 +185,19 @@ def multi_form(request):
 
  """
 
-
+""" 
 def multi_form(request):
+    
     if request.method == 'POST':
         customer_form = CustomerForm(request.POST)
         order_form = OrderForm(request.POST)
 
         if customer_form.is_valid() and order_form.is_valid():
             customer = customer_form.save()
-            order = order_form.save(False)
-
-            customer.order = customer
+            order = order_form.save(commit=False)
+            print(customer)
             order.save()
+            
             messages.success(request, "Thank you for your order! You will recieve an email confimation shortly.")
             return redirect(reverse_lazy('index'))
     else:
@@ -205,8 +209,38 @@ def multi_form(request):
     args['customer_form'] = customer_form
     args['order_form'] = order_form
 
-    return render(request, "multi_form.html", args)
+    return render(request, "multi_form.html", args) 
+    """
 
+def multi_form(request):
+    if request.method == 'POST':
+        customer_form = CustomerForm(request.POST)
+        order_form = OrderForm(request.POST)
+        register_form = RegisterForm(request.POST)
+
+        if customer_form.is_valid() and order_form.is_valid() and register_form.is_valid():
+            customer = customer_form.save()
+            order = order_form.save(False)
+            user = register_form.save(False)
+            
+            customer.order = customer
+            order.save()
+            customer.user = customer
+            user.save()
+
+            return redirect(reverse_lazy('order_success'))
+    else:
+        customer_form = CustomerForm()
+        order_form = OrderForm()
+        register_form = RegisterForm()
+
+    args = {}
+    args.update(csrf(request))
+    args['customer_form'] = customer_form
+    args['order_form'] = order_form
+    args['register_form'] = register_form
+
+    return render(request, "multi_form.html", args)
 
 def delete_order(request, pk):
     order = Order.objects.get(pk=pk)
