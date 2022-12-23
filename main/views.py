@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.views import View
 from django.views.generic import CreateView
 from .models import StorageUnit, Customer, Order
@@ -46,19 +46,23 @@ def index(request):
 # BELOW IF STATEMENT DOESNT WORK
 @login_required(login_url='login')
 def user_panel(request):
-    customer = Customer.objects.get(user=request.user)
-    """ if user.customer.exists():
-        new_customer = Customer.objects.get(user=request.user)
+
+    customers = Customer.objects.all()
+    customers = customers.filter(user=request.user)
+    if customers:
+        customer = Customer.objects.get(user=request.user)
     else:
-        new_customer = Customer(user=request.user)
-        new_customer.save() """
+        new_customer = Customer.objects.create(user=request.user)
+        new_customer.save()
+        print("New user created")
+        return redirect('customer_form')
 
     # Hide last 4 digits of person number
 
-    personnr = request.user.customer.personnr
+    """ personnr = request.user.customer.personnr
     size = len(request.user.customer.personnr)
     replacement = "****"
-    personnr = personnr.replace(personnr[size - 4:], replacement)
+    personnr = personnr.replace(personnr[size - 4:], replacement) """
 
     orders = request.user.customer.order_set.all()
 
@@ -72,7 +76,7 @@ def user_panel(request):
     else:
         update_customer_form = UpdateCustomerForm(instance=request.user.customer)
 
-    context = {'orders': orders, 'update_customer_form': update_customer_form, 'personnr_c': personnr, 'customer': customer}
+    context = {'orders': orders, 'update_customer_form': update_customer_form, 'customer': customer}
     return render(request, 'user_panel.html', context)
 
 
@@ -118,6 +122,7 @@ def customer_form(request):
         form = CustomerForm(request.POST)
         if form.is_valid():
             form.save()
+            return redirect('user_panel')
 
     context = {'form': form}
     return render(request, 'customer_form.html', context)

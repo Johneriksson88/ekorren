@@ -92,7 +92,7 @@
                 <form method="POST">
                     {% csrf_token %}
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">a</li>
+                        <li class="list-group-item">{{ update_customer_form | bootstrap}}</li>
                     </ul>
                     <div class="text-center my-2">
                         <input type="submit" class="btn btn-success" value="Update">

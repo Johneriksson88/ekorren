@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 from django import forms
 from django.contrib.admin.widgets import AdminDateWidget
 from collections import OrderedDict
-from localflavor.se.forms import SEPersonalIdentityNumberField, SEOrganisationNumberField, SEPostalCodeField
+from localflavor.se.forms import SEPostalCodeField
 
 
 class DateInput(forms.DateInput):
@@ -14,13 +14,11 @@ class DateInput(forms.DateInput):
 
 
 class CustomerForm(ModelForm):
-    personnr = SEPersonalIdentityNumberField(required=False)
-    orgnr = SEOrganisationNumberField(required=False)
     zipcode = SEPostalCodeField()
 
     class Meta:
         model = Customer
-        fields = ('fullname', 'address', 'zipcode', 'city', 'email', 'phone', 'personnr', 'company', 'orgnr' )
+        fields = ('fullname', 'address', 'zipcode', 'city', 'email', 'phone', 'person_or_org_nr')
         widgets = {
 
             'fullname': forms.TextInput(attrs={
@@ -47,23 +45,15 @@ class CustomerForm(ModelForm):
                 'class': "form-control",
                 'placeholder': '07xxxxxxxx'
                 }),
-            'company': forms.CheckboxInput(),
-            'personnr': forms.TextInput(attrs={
+            'person_or_org_nr': forms.TextInput(attrs={
                 'class': "form-control",
-                'placeholder': 'YYYYMMDDXXXX',
-                'required': False
-                }),
-            'orgnr': forms.TextInput(attrs={
-                'class': "form-control",
-                'placeholder': 'YYYYMMDDXXXX or NNNNNNNNNN',
-                'required': False
+                'placeholder': 'YYYYMMDDXXXX'
                 })
         }
 
         labels = {
             'fullname': 'Full name',
-            'personnr': "Person number (<i>If you're a person</i>)",
-            'orgnr': "Organisation number (<i>If you're a company</i>"
+            'person_or_org_nr': 'Personnr/organisationsnr'
         }
 
 
@@ -78,6 +68,9 @@ class OrderForm(ModelForm):
 
 
 class RegisterForm(UserCreationForm):
+    username = forms.CharField(required=False)
+    password1 = forms.CharField(required=False)
+    password2 = forms.CharField(required=False)
     class Meta:
         model = User
         fields = ['username', 'password1', 'password2']
@@ -121,13 +114,11 @@ class ContactForm(forms.Form):
 
 
 class UpdateCustomerForm(ModelForm):
-    personnr = SEPersonalIdentityNumberField()
-    orgnr = SEOrganisationNumberField()
     zipcode = SEPostalCodeField()
 
     class Meta:
         model = Customer
-        fields = ('fullname', 'address', 'zipcode', 'city', 'email', 'phone', 'personnr', 'company', 'orgnr')
+        fields = ('fullname', 'address', 'zipcode', 'city', 'email', 'phone', 'person_or_org_nr')
         widgets = {
             
             'fullname': forms.TextInput(attrs={
@@ -154,16 +145,9 @@ class UpdateCustomerForm(ModelForm):
                 'class': "form-control",
                 'placeholder': '07xxxxxxxx'
                 }),
-            'company': forms.CheckboxInput(),
-            'personnr': forms.TextInput(attrs={
+            'person_or_org_nr': forms.TextInput(attrs={
                 'class': "form-control",
-                'placeholder': 'YYYYMMDDXXXX',
-                'required': False
-                }),
-            'orgnr': forms.TextInput(attrs={
-                'class': "form-control",
-                'placeholder': 'YYYYMMDDXXXX or NNNNNNNNNN',
-                'required': False
+                'placeholder': 'YYYYMMDDXXXX'
                 }),
         }
         labels = {
