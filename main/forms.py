@@ -152,5 +152,6 @@ class UpdateCustomerForm(ModelForm):
                 }),
         }
         labels = {
-            'fullname': 'Full name'
+            'fullname': 'Full name',
+            'person_or_org_nr': 'Personnr/orgnr'
         }

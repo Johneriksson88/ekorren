@@ -20,6 +20,9 @@ $(document).ready(function () {
         $e.preventDefault();
         $("#user-info-edit").toggle();
         $("#user-info").toggle();
+        $('#update-form').on('click', function() {
+            $("#update-customer-form").valid();
+        });
     });
 });
 
