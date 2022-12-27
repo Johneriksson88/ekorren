@@ -71,6 +71,7 @@ class RegisterForm(UserCreationForm):
     username = forms.CharField(required=False)
     password1 = forms.CharField(required=False)
     password2 = forms.CharField(required=False)
+
     class Meta:
         model = User
         fields = ['username', 'password1', 'password2']

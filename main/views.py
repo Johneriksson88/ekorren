@@ -115,14 +115,18 @@ def user_logout(request):
 
 
 def customer_form(request):
-
+    user = Customer.objects.get(user=request.user)
     form = CustomerForm()
-
     if request.method == 'POST':
         form = CustomerForm(request.POST)
         if form.is_valid():
+            ## FIX HERE - "Customer.user" must be a "User" instance.
+            form.instance.user = user
             form.save()
+            messages.success(request, "Your information was successfully added!")
             return redirect('user_panel')
+        else:
+            form = CustomerForm()
 
     context = {'form': form}
     return render(request, 'customer_form.html', context)
@@ -157,7 +161,7 @@ def register_form(request):
     context = {'form': form}
     return render(request, 'register_form.html', context)
 
-""" 
+"""
 def multi_form(request):
     if request.method == 'POST':
         customer_form = CustomerForm(request.POST)
@@ -190,7 +194,7 @@ def multi_form(request):
 
  """
 
-""" 
+"""
 def multi_form(request):
     
     if request.method == 'POST':
@@ -217,6 +221,7 @@ def multi_form(request):
     return render(request, "multi_form.html", args) 
     """
 
+
 def multi_form(request):
     if request.method == 'POST':
         customer_form = CustomerForm(request.POST)
@@ -227,7 +232,6 @@ def multi_form(request):
             customer = customer_form.save()
             order = order_form.save(False)
             user = register_form.save(False)
-            
             customer.order = customer
             order.save()
             customer.user = customer
@@ -247,6 +251,7 @@ def multi_form(request):
 
     return render(request, "multi_form.html", args)
 
+
 def delete_order(request, pk):
     order = Order.objects.get(pk=pk)
     if request.method == 'POST':
@@ -258,11 +263,11 @@ def delete_order(request, pk):
 @staff_member_required
 def export_csv(request):
     response = HttpResponse(content_type='text/csv')
-    
+
     writer = csv.writer(response)
     writer.writerow(['Namn', 'Adress', 'Postnummer', 'Stad', 'Email', 'Telefon', 'Personnr', 'Organisationsnr'])
     for customer in Customer.objects.all().values_list('fullname', 'address', 'zipcode', 'city', 'email', 'phone', 'personnr', 'orgnr'):
         writer.writerow(customer)
-    
+
     response['Content-Disposition'] = 'attatchment; filename="customers.csv"'
     return response
