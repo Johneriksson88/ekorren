@@ -64,6 +64,9 @@ class OrderForm(ModelForm):
             'storage_unit': forms.Select(),
             'start_date': DateInput()
         }
+        labels = {
+            'storage_unit': 'Pick a unit'
+        }
 
 
 class RegisterForm(UserCreationForm):

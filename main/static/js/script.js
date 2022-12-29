@@ -20,39 +20,40 @@ $(document).ready(function () {
         $e.preventDefault();
         $("#user-info-edit").toggle();
         $("#user-info").toggle();
-        $('#update-form').on('click', function() {
+        $('#update-form').on('click', function () {
             $("#update-customer-form").valid();
         });
     });
 });
 
+// Modal confirmation of order
+
+$(document).ready(function () {
+    $('#order-modal-btn').on("click", function () {
+        $('#order-modal').modal("show");
+        var storageUnit = $("#id_storage_unit option:selected").text();
+        var startDate = $("#id_start_date").val();
+        $('#order-modal-body').html(
+            "<b>Storage unit: </b>" + storageUnit + "<br><b>Start date:</b> " + startDate
+            )
+    });
+
+    $('.close-modal').on("click", function () {
+        $('#order-modal').modal("hide");
+    })
+});
+
+
+
+$(document).ready(function () {
+
+    // On button click, get value
+    // of input control Show alert
+    // message box
+
+});
 
 // Hide help text from UserCreationForm
 
 /* $('.help-block').hide();
  */
-// Validation for multiform
-
-/* $(document).ready(function() {
-    $("#basic-form").validate({
-        errorClass: "error fail-alert",
-        validClass: "valid success-alert",
-        rules: {
-            personnr: {
-                 required: '#id_orgnr:blank'
-            },
-            orgnr: {
-                 required: '#id_personnr:blank'
-            }
-       },
-
-       messages: {
-            personnr: {
-            required: "Enter a valid swedish person number"
-            },
-            orgnr: {
-                required: "Enter a valid swedish organisation number"
-            }
-        }
-})
-    }); */

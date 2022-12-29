@@ -137,6 +137,7 @@ def customer_form(request):
 
 @login_required(login_url='login')
 def order_form(request):
+    units = StorageUnit.objects.all().values_list('name', 'size', 'price')
     customer = Customer.objects.get(user=request.user)
     form = OrderForm()
     if request.method == 'POST':
@@ -147,7 +148,7 @@ def order_form(request):
             messages.success(request, "Order successfully submitted!")
             return redirect("user_panel")
 
-    context = {'form': form}
+    context = {'form': form, 'units': units}
     return render(request, 'order_form.html', context)
 
 
