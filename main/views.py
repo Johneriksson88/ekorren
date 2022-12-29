@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from django.views import View
 from django.views.generic import CreateView
+from django.contrib.auth.models import User
 from .models import StorageUnit, Customer, Order
 from .forms import CustomerForm, OrderForm, RegisterForm, ContactForm, UpdateCustomerForm
 from django.contrib.auth.forms import UserCreationForm
@@ -47,16 +48,21 @@ def index(request):
 @login_required(login_url='login')
 def user_panel(request):
 
-    customers = Customer.objects.all()
+    """ customers = Customer.objects.all()
     customers = customers.filter(user=request.user)
     if customers:
         customer = Customer.objects.get(user=request.user)
+        print("User has customer")
     else:
         new_customer = Customer.objects.create(user=request.user)
         new_customer.save()
-        print("New user created")
+        print("New customer created")
         return redirect('customer_form')
-
+ """
+    customer = Customer.objects.get(user=request.user)
+    if customer.fullname.__len__() < 1:
+        return redirect('customer_form')
+    
     # Hide last 4 digits of person number
 
     """ personnr = request.user.customer.personnr
@@ -115,13 +121,11 @@ def user_logout(request):
 
 
 def customer_form(request):
-    user = Customer.objects.get(user=request.user)
-    form = CustomerForm()
+    customer = request.user.customer
+    form = CustomerForm(instance=customer)
     if request.method == 'POST':
-        form = CustomerForm(request.POST)
+        form = CustomerForm(request.POST, instance=customer)
         if form.is_valid():
-            ## FIX HERE - "Customer.user" must be a "User" instance.
-            form.instance.user = user
             form.save()
             messages.success(request, "Your information was successfully added!")
             return redirect('user_panel')
@@ -153,9 +157,14 @@ def register_form(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            form.save()
-            user = form.cleaned_data.get('username')
-            messages.success(request, 'Account successfully created for ' + user)
+            """ form.save() """
+            user = form.save()
+            Customer.objects.create(
+                user=user
+            )
+            username = form.cleaned_data.get('username')
+            print(user.customer)
+            messages.success(request, 'Account successfully created for ' + username)
             return redirect('user_panel')
 
     context = {'form': form}

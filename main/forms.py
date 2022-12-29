@@ -56,7 +56,6 @@ class CustomerForm(ModelForm):
             'person_or_org_nr': 'Personnr/organisationsnr'
         }
 
-
 class OrderForm(ModelForm):
     class Meta:
         model = Order

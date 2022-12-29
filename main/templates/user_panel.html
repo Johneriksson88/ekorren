@@ -73,13 +73,8 @@
                     <li class="list-group-item">{{ request.user.customer.email }}</li>
                     <li class="list-group-item bg-light"><b>Phone</b></li>
                     <li class="list-group-item">{{ request.user.customer.phone }}</li>
-                    {% if request.user.customer.orgnr == "" %}
-                    <li class="list-group-item"><b>Personnr</b></li>
-                    <li class="list-group-item bg-light">{{ personnr_c }}</li>
-                    {% else %}
-                    <li class="list-group-item"><b>Orgnr</b></li>
-                    <li class="list-group-item">{{ request.user.customer.orgnr }}</li>
-                    {% endif %}
+                    <li class="list-group-item bg-light"><b>Person/orgnr</b></li>
+                    <li class="list-group-item">{{ request.user.customer.person_or_org_nr }}</li>
                 </ul>
             </div>
         </div>
