@@ -326,16 +326,25 @@ footer {
     margin: 0 auto;
 }
 
-/* .errorlist {
-    background-color: rgb(228, 62, 62);
-    color: #fafafa;
-    margin-top: 1rem;
+label.error {
+    background-color: red;
+    color: white;
+    padding: 3px;
     border-radius: 3px;
-} */
+    margin-top: 3px;
+}
 
-/* .form-group > div > ul {
-    display: none;
-} */
+input.error {
+    border: 2px solid red;
+}
+
+.help-block {
+    background-color: red;
+    color: white;
+    padding: 3px;
+    border-radius: 3px;
+    margin-top: 3px;
+}
 
 label.error.fail-alert {
     border: 2px solid red;

@@ -46,13 +46,6 @@ $(document).ready(function () {
 
 
 
-$(document).ready(function () {
-
-    // On button click, get value
-    // of input control Show alert
-    // message box
-
-});
 
 // Hide help text from UserCreationForm
 
