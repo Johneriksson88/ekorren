@@ -31,11 +31,14 @@
                 </div>
 
                 {{ form | bootstrap }}
-                <!-- <input type="submit" class="btn btn-primary mt-4" value="Order"> -->
-                <button type="button" id="order-modal-btn" class="btn btn-primary" data-toggle="modal"
-                    data-target="#orderConfirmationModal">
-                    Next
-                </button>
+                <div class="d-flex justify-content-center gap-2">
+                    <a href="{% url 'user_panel' %}" class="btn btn-danger">Back</a>
+                    <button type="button" id="order-modal-btn" class="btn btn-primary" data-toggle="modal"
+                        data-target="#orderConfirmationModal">
+                        Next
+                    </button>
+                </div>
+
                 <div class="modal fade" id="order-modal" tabindex="-1" role="dialog"
                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -63,6 +66,6 @@
     </div>
 </div>
 
-<!-- Modal -->
+
 
 {% endblock %}

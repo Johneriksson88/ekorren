@@ -145,7 +145,7 @@ def order_form(request):
         if form.is_valid():
             form.instance.customer = customer
             form.save()
-            messages.success(request, "Order successfully submitted!")
+            messages.success(request, "Order successfully submitted! You will get an email confirmation shortly.")
             return redirect("user_panel")
 
     context = {'form': form, 'units': units}
@@ -268,7 +268,19 @@ def delete_order(request, pk):
         order.delete()
         return redirect('user_panel')
     context = {'order': order}
-    return render(request, 'delete.html', context)
+    return render(request, 'delete_order.html', context)
+
+
+def delete_account(request, pk):
+    user = User.objects.get(id=request.user.id)
+    if request.method == 'POST':
+        user.delete()
+        logout(request)
+        messages.info(request, 'Your account has been successfully deleted.')
+        return redirect('index')
+    context = {'user': user}
+    return render(request, 'delete_account.html', context)
+
 
 @staff_member_required
 def export_csv(request):

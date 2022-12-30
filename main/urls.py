@@ -14,5 +14,6 @@ urlpatterns = [
     path("order_success/", views.order_success, name='order_success'),
     path("register_success/", views.register_success, name='register_success'),
     path("delete_order/<str:pk>/", views.delete_order, name="delete_order"),
+    path("delete_account/<str:pk>/", views.delete_account, name="delete_account"),
     path("exportcsv/", views.export_csv, name="export_csv")
 ]

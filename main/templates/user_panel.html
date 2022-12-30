@@ -6,7 +6,7 @@
         <ul>
             <li class="d-flex justify-content-between">
                 <h3>My account</h3>
-                <span><a href="#" class="text-danger pull-right"><u>Remove account</u></a></span>
+                <span><a href="{% url 'delete_account' user %}" class="btn btn-danger">Delete account</a></span>
             </li>
         </ul>
     </div>
@@ -100,4 +100,7 @@
 
     </div>
 </div>
+
+
+
 {% endblock %}
