@@ -20,6 +20,8 @@ from django.contrib.admin.views.decorators import staff_member_required
 
 
 def index(request):
+    units = StorageUnit.objects.all()
+    print(units)
     if request.method == 'POST':
         form = ContactForm(request.POST)
 
@@ -40,7 +42,7 @@ def index(request):
 
     else:
         form = ContactForm()
-    return render(request, 'index.html', {'form': form})
+    return render(request, 'index.html', {'form': form, 'units': units})
 
 
 # HOW DO I CHECK IF THE USER HAS A CUSTOMER ATTATCHED AND IF NOT CREATE A NEW CUSTOMER CONNECTED TO THE USER?
@@ -278,3 +280,7 @@ def export_csv(request):
 
     response['Content-Disposition'] = 'attatchment; filename="customers.csv"'
     return response
+
+
+def not_registered(request):
+    return render(request, 'not_registered.html')

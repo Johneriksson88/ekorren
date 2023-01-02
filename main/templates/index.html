@@ -26,7 +26,11 @@
                         <li class="list-item">10 minutes from Uppsala</li>
                     </ul>
                     <p class="lead">
-                        <a class="btn btn-primary btn-lg" href="{% url 'multiform' %}" role="button">Rent now</a>
+                        {% if user.is_authenticated %}
+                        <a class="btn btn-primary btn-lg" href="{% url 'order_form' %}" role="button">Rent now</a>
+                        {% else %}
+                        <a class="btn btn-primary btn-lg" href="{% url 'not_registered' %}" role="button">Rent now</a>
+                        {% endif %}
                     </p>
                 </div>
             </div>
@@ -61,14 +65,14 @@
 <section class="container-fluid bg-info p-5" id="instructions-section">
     <div class="row">
         <div class="col-md-6 offset-md-3 text-center">
-            <h4>Get started!</h4>
+            <h2>Get started!</h2>
             <p class="lead">Follow these simple steps:</p>
         </div>
     </div>
     <div class="row">
         <div class="col-md-8 col-sm-12 offset-md-2">
             <ol class="list-group list-group-horizontal lead">
-                <li class="bg-light rounded">Create an account</li>
+                <li class="bg-light rounded"><a href="{% url 'register' %}">Create an account</a></li>
                 <li class="bg-light rounded">Enter your information</li>
                 <li class="bg-light rounded">Make an order in your user panel</li>
                 <li class="bg-light rounded">Confirm the order via email</li>
@@ -77,7 +81,7 @@
         </div>
     </div>
 </section>
-<h2 class="text-center mt-4">OUR UNITS</h2>
+<h2 class="text-center mt-4">Our units</h2>
 <section class="container-fluid m-3 d-flex justify-content-center">
 
     <div class="row">
@@ -93,7 +97,11 @@
                 <li class="list-group-item">Fits 190 moving boxes</li>
             </ul>
             <div class="card-body text-center">
-                <a href="{% url 'multiform' %}" class="btn btn-primary">Book now</a>
+                {% if user.is_authenticated %}
+                    <a class="btn btn-primary btn-lg" href="{% url 'order_form' %}" role="button">Rent now</a>
+                {% else %}
+                    <a class="btn btn-primary btn-lg" href="{% url 'not_registered' %}" role="button">Rent now</a>
+                {% endif %}
             </div>
         </div>
 
@@ -109,7 +117,11 @@
                 <li class="list-group-item">Fits 240 moving boxes</li>
             </ul>
             <div class="card-body text-center">
-                <a href="{% url 'multiform' %}" class="btn btn-primary">Book now</a>
+                {% if user.is_authenticated %}
+                    <a class="btn btn-primary btn-lg" href="{% url 'order_form' %}" role="button">Rent now</a>
+                {% else %}
+                    <a class="btn btn-primary btn-lg" href="{% url 'not_registered' %}" role="button">Rent now</a>
+                {% endif %}
             </div>
         </div>
         <div class="card product-card col-md-2 mx-2 p-0 my-2">
@@ -125,7 +137,11 @@
                 <li class="list-group-item">Fits 380 moving boxes</li>
             </ul>
             <div class="card-body text-center">
-                <a href="{% url 'multiform' %}" class="btn btn-primary">Book now</a>
+                {% if user.is_authenticated %}
+                    <a class="btn btn-primary btn-lg" href="{% url 'order_form' %}" role="button">Rent now</a>
+                {% else %}
+                    <a class="btn btn-primary btn-lg" href="{% url 'not_registered' %}" role="button">Rent now</a>
+                {% endif %}
             </div>
         </div>
         <div class="card product-card col-md-2 mx-2 p-0 my-2">
@@ -140,7 +156,11 @@
                 <li class="list-group-item">Fits 480 moving boxes</li>
             </ul>
             <div class="card-body text-center">
-                <a href="{% url 'multiform' %}" class="btn btn-primary">Book now</a>
+                {% if user.is_authenticated %}
+                    <a class="btn btn-primary btn-lg" href="{% url 'order_form' %}" role="button">Rent now</a>
+                {% else %}
+                    <a class="btn btn-primary btn-lg" href="{% url 'not_registered' %}" role="button">Rent now</a>
+                {% endif %}
             </div>
         </div>
 
@@ -148,7 +168,7 @@
 </section>
 
 <section class="container-fluid no-gutter bg-info" id="why-us-section">
-    <h2 class="text-center mb-5">WHY RENT FROM US?</h2>
+    <h2 class="text-center mb-5">Why rent from us?</h2>
     <div class="row d-flex justify-content-center">
 
         <div class="col-md-4">
