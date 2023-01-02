@@ -20,8 +20,6 @@ from django.contrib.admin.views.decorators import staff_member_required
 
 
 def index(request):
-    units = StorageUnit.objects.all()
-    print(units)
     if request.method == 'POST':
         form = ContactForm(request.POST)
 
@@ -42,11 +40,10 @@ def index(request):
 
     else:
         form = ContactForm()
-    return render(request, 'index.html', {'form': form, 'units': units})
+    return render(request, 'index.html', {'form': form})
 
 
-# HOW DO I CHECK IF THE USER HAS A CUSTOMER ATTATCHED AND IF NOT CREATE A NEW CUSTOMER CONNECTED TO THE USER?
-# BELOW IF STATEMENT DOESNT WORK
+
 @login_required(login_url='login')
 def user_panel(request):
 
