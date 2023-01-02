@@ -148,7 +148,24 @@ h2, h3, h4, h5, h6 {
 #hero-lead {
     width: 30%;
 }
- 
+
+/* INFORMATION SECTION */
+
+.list-group-horizontal > li {
+    margin: 6px;
+    padding: 4px;
+}
+
+.list-group-horizontal > li::marker {
+    font-weight: bold;
+}
+
+@media screen and (max-width: 500px) {
+    .list-group-horizontal {
+        flex-direction: column;
+    }
+}
+
 /* PRODUCT CARDS */
 
 .product-card {

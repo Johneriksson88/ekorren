@@ -84,13 +84,13 @@
                     <span><u>My information</u></span>
 
                 </div>
-                <form method="POST" id="update-customer-form">
+                <form method="POST" id="update-customer-form" onsubmit="return checkIfCaseExists()">
                     {% csrf_token %}
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">{{ update_customer_form | bootstrap}}</li>
+                        <li class="list-group-item">{{ update_customer_form | bootstrap }}</li>
                     </ul>
                     <div class="text-center my-2">
-                        <input id="update-form" type="submit" class="btn btn-success" value="Update">
+                        <input id="update-form" type="submit" value="Update" class="btn btn-success">
                     </div>
 
                 </form>

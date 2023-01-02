@@ -48,27 +48,9 @@ def index(request):
 @login_required(login_url='login')
 def user_panel(request):
 
-    """ customers = Customer.objects.all()
-    customers = customers.filter(user=request.user)
-    if customers:
-        customer = Customer.objects.get(user=request.user)
-        print("User has customer")
-    else:
-        new_customer = Customer.objects.create(user=request.user)
-        new_customer.save()
-        print("New customer created")
-        return redirect('customer_form')
- """
     customer = Customer.objects.get(user=request.user)
     if customer.fullname.__len__() < 1:
         return redirect('customer_form')
-    
-    # Hide last 4 digits of person number
-
-    """ personnr = request.user.customer.personnr
-    size = len(request.user.customer.personnr)
-    replacement = "****"
-    personnr = personnr.replace(personnr[size - 4:], replacement) """
 
     orders = request.user.customer.order_set.all()
 
@@ -77,7 +59,10 @@ def user_panel(request):
         if update_customer_form.is_valid():
             update_customer_form.save()
             messages.success(request, 'Your information has been updated.')
+            print('Updated information')
             return redirect('user_panel')
+        else:
+            print('Form invalid')
 
     else:
         update_customer_form = UpdateCustomerForm(instance=request.user.customer)
