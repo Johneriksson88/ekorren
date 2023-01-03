@@ -160,7 +160,7 @@ h2, h3, h4, h5, h6 {
     font-weight: bold;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 986px) {
     .list-group-horizontal {
         flex-direction: column;
     }
@@ -171,6 +171,18 @@ h2, h3, h4, h5, h6 {
 .product-card {
     width: 19rem;
 }
+#prouct-card-row {
+    justify-content: center;
+}
+
+/* @media only screen and (max-width: 990px) {
+    #prouct-card-row {
+        justify-content: center;
+
+    }
+
+} */
+
 
 .card-header {
     width: 100%;
@@ -260,6 +272,23 @@ h2, h3, h4, h5, h6 {
 
 footer {
     background-color: #7882A4;
+}
+
+footer > ul > li {
+    display: block;
+    padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+    font-size: var(--bs-nav-link-font-size);
+    font-weight: var(--bs-nav-link-font-weight);
+    /* color: rgba(0, 0, 0, 0.55); */
+    text-decoration: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+    --bs-nav-link-color: var(--bs-navbar-color);
+    --bs-nav-link-hover-color: var(--bs-navbar-hover-color);
+    --bs-nav-link-disabled-color: var(--bs-navbar-disabled-color);
+}
+
+footer > ul > li:hover {
+    color: rgba(0, 0, 0, 0.9);
 }
 
 /* USER REGISTRATION PAGE */
