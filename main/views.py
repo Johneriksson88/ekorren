@@ -4,7 +4,7 @@ from django.views import View
 from django.views.generic import CreateView
 from django.contrib.auth.models import User
 from .models import StorageUnit, Customer, Order
-from .forms import CustomerForm, OrderForm, RegisterForm, ContactForm, UpdateCustomerForm
+from .forms import CustomerForm, OrderForm, ContactForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -34,7 +34,16 @@ def index(request):
                 'message': message
             })
 
-            send_mail('subject', 'message', 'john.e.eriksson@gmail.com', ['john.e.eriksson@gmail.com'], html_message=html)
+            send_mail(
+                'You got a message from Magasinet Ekorren!',
+                'message',
+
+                # Below emails will be filled as soon as the customer has set up an email host
+
+                'from@magasinetekorren.se',
+                ['to@magasinetekorren.se'],
+                html_message=html
+                )
             messages.success(request, 'Thank you for contacting us! We will get back to you shortly.')
             return redirect('index')
 
@@ -47,6 +56,12 @@ def index(request):
 @login_required(login_url='login')
 def user_panel(request):
 
+    # If customer has no fullname the user has not yet filled their customer
+    # information (this field cannot be left blank, hence if it's empty
+    # the form has not been filled)
+    # i.e. the customer is not created, then show the customer form for them
+    # to fill it
+
     customer = Customer.objects.get(user=request.user)
     if customer.fullname.__len__() < 1:
         return redirect('customer_form')
@@ -54,8 +69,10 @@ def user_panel(request):
     orders = request.user.customer.order_set.all()
 
     if request.method == 'POST':
-        update_customer_form = UpdateCustomerForm(request.POST, instance=request.user.customer)
+        update_customer_form = CustomerForm(request.POST, instance=customer)
+
         if update_customer_form.is_valid():
+            
             update_customer_form.save()
             messages.success(request, 'Your information has been updated.')
             print('Updated information')
@@ -64,18 +81,11 @@ def user_panel(request):
             print('Form invalid')
 
     else:
-        update_customer_form = UpdateCustomerForm(instance=request.user.customer)
+        update_customer_form = CustomerForm(instance=customer)
+
 
     context = {'orders': orders, 'update_customer_form': update_customer_form, 'customer': customer}
     return render(request, 'user_panel.html', context)
-
-
-def order_success(request):
-    return render(request, 'order_success.html')
-
-
-def register_success(request):
-    return render(request, 'register_success.html')
 
 
 def user_login(request):
@@ -142,108 +152,17 @@ def register_form(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
-            """ form.save() """
+            
             user = form.save()
             Customer.objects.create(
                 user=user
             )
             username = form.cleaned_data.get('username')
-            print(user.customer)
             messages.success(request, 'Account successfully created for ' + username)
             return redirect('user_panel')
 
     context = {'form': form}
     return render(request, 'register_form.html', context)
-
-"""
-def multi_form(request):
-    if request.method == 'POST':
-        customer_form = CustomerForm(request.POST)
-        order_form = OrderForm(request.POST)
-        register_form = RegisterForm(request.POST)
-
-        if customer_form.is_valid() and order_form.is_valid() and register_form.is_valid():
-            customer = customer_form.save()
-            order = order_form.save(False)
-            user = register_form.save(False)
-
-            customer.order = customer
-            order.save()
-            customer.user = customer
-            user.save()
-            messages.success(request, "Thank you for your order! You will recieve an email confimation shortly.")
-            return redirect(reverse_lazy('order_success'))
-    else:
-        customer_form = CustomerForm()
-        order_form = OrderForm()
-        register_form = RegisterForm()
-
-    args = {}
-    args.update(csrf(request))
-    args['customer_form'] = customer_form
-    args['order_form'] = order_form
-    args['register_form'] = register_form
-
-    return render(request, "multi_form.html", args)
-
- """
-
-"""
-def multi_form(request):
-    
-    if request.method == 'POST':
-        customer_form = CustomerForm(request.POST)
-        order_form = OrderForm(request.POST)
-
-        if customer_form.is_valid() and order_form.is_valid():
-            customer = customer_form.save()
-            order = order_form.save(commit=False)
-            print(customer)
-            order.save()
-            
-            messages.success(request, "Thank you for your order! You will recieve an email confimation shortly.")
-            return redirect(reverse_lazy('index'))
-    else:
-        customer_form = CustomerForm()
-        order_form = OrderForm()
-
-    args = {}
-    args.update(csrf(request))
-    args['customer_form'] = customer_form
-    args['order_form'] = order_form
-
-    return render(request, "multi_form.html", args) 
-    """
-
-
-def multi_form(request):
-    if request.method == 'POST':
-        customer_form = CustomerForm(request.POST)
-        order_form = OrderForm(request.POST)
-        register_form = RegisterForm(request.POST)
-
-        if customer_form.is_valid() and order_form.is_valid() and register_form.is_valid():
-            customer = customer_form.save()
-            order = order_form.save(False)
-            user = register_form.save(False)
-            customer.order = customer
-            order.save()
-            customer.user = customer
-            user.save()
-
-            return redirect(reverse_lazy('order_success'))
-    else:
-        customer_form = CustomerForm()
-        order_form = OrderForm()
-        register_form = RegisterForm()
-
-    args = {}
-    args.update(csrf(request))
-    args['customer_form'] = customer_form
-    args['order_form'] = order_form
-    args['register_form'] = register_form
-
-    return render(request, "multi_form.html", args)
 
 
 def delete_order(request, pk):
@@ -265,6 +184,8 @@ def delete_account(request, pk):
     context = {'user': user}
     return render(request, 'delete_account.html', context)
 
+
+# Export customer database to a csv file
 
 @staff_member_required
 def export_csv(request):

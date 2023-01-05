@@ -7,6 +7,7 @@ from django import forms
 from django.contrib.admin.widgets import AdminDateWidget
 from collections import OrderedDict
 from localflavor.se.forms import SEPostalCodeField
+from django.utils import timezone
 
 
 class DateInput(forms.DateInput):
@@ -56,6 +57,7 @@ class CustomerForm(ModelForm):
             'person_or_org_nr': 'Personnr/organisationsnr'
         }
 
+
 class OrderForm(ModelForm):
     class Meta:
         model = Order
@@ -67,35 +69,13 @@ class OrderForm(ModelForm):
         labels = {
             'storage_unit': 'Pick a unit'
         }
-
-
-class RegisterForm(UserCreationForm):
-    username = forms.CharField(required=False)
-    password1 = forms.CharField(required=False)
-    password2 = forms.CharField(required=False)
-
-    class Meta:
-        model = User
-        fields = ['username', 'password1', 'password2']
-        widgets = {
-            'username': forms.TextInput(attrs={
-                'class': "form-control",
-                'placeholder': 'Your username'
-                }),
-            'password1': forms.PasswordInput(attrs={
-                'class': "form-control",
-                'placeholder': 'Password'
-                }),
-            'password2': forms.PasswordInput(attrs={
-                'class': "form-control",
-                'placeholder': 'Repeat password'
-                })
-        }
-        help_texts = {
-            'username': None,
-            'password1': None,
-            'password2': None,
-        }
+    
+    def clean(self):
+        cleaned_data = super().clean()
+        date = cleaned_data.get('start_date')
+        if date and date < timezone.now().date():
+            raise forms.ValidationError("The date cannot be in the past")
+        return cleaned_data
 
 
 class ContactForm(forms.Form):
@@ -114,46 +94,3 @@ class ContactForm(forms.Form):
         'style': 'width: 80%;'
         })
     )
-
-
-class UpdateCustomerForm(ModelForm):
-    zipcode = SEPostalCodeField()
-
-    class Meta:
-        model = Customer
-        fields = ('fullname', 'address', 'zipcode', 'city', 'email', 'phone', 'person_or_org_nr')
-        widgets = {
-            
-            'fullname': forms.TextInput(attrs={
-                'class': "form-control",
-                'placeholder': 'John Doe'
-                }),
-            'address': forms.TextInput(attrs={
-                'class': "form-control",
-                'placeholder': 'King Street 1'
-                }),
-            'zipcode': forms.TextInput(attrs={
-                'class': "form-control",
-                'placeholder': '123 45'
-                }),
-            'city': forms.TextInput(attrs={
-                'class': "form-control",
-                'placeholder': 'Stockholm'
-                }),
-            'email': forms.TextInput(attrs={
-                'class': "form-control",
-                'placeholder': 'your@email.com'
-                }),
-            'phone': forms.TextInput(attrs={
-                'class': "form-control",
-                'placeholder': '07xxxxxxxx'
-                }),
-            'person_or_org_nr': forms.TextInput(attrs={
-                'class': "form-control",
-                'placeholder': 'YYYYMMDDXXXX'
-                }),
-        }
-        labels = {
-            'fullname': 'Full name',
-            'person_or_org_nr': 'Personnr/orgnr'
-        }

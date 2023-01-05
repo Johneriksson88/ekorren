@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from main.views import customer_form, register_form, order_form, order_success, register_success
+from main.views import customer_form, register_form, order_form
 
 urlpatterns = [
     path("", views.index, name='index'),
@@ -10,9 +10,6 @@ urlpatterns = [
     path("logout/", views.user_logout, name='logout'),
     path("user_panel/", views.user_panel, name='user_panel'),
     path("register/", views.register_form, name='register'),
-    path("multiform/", views.multi_form, name='multiform'),
-    path("order_success/", views.order_success, name='order_success'),
-    path("register_success/", views.register_success, name='register_success'),
     path("delete_order/<str:pk>/", views.delete_order, name="delete_order"),
     path("delete_account/<str:pk>/", views.delete_account, name="delete_account"),
     path("exportcsv/", views.export_csv, name="export_csv"),

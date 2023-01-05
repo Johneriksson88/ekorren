@@ -142,7 +142,7 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ['https://*8000-johneriksson88-ekorren-us6khvjs3ar.ws-eu80.gitpod.io/']
+CSRF_TRUSTED_ORIGINS = ['https://*8000-johneriksson88-ekorren-us6khvjs3ar.ws-eu81.gitpod.io/']
 
 
 CSRF_COOKIE_SECURE = False

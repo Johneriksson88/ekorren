@@ -6,14 +6,12 @@
 <div class="row">
     <div class="col-md-4 mx-auto mt-2 bg-grey border form-card">
         <div class="form-container m-4 d-flex justify-content-center">
-
             <form method="POST" action="#">
                 {% csrf_token %}
                 <div class="card">
                     <div class="card-header">
                         Storage Units
                     </div>
-
                     <table class="table table-striped">
                         <tr>
                             <th>Type</th>
@@ -21,15 +19,14 @@
                             <th>Price (SEK/month)</th>
                         </tr>
                         {% for unit in units %}
-                        <tr>
-                            {% for field in unit %}
-                            <td>{{ field }}</td>
-                            {% endfor %}
-                        </tr>
+                            <tr>
+                                {% for field in unit %}
+                                <td>{{ field }}</td>
+                                {% endfor %}
+                            </tr>
                         {% endfor %}
                     </table>
                 </div>
-
                 {{ form | bootstrap }}
                 <div class="d-flex justify-content-center gap-2">
                     <a href="{% url 'user_panel' %}" class="btn btn-danger">Back</a>
@@ -38,7 +35,6 @@
                         Next
                     </button>
                 </div>
-
                 <div class="modal fade" id="order-modal" tabindex="-1" role="dialog"
                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -62,7 +58,6 @@
                 </div>
             </form>
         </div>
-
     </div>
 </div>
 

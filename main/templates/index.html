@@ -10,33 +10,6 @@
     </div>
 </div>
 
-<!-- <section class="container container-fluid" id="hero-section">
-    <div class="jumbotron-fluid">
-        <div class="jumbotron-layer">
-            <div class="row">
-                <div class="container text-center text-black">
-                    <h1 class="display-4">Need storage?</h1>
-                    <p class="lead">Prices from <span class="bg-warning">599</span>
-                        kr/month.
-                    </p>
-                    <ul class="list-group mb-2">
-                        <li class="list-item">Warm and dry</li>
-                        <li class="list-item">Quick loading</li>
-                        <li class="list-item">Move out when you want</li>
-                        <li class="list-item">10 minutes from Uppsala</li>
-                    </ul>
-                    <p class="lead">
-                        {% if user.is_authenticated %}
-                        <a class="btn btn-primary btn-lg" href="{% url 'order_form' %}" role="button">Rent now</a>
-                        {% else %}
-                        <a class="btn btn-primary btn-lg" href="{% url 'not_registered' %}" role="button">Rent now</a>
-                        {% endif %}
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
 <section class="container-fluid">
     <div class="row">
         <div class="col-md-4 hero-left">
@@ -47,8 +20,11 @@
             <div class="v-stack gap-3 text-center rounded-2 p-4 border-dark" id="hero-text">
                 <h2 class="bg-light shadow rounded p-1">Nya och fräscha förråd, bara 10 minuter från Uppsala!</h2>
                 <p class="lead">
-                    <a class="btn btn-primary btn-lg btn-warning" href="{% url 'multiform' %}" role="button">Hyr
-                        idag!</a>
+                    {% if user.is_authenticated %}
+                        <a class="btn btn-primary btn-lg btn-warning" href="{% url 'order_form' %}" role="button">Hyr idag!</a>
+                    {% else %}
+                        <a class="btn btn-primary btn-lg" href="{% url 'not_registered' %}" role="button">Rent now</a>
+                    {% endif %}
                 </p>
 
                 <p class="lead bg-light rounded shadow mx-auto" id="hero-lead">Pris från <span
@@ -56,11 +32,9 @@
                     kr/månad.
                 </p>
             </div>
-
-
-
         </div>
     </div>
+
 </section>
 <section class="container-fluid bg-info p-5" id="instructions-section">
     <div class="row">
@@ -81,7 +55,9 @@
         </div>
     </div>
 </section>
+
 <h2 class="text-center mt-4">Our units</h2>
+
 <section class="container-fluid m-3 d-flex justify-content-center" id="product-cards-section">
 
     <div class="row" id="prouct-card-row">
@@ -132,8 +108,7 @@
             <ul class="list-group list-group-flush mt-3">
                 <li class="list-group-item">10 m&#178;</li>
                 <li class="list-group-item">First floor: 1 498 kr/month</li>
-                <li class="list-group-item">Second floor: <span class="bg-warning p-1 rounded ">1 398 kr/month</span>
-                </li>
+                <li class="list-group-item">Second floor: <span class="bg-warning p-1 rounded ">1 398 kr/month</span></li>
                 <li class="list-group-item">Fits 380 moving boxes</li>
             </ul>
             <div class="card-body text-center">
@@ -151,8 +126,7 @@
                 alt="Card image cap">
             <ul class="list-group list-group-flush mt-3">
                 <li class="list-group-item">5 m&#178;</li>
-                <li class="list-group-item">Second floor: <span class="bg-warning p-1 rounded">1 498 kr/month</span>
-                </li>
+                <li class="list-group-item">Second floor: <span class="bg-warning p-1 rounded">1 498 kr/month</span></li>
                 <li class="list-group-item">Fits 480 moving boxes</li>
             </ul>
             <div class="card-body text-center">
@@ -170,7 +144,6 @@
 <section class="container-fluid no-gutter bg-info" id="why-us-section">
     <h2 class="text-center mb-5">Why rent from us?</h2>
     <div class="row d-flex justify-content-center">
-
         <div class="col-md-4">
             <div class="circle-container text-center">
                 <div class="circle-image">
@@ -218,7 +191,6 @@
             </div>
         </div>
     </div>
-
 </section>
 
 <section class="container-fluid text-center m-6 pb-5" id="about-us-section">
