@@ -21,7 +21,7 @@
 
   <div class="alert text-center cookiealert" role="alert">
     <b>Do you like cookies?</b> &#x1F36A; We use cookies to ensure you get the best experience on our website. <a
-      href="https://cookiesandyou.com/" target="_blank">Learn more</a>
+      href="https://cookiesandyou.com/" target="_blank" aria-label="Learn about cookies">Learn more</a>
 
     <button type="button" class="btn btn-primary btn-sm acceptcookies">
       I agree
@@ -30,7 +30,7 @@
 
   <nav class="navbar navbar-expand-lg navbar-light">
     <a class="navbar-brand text-white" href="{% url 'index' %}">Magasinet <br> Ekorren <span>
-        <img class="pl-5" src="/static/images/acorn.png"></span></a>
+        <img class="pl-5" src="/static/images/acorn.png" alt="An acorn"></span></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -38,31 +38,31 @@
     <div class="collapse navbar-collapse justify-content-center align-items-center" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <h5><a class="nav-link px-4" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a></h5>
+          <h5><a class="nav-link text-white px-4" href="{% url 'index' %}" aria-label="Go to home page">Home <span class="sr-only">(current)</span></a></h5>
         </li>
         <li class="nav-item">
-          <h5><a class="nav-link px-4" href="#product-cards-section">Storage Units</a></h5>
+          <h5><a class="nav-link text-white px-4" href="#product-cards-section" aria-label="Go to product cards section">Storage Units</a></h5>
         </li>
         <li class="nav-item">
-          <h5><a class="nav-link px-4" href="#about-us-section">About & Contact</a></h5>
+          <h5><a class="nav-link text-white px-4" href="#about-us-section" aria-label="Go to about us and contact section">About & Contact</a></h5>
         </li>
       </ul>
     </div>
     <ul id="user-nav">
       {% if user.is_authenticated %}
         <li><span class="text-white">Hello, <b>{{ request.user }}</b>! <a href="{% url 'user_panel' %}"
-              class="user-name-link"><i class="fa-solid fa-user-gear 
+              class="user-panel" aria-label="Go to user panel"><i class="fa-solid fa-user-gear 
               text-acorn-green"></i></a></span>
         </li>
         {% if user.is_superuser %}
           <li>
-            <a class="nav-link" href="{% url 'admin:index' %}"><b>Admin Panel</b></a>
+            <a class="nav-link text-white" href="{% url 'admin:index' %}" aria-label="Go to admin panel"><b>Admin Panel</b></a>
           </li>
         {% endif %}
           <li>
-            <a class="btn btn-danger" id="loginout-btn" href="{% url 'logout' %}"><b>Log out</b></a>
+            <a class="btn btn-danger" id="loginout-btn" href="{% url 'logout' %}" aria-label="Log out"><b>Log out</b></a>
             {% else %}
-            <a class="btn btn-primary" id="loginout-btn" href="{% url 'login' %}"><b>Log in</b></a>
+            <a class="btn btn-primary" id="loginout-btn" href="{% url 'login' %}" aria-label="Log in"><b>Log in</b></a>
           </li>
       {% endif %}
     </ul>
@@ -71,10 +71,10 @@
 
     <!--  <ul class="navbar-nav ml-auto">
       <li class="nav-item m-1">
-        <img src="/static/images/icons/sweden.png">
+        <img src="/static/images/icons/sweden.png" alt="Swedish flag">
       </li>
       <li class="nav-item m-1">
-        <img src="/static/images//icons/united-kingdom.png">
+        <img src="/static/images//icons/united-kingdom.png alt="English flag"">
       </li>
     </ul> -->
 
@@ -95,19 +95,19 @@
     <p class="col-md-4 mb-0 ml-5 text-light">Copyright &copy; John Eriksson <span id="copyright"></span></p>
 
     <a href="/"
-      class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-      <img class="pl-5" src="/static/images/acorn.png">
+      class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none" aria-label="Go to top of page">
+      <img class="pl-5" src="/static/images/acorn.png" alt="An acorn">
     </a>
 
     <ul class="nav col-md-4 justify-content-end" id="footer-nav">
-      <li class="nav-item"><a href="#" class="nav-link px-2">Home</a></li>
-      <li class="nav-item"><a href="{% url 'index' %}#product-cards-section" class="nav-link px-2">Storage Units</a>
+      <li class="nav-item"><a href="#" class="nav-link px-2" aria-label="Go to home page">Home</a></li>
+      <li class="nav-item"><a href="{% url 'index' %}#product-cards-section" class="nav-link px-2" aria-label="Go to product cards section">Storage Units</a>
       </li>
-      <li class="nav-item"><a class="nav-link px-2" href="{% url 'index' %}#about-us-section">About & Contact</a></li>
+      <li class="nav-item"><a class="nav-link px-2" href="{% url 'index' %}#about-us-section" aria-label="To to about us and contact section">About & Contact</a></li>
       {% if user.is_authenticated %}
-      <li class="nav-item"><a href="{% url 'user_panel' %}" class="nav-link px-2">My User Panel</a></li>
+      <li class="nav-item"><a href="{% url 'user_panel' %}" class="nav-link px-2" aria-label="Go to user panel">My User Panel</a></li>
       {% else %}
-      <li class="nav-item"><a href="{% url 'register' %}" class="nav-link px-2">Register</a></li>
+      <li class="nav-item"><a href="{% url 'register' %}" class="nav-link px-2" aria-label="Go to sign up page">Register</a></li>
       {% endif %}
 
     </ul>

@@ -22,8 +22,8 @@
                 <p class="p-1">Deleting your account will cancel all your orders.</p>
             </div>
             <div class="d-flex justfy-content-center align-items-center">
-                <a class="btn btn-primary my-2" href="{% url 'user_panel' %}">Cancel</a>
-                <form method="POST" action="{% url 'delete_account' user %}">
+                <a class="btn btn-primary my-2" href="{% url 'user_panel' %}" aria-label="Go back">Cancel</a>
+                <form method="POST" action="{% url 'delete_account' user %}" aria-label="Delete account">
                     {% csrf_token %}
                     <input type="submit" class="btn btn-danger my-2 mx-2" value="Delete">
                 </form>

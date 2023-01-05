@@ -7,7 +7,7 @@
         <ul>
             <li class="d-flex justify-content-between">
                 <h3>My account</h3>
-                <span><a href="#" class="text-danger pull-right"><u>Remove account</u></a></span>
+                <span><a href="#" class="text-danger pull-right" aria-label="Remove account"><u>Remove account</u></a></span>
             </li>
         </ul>
     </div>
@@ -37,7 +37,7 @@
                 <a class="btn btn-primary my-2" href="{% url 'user_panel' %}">Cancel</a>
                 <form method="POST" action="{% url 'delete_order' order.pk %}">
                     {% csrf_token %}
-                    <input type="submit" class="btn btn-danger my-2 mx-2" value="Delete">
+                    <input type="submit" class="btn btn-danger my-2 mx-2" value="Delete" aria-label="Delete order">
                 </form>
 
             </div>
