@@ -11,6 +11,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: "Lato", sans-serif;
+    overflow-x: hidden;
 }
 
 /* TEXT */
@@ -256,25 +257,19 @@ h6 {
 /* FOOTER */
 
 footer {
-    background-color: #7882A4;
+    background-color: #505677;
 }
 
-footer>ul>li {
+footer > ul > li > a.nav-link {
     display: block;
-    padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
-    font-size: var(--bs-nav-link-font-size);
-    font-weight: var(--bs-nav-link-font-weight);
-    /* color: rgba(0, 0, 0, 0.55); */
-    text-decoration: none;
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
-    --bs-nav-link-color: var(--bs-navbar-color);
-    --bs-nav-link-hover-color: var(--bs-navbar-hover-color);
-    --bs-nav-link-disabled-color: var(--bs-navbar-disabled-color);
+    color: white;
 }
 
-footer>ul>li:hover {
-    color: rgba(0, 0, 0, 0.9);
+footer > ul > li > a.nav-link:hover {
+    text-decoration: underline;
+    color: white;
 }
+
 
 /* USER REGISTRATION PAGE */
 
@@ -309,18 +304,22 @@ footer>ul>li:hover {
     color: #fff;
 }
 
-.login_btn {
+.login-btn {
     width: 100%;
     background: #33ccff;
-    color: white;
+    color: rgb(20, 19, 19);
 }
 
-.login_btn:focus {
+.links > a {
+    text-decoration: underline;
+}
+
+.login-btn:focus {
     box-shadow: none;
     outline: 0px;
 }
 
-.login_container {
+.login-container {
     padding: 0 2rem;
 }
 

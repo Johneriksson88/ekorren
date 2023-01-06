@@ -37,7 +37,6 @@ $(document).ready(function () {
     form_fields[2].placeholder = 'Enter password...';
     form_fields[3].placeholder = 'Re-enter Password...';
 
-
     for (var field in form_fields) {
       form_fields[field].className += ' form-control'
     }
