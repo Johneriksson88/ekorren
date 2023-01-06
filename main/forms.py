@@ -16,6 +16,7 @@ class DateInput(forms.DateInput):
 
 class CustomerForm(ModelForm):
     zipcode = SEPostalCodeField()
+    email = forms.EmailField()
 
     class Meta:
         model = Customer
@@ -38,7 +39,7 @@ class CustomerForm(ModelForm):
                 'class': "form-control",
                 'placeholder': 'Stockholm'
                 }),
-            'email': forms.TextInput(attrs={
+            'email': forms.EmailInput(attrs={
                 'class': "form-control",
                 'placeholder': 'your@email.com'
                 }),

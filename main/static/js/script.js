@@ -29,7 +29,7 @@ $(document).ready(function () {
         $("#user-info").toggle();
         $("#user-info-edit").toggle();
     })
-
+    
     // Put placeholders in and style UserCreationForm since i use the django model
 
     var form_fields = document.getElementsByTagName('input')
@@ -76,11 +76,3 @@ $(document).ready(function () {
     })
 });
 
-
-
-
-
-// Hide help text from UserCreationForm
-
-/* $('.help-block').hide();
- */

@@ -13,5 +13,5 @@ urlpatterns = [
     path("delete_order/<str:pk>/", views.delete_order, name="delete_order"),
     path("delete_account/<str:pk>/", views.delete_account, name="delete_account"),
     path("exportcsv/", views.export_csv, name="export_csv"),
-    path("not_registered/", views.not_registered, name="not_registered")
+    path("not_registered/", views.not_registered, name="not_registered"),
 ]

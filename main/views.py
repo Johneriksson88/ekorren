@@ -38,7 +38,7 @@ def index(request):
                 'You got a message from Magasinet Ekorren!',
                 'message',
 
-                # Below emails will be filled as soon as the customer has set up an email host
+                # Below emails will be changed in the future as soon as the customer has set up an email host
 
                 'from@magasinetekorren.se',
                 ['to@magasinetekorren.se'],
@@ -124,7 +124,7 @@ def customer_form(request):
             messages.success(request, "Your information was successfully added!")
             return redirect('user_panel')
         else:
-            form = CustomerForm()
+            form = CustomerForm(instance=customer)
 
     context = {'form': form}
     return render(request, 'customer_form.html', context)

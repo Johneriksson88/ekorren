@@ -46,6 +46,10 @@ h6 {
     color: #6f25e5;
 }
 
+.text-edit {
+    color: #053070;
+}
+
 
 /* VARIABLES */
 
@@ -69,6 +73,9 @@ h6 {
     background-color: var(--bg-color-secondary);
 }
 
+.bg-info {
+    background-color: #74cfbf !important;
+}
 /* NAVIGATION */
 
 .navbar {
@@ -109,17 +116,19 @@ h6 {
 
 
 #header-banner {
-    background-color: #D1D1D1;
+    background-color: #f7ba5b;
     color: #3B3B3B;
 }
 
 .low-price {
     color: #0000BD;
+    font-weight: bold;
 }
 
 #loginout-btn {
     padding: 3px;
     margin-left: 5px;
+    border: 1px solid black;
 }
 
 #user-nav {
@@ -194,7 +203,7 @@ h6 {
 
 .card-header {
     width: 100%;
-    background-color: #29d53b;
+    background-color: #f7ba5b;
     font-weight: bold;
 }
 
@@ -273,7 +282,7 @@ footer > ul > li > a.nav-link:hover {
 
 /* USER REGISTRATION PAGE */
 
-.user_card {
+.user-card {
     width: 350px;
     margin-top: auto;
     margin-bottom: auto;
@@ -308,6 +317,11 @@ footer > ul > li > a.nav-link:hover {
     width: 100%;
     background: #33ccff;
     color: rgb(20, 19, 19);
+}
+
+.login-btn:hover {
+    border: 2px solid black;
+    background-color: #33ccff;
 }
 
 .links > a {
