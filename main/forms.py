@@ -95,3 +95,18 @@ class ContactForm(forms.Form):
         'style': 'width: 80%;'
         })
     )
+
+class SignUpForm(UserCreationForm):
+    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Username'}))
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Enter password'}))
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Re-enter password'}))
+    
+    def __init__(self, *args, **kwargs):
+        super(SignUpForm, self).__init__(*args, **kwargs)
+        for visible in self.visible_fields():
+            visible.field.widget.attrs['class'] = 'form-control'
+
+    class Meta:
+        model = User
+        fields = ('username', 'password1', 'password2')
+            

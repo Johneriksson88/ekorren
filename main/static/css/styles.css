@@ -111,7 +111,7 @@ h6 {
 }
 
 .nav-link:hover {
-    text-decoration: underline;
+    color: rgb(123, 235, 179) !important;
 }
 
 
@@ -227,6 +227,7 @@ h6 {
     justify-content: center;
     width: 100%;
 }
+
 
 .circle-container {
     height: 250px;

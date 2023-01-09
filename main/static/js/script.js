@@ -32,7 +32,7 @@ $(document).ready(function () {
     
     // Put placeholders in and style UserCreationForm since i use the django model
 
-    var form_fields = document.getElementsByTagName('input')
+    /* var form_fields = document.getElementsByTagName('input')
     form_fields[1].placeholder = 'Username..';
     form_fields[2].placeholder = 'Enter password...';
     form_fields[3].placeholder = 'Re-enter Password...';
@@ -40,7 +40,7 @@ $(document).ready(function () {
     for (var field in form_fields) {
       form_fields[field].className += ' form-control'
     }
-
+ */
     
     
 });

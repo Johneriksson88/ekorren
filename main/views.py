@@ -4,7 +4,7 @@ from django.views import View
 from django.views.generic import CreateView
 from django.contrib.auth.models import User
 from .models import StorageUnit, Customer, Order
-from .forms import CustomerForm, OrderForm, ContactForm
+from .forms import CustomerForm, OrderForm, ContactForm, SignUpForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -148,9 +148,9 @@ def order_form(request):
 
 def register_form(request):
 
-    form = UserCreationForm()
+    form = SignUpForm()
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = SignUpForm(request.POST)
         if form.is_valid():
             
             user = form.save()
