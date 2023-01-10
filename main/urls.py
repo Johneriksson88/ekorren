@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from main.views import customer_form, register_form, order_form
+from main.views import customer_form, register_form, order_form, edit_user_info
 
 urlpatterns = [
     path("", views.index, name='index'),
@@ -14,4 +14,5 @@ urlpatterns = [
     path("delete_account/<str:pk>/", views.delete_account, name="delete_account"),
     path("exportcsv/", views.export_csv, name="export_csv"),
     path("not_registered/", views.not_registered, name="not_registered"),
+    path("edit_info/", views.edit_user_info, name="edit_user_info")
 ]

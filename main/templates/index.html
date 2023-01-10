@@ -11,7 +11,7 @@
     </div>
 </div>
 
-<section class="container-fluid">
+<section class="container-fluid" id="hero-section">
     <div class="row">
         <div class="col-md-4 hero-left">
             <img class="img-fluid" src="/static/images/ekorren_logo.jpg" alt="A squirrel with moving boxes">
@@ -19,7 +19,7 @@
         </div>
         <div class="col-md-8 col-s-12 hero-right d-flex flex-wrap justify-content-center align-items-center">
             <div class="v-stack gap-3 text-center rounded-2 p-4 border-dark" id="hero-text">
-                <h2 class="bg-light shadow rounded p-1">Nya och fräscha förråd, bara 10 minuter från Uppsala!</h2>
+                <h2 class="bg-light shadow rounded p-1">All new and fresh storage units only 10 minutes from Uppsala!</h2>
                 <p class="lead">
                     {% if user.is_authenticated %}
                         <a class="btn btn-primary btn-lg btn-warning" href="{% url 'order_form' %}" role="button" aria-label="Rent a storage unit">Rent now!</a>
@@ -28,9 +28,9 @@
                     {% endif %}
                 </p>
 
-                <p class="lead bg-light rounded shadow mx-auto" id="hero-lead">Pris från <span
+                <p class="lead bg-light rounded shadow mx-auto" id="hero-lead">Prices from <span
                         class="bg-warning">599</span>
-                    kr/månad.
+                    kr/month.
                 </p>
             </div>
         </div>

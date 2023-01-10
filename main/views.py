@@ -17,6 +17,7 @@ from django.urls import reverse_lazy
 from datetime import datetime
 import csv
 from django.contrib.admin.views.decorators import staff_member_required
+from django.core.mail import EmailMessage
 
 
 def index(request):
@@ -68,12 +69,17 @@ def user_panel(request):
 
     orders = request.user.customer.order_set.all()
 
-    if request.method == 'POST':
-        update_customer_form = CustomerForm(request.POST, instance=customer)
+    context = {'orders': orders, 'customer': customer}
+    return render(request, 'user_panel.html', context)
 
-        if update_customer_form.is_valid():
-            
-            update_customer_form.save()
+
+def edit_user_info(request):
+    customer = Customer.objects.get(user=request.user)
+    if request.method == 'POST':
+        form = CustomerForm(request.POST, instance=customer)
+
+        if form.is_valid():
+            form.save()
             messages.success(request, 'Your information has been updated.')
             print('Updated information')
             return redirect('user_panel')
@@ -81,11 +87,9 @@ def user_panel(request):
             print('Form invalid')
 
     else:
-        update_customer_form = CustomerForm(instance=customer)
-
-
-    context = {'orders': orders, 'update_customer_form': update_customer_form, 'customer': customer}
-    return render(request, 'user_panel.html', context)
+        form = CustomerForm(instance=customer)
+    context = {'form': form}
+    return render(request, 'edit_user_info.html', context)
 
 
 def user_login(request):
@@ -123,9 +127,6 @@ def customer_form(request):
             form.save()
             messages.success(request, "Your information was successfully added!")
             return redirect('user_panel')
-        else:
-            form = CustomerForm(instance=customer)
-
     context = {'form': form}
     return render(request, 'customer_form.html', context)
 
@@ -133,13 +134,24 @@ def customer_form(request):
 def order_form(request):
     units = StorageUnit.objects.all().values_list('name', 'size', 'price')
     customer = Customer.objects.get(user=request.user)
+    
+    # Variables for sending confirmation email
+    name = customer.fullname
+    email = customer.email
     form = OrderForm()
     if request.method == 'POST':
         form = OrderForm(request.POST)
         if form.is_valid():
             form.instance.customer = customer
-            form.save()
+            new_order = form.save()
+            order_id = new_order.pk
             messages.success(request, "Order successfully submitted! You will get an email confirmation shortly.")
+            send_order_confirmation(
+                request,
+                name,
+                email,
+                order_id
+                )
             return redirect("user_panel")
 
     context = {'form': form, 'units': units}
@@ -192,8 +204,24 @@ def export_csv(request):
     response = HttpResponse(content_type='text/csv')
 
     writer = csv.writer(response)
-    writer.writerow(['Namn', 'Adress', 'Postnummer', 'Stad', 'Email', 'Telefon', 'Personnr', 'Organisationsnr'])
-    for customer in Customer.objects.all().values_list('fullname', 'address', 'zipcode', 'city', 'email', 'phone', 'personnr', 'orgnr'):
+    writer.writerow([
+        'Namn',
+        'Adress',
+        'Postnummer',
+        'Stad',
+        'Email',
+        'Telefon',
+        'Personnr',
+        'Organisationsnr'])
+    for customer in Customer.objects.all().values_list(
+        'fullname',
+        'address',
+        'zipcode', 'city',
+        'email',
+        'phone',
+        'personnr',
+        'orgnr'
+        ):
         writer.writerow(customer)
 
     response['Content-Disposition'] = 'attatchment; filename="customers.csv"'
@@ -202,3 +230,22 @@ def export_csv(request):
 
 def not_registered(request):
     return render(request, 'not_registered.html')
+
+
+def send_order_confirmation(request, name, email, order):
+    template = render_to_string(
+        'order_confirmation_email.html',
+        {
+            'name': name,
+            'order': order
+        })
+
+    email = EmailMessage(
+        'Order confirmation from Magasinet Ekorren',
+        template,
+        'from@magasinetekorren.se',
+        [request.user.customer.email]
+    )
+
+    email.fail_silently = False
+    email.send()

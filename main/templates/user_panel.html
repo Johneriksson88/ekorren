@@ -55,7 +55,7 @@
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     <span><u>My information</u></span>
-                    <a href="#" id="toggle-form" class="text-edit" aria-label="Edit your contact information"><b>Edit <i class="fa-solid fa-pencil"></i></b></a>
+                    <a href="{% url 'edit_user_info' %}" aria-label="Edit your contact information"><b>Edit <i class="fa-solid fa-pencil"></i></b></a>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item bg-light"><b>Name</b></li>
@@ -73,26 +73,6 @@
                     <li class="list-group-item bg-light"><b>Person/orgnr</b></li>
                     <li class="list-group-item">{{ request.user.customer.person_or_org_nr }}</li>
                 </ul>
-            </div>
-        </div>
-        <div class="col-md-6 mx-auto mt-4" id="user-info-edit">
-            <div class="card">
-                <div class="card-header d-flex justify-content-between">
-                    <span><u>My information</u></span>
-                    <a href="#" id="update-info-back" class="text-primary" aria-label="Go back"><b>Back <i
-                                class="fa-solid fa-pencil"></i></b></a>
-                </div>
-                <form method="POST" id="update-customer-form">
-                    {% csrf_token %}
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            {{ update_customer_form | bootstrap }}
-                        </li>
-                    </ul>
-                    <div class="text-center my-2">
-                        <input id="update-form" type="submit" value="Update" class="btn btn-success" aria-label="Update contact information">
-                    </div>
-                </form>
             </div>
         </div>
     </div>

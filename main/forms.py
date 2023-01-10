@@ -31,18 +31,18 @@ class CustomerForm(ModelForm):
                 'class': "form-control",
                 'placeholder': 'King Street 1'
                 }),
-            'zipcode': forms.TextInput(attrs={
+            """ 'zipcode': forms.TextInput(attrs={
                 'class': "form-control",
                 'placeholder': '123 45'
-                }),
+                }), """
             'city': forms.TextInput(attrs={
                 'class': "form-control",
                 'placeholder': 'Stockholm'
                 }),
-            'email': forms.EmailInput(attrs={
+            """ 'email': forms.EmailInput(attrs={
                 'class': "form-control",
                 'placeholder': 'your@email.com'
-                }),
+                }), """
             'phone': forms.TextInput(attrs={
                 'class': "form-control",
                 'placeholder': '07xxxxxxxx'
@@ -57,6 +57,7 @@ class CustomerForm(ModelForm):
             'fullname': 'Full name',
             'person_or_org_nr': 'Personnr/organisationsnr'
         }
+     
 
 
 class OrderForm(ModelForm):
@@ -91,16 +92,23 @@ class ContactForm(forms.Form):
         })
     )
     message = forms.CharField(widget=forms.Textarea(attrs={
-        'placeholder' :'Your message here',
+        'placeholder': 'Your message here',
         'style': 'width: 80%;'
         })
     )
 
+
 class SignUpForm(UserCreationForm):
-    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Username'}))
-    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Enter password'}))
-    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Re-enter password'}))
-    
+    username = forms.CharField(widget=forms.TextInput(attrs={
+        'placeholder': 'Username'
+        }))
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={
+        'placeholder': 'Enter password'
+        }))
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={
+        'placeholder': 'Re-enter password'
+        }))
+
     def __init__(self, *args, **kwargs):
         super(SignUpForm, self).__init__(*args, **kwargs)
         for visible in self.visible_fields():
@@ -109,4 +117,5 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'password1', 'password2')
-            
+
+
