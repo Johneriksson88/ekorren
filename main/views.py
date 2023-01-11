@@ -179,8 +179,10 @@ def register_form(request):
 
 def delete_order(request, pk):
     order = Order.objects.get(pk=pk)
+    order_id = order.id
     if request.method == 'POST':
         order.delete()
+        messages.success(request, f"Order #{order_id} successfully deleted.")
         return redirect('user_panel')
     context = {'order': order}
     return render(request, 'delete_order.html', context)

@@ -6,7 +6,8 @@
         <ul>
             <li class="d-flex justify-content-between">
                 <h3>My account</h3>
-                <span><a href="{% url 'delete_account' user %}" class="btn btn-danger" aria-label="Delete your account">Delete account</a></span>
+                <span><a href="{% url 'delete_account' user %}" class="btn btn-danger"
+                        aria-label="Delete your account">Delete account</a></span>
             </li>
         </ul>
     </div>
@@ -40,22 +41,23 @@
                     </tr>
                     {% endfor %}
                 </table>
-                <!-- {% if not order %}
+                {% if not order %}
                     <p class="text-center">You don't have any orders.</p>
-                {% endif %} -->
+                {% endif %}
                 <div class="text-center my-2">
                     <a href="{% url 'order_form' %}" class="btn btn-primary" aria-label="Make a new order">New order</a>
                 </div>
-
             </div>
         </div>
     </div>
+
     <div class="row">
         <div class="col-md-6 mx-auto mt-4" id="user-info">
             <div class="card">
                 <div class="card-header d-flex justify-content-between">
                     <span><u>My information</u></span>
-                    <a href="{% url 'edit_user_info' %}" aria-label="Edit your contact information"><b>Edit <i class="fa-solid fa-pencil"></i></b></a>
+                    <a href="{% url 'edit_user_info' %}" aria-label="Edit your contact information"><b>Edit <i
+                                class="fa-solid fa-pencil"></i></b></a>
                 </div>
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item bg-light"><b>Name</b></li>
