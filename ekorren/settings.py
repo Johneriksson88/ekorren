@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['magasinet-ekorren.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['https://magasinet-ekorren.herokuapp.com/', 'localhost']
 
 
 # Application definition
@@ -150,7 +150,7 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ['https://*8000-johneriksson88-ekorren-us6khvjs3ar.ws-eu81.gitpod.io/']
+CSRF_TRUSTED_ORIGINS = ['https://*magasinet-ekorren.herokuapp.com/']
 
 
 CSRF_COOKIE_SECURE = False
