@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'cloudinary_storage',
     'django.contrib.staticfiles',
+    'cloudinary',
     'crispy_forms',
     'bootstrapform',
     'main',
@@ -132,11 +133,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = '/static/'
-""" STATIC_ROOT = BASE_DIR / "staticfiles" """
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dtes0r4kj',
+    'API_KEY': '885712242174876',
+    'API_SECRET': os.environ.get('CLOUDINARY_SECRET_KEY')
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -150,5 +157,5 @@ CSRF_COOKIE_SECURE = False
 
 EMAIL_HOST = 'smtp.mailtrap.io'
 EMAIL_HOST_USER = 'd7c7b2d303d617'
-EMAIL_HOST_PASSWORD = 'e65dcdf898eda0'
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = '2525'
