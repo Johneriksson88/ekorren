@@ -11,9 +11,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 import django_heroku
-
-django_heroku.settings(locals())
-
 from pathlib import Path
 import os
 import dj_database_url
@@ -164,3 +161,5 @@ EMAIL_HOST = 'smtp.mailtrap.io'
 EMAIL_HOST_USER = 'd7c7b2d303d617'
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = '2525'
+
+django_heroku.settings(locals())
