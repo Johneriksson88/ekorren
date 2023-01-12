@@ -25,4 +25,3 @@ shutilwhich==1.1.0
 SQLAlchemy==1.4.45
 sqlparse==0.4.3
 WebOb==1.8.7
-whitenoise==6.2.0

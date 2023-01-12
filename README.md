@@ -1,72 +1,100 @@
-# Love Running
+# Magasinet Ekorren
 
-In this section, you will include one or two paragraphs providing an overview of your project. Essentially, this part is your sales pitch. At this stage, you should have a name for your project so use it! Don’t introduce the project as a Portfolio project for the diploma. In this section, describe what the project hopes to accomplish, who it is intended to target and how it will be useful to the target audience. 
 
-For example; Love Running is a site that hopes to help keep people motivated to meet up for runs on a regular basis in Dublin, Ireland. The site will be targeted toward runners who are looking for a way to socialise and keep themselves fit. Love Running will be useful for runners to see exactly when and where they should be to join the running club. 
+Magasinet Ekorren is a fully responsive web site for renting storage units, as well as acting as a marketing tool for the company. A customer can easily get information about how it works, create an account and rent and manage their storage units.
 
 ![Responsice Mockup](https://github.com/lucyrush/readme-template/blob/master/media/love_running_mockup.png)
 
 ## Features 
 
-In this section, you should go over the different parts of your project, and describe each in a sentence or so. You will need to explain what value each of the features provides for the user, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
+  - The website is structured as a one page website for the home page, where all information can be found in different sections, clearly separated by different background colors.
+  - All user-related pages (login/out, orders, user panel etc.) are on their own pages.
 
 ### Existing Features
 
 - __Navigation Bar__
 
-  - Featured on all three pages, the full responsive navigation bar includes links to the Logo, Home page, Gallery and Sign Up page and is identical in each page to allow for easy navigation.
+  - Featured on all three pages, the full responsive navigation bar includes links to the Logo, Home page, Storage Units (info and links for renting) and an About & Contact section. The navigation bar is the same on all pages.
   - This section will allow the user to easily navigate from page to page across all devices without having to revert back to the previous page via the ‘back’ button. 
+  - To the right is a Log In-button, which will change to Log Out if the user is logged in. A welcome message with a link to the user panel page will also show here if the user is logged in.
+  - If an admin is logged in there will also be a link to the admin management page here.
 
 ![Nav Bar](https://github.com/lucyrush/readme-template/blob/master/media/love_running_nav.png)
 
-- __The landing page image__
+- __The hero section__
 
-  - The landing includes a photograph with text overlay to allow the user to see exactly which location this site would be applicable to. 
-  - This section introduces the user to Love Running with an eye catching animation to grab their attention
+  - The hero section contains of a right and a left part.
+  - On the left is an image of a happy squirrel moving boxes, a logo the company wished to have on the website.
+  - On the right is a short introduction as well as a call to action button which takes the visitor to the order form (if logged in, otherwise the user is asked to create an account).
 
-![Landing Page](https://github.com/lucyrush/readme-template/blob/master/media/love_running_landing.png)
 
-- __Club Ethos Section__
+- __Instructions section__
 
-  - The club ethos section will allow the user to see the benefits of joining the Love Running meetups, as well as the benefits of running overall. 
-  - This user will see the value of signing up for the Love Running meetups. This should encourage the user to consider running as their form of exercise. 
+  - The instructions section shows the potential customer the steps which they have to go through to rent a storage unit.
+  - There are 5 steps and they are clearly highlighted through the usage of a different background color for the section.
+  - The first step has a link to create an account to keep things simple for the visitor.
 
 ![Club Ethos](https://github.com/lucyrush/readme-template/blob/master/media/love_running_ethos.png)
 
-- __Meetup Times section__
+- __Product cards section__
 
-  - This section will allow the user to see exactly when the meetups will happen, where they will be located and how long the run will be in kilometers. 
-  - This section will be updated as these times change to keep the user up to date. 
+  - Here the visitor can learn about the different products and their attributes, such as sizes, prices etc. in the form of cards.
+  - Every product card has a link that takes them to the order form if they are logged in (if not logged in they will be sent to the register account form)
 
 ![Meetup Times](https://github.com/lucyrush/readme-template/blob/master/media/love_running_times.png)
 
-- __The Footer__ 
+- __Why us section__ 
 
-  - The footer section includes links to the relevant social media sites for Love Running. The links will open to a new tab to allow easy navigation for the user. 
-  - The footer is valuable to the user as it encourages them to keep connected via social media
+  - Here the visitor is presented with 4 "badges" with arguments for why they would want to rent a storage unit from Magasinet Ekorren.
+  - Every badge has a corresponding icon to clearify the message.
 
 ![Footer](https://github.com/lucyrush/readme-template/blob/master/media/love_running_footer.png)
 
-- __Gallery__
+- __About & Contact section__
 
-  - The gallery will provide the user with supporting images to see what the meet ups look like. 
-  - This section is valuable to the user as they will be able to easily identify the types of events the organisation puts together. 
+  - Here the visitor can find information about the company and storage units, an embedded google map on which they can click for directions, and a contact form.
+  - The three parts are divided into their own "cards".
+  - Phone number is a direct call link on mobile and email a direct email link. 
 
 ![Gallery](https://github.com/lucyrush/readme-template/blob/master/media/love_running_gallery.png)
 
-- __The Sign Up Page__
+- __Footer__
 
-  - This page will allow the user to get signed up to Love Running to start their running journey with the community. The user will be able specify if they would like to take part in road, trail or both types of running. The user will be asked to submit their full name and email address. 
+  - The footer has a copyright text on the left with a script changing it to the current year.
+  - The middle has a small acorn as a nice addition of color.
+  - The right has the nav links, dynamic to present links according to if the visitor is logged in or not.
 
-![Sign Up](https://github.com/lucyrush/readme-template/blob/master/media/love_running_signup.png)
+- __Register page__
 
-For some/all of your features, you may choose to reference the specific project files that implement them.
+  - Here the visitor can create an account by simply providing a username and password two times.
+  - The design of the Registration page was derived from this youtuber [Dennis Ivanov](https://www.youtube.com/@DennisIvy), provided at this [JSFiddle](https://jsfiddle.net/ivanov11/hzf0jxLg/)
 
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
+- __Login page__
+
+  - Here the user or admin can sign in to their account to access the user panel where they can manage orders and customer information.
+  - The design of the Login page was derived from this youtuber [Dennis Ivanov](https://www.youtube.com/@DennisIvy), provided at this [JSFiddle](https://jsfiddle.net/ivanov11/dghm5cu7/)
+
+- __User panel page__
+
+  - The user panel page is where the customer can create, delete and view their orders, as well as view and update their contact/invoice information.
+  - The orders are presented first in a list, and if there are no orders a text will tell them so. Underneith the list is a button for making a new order. The orders can be deleted by clicking the garbage can icon at the end of the listed order.
+  - Deleting an order takes the customer to a page where they can confirm that they want to delete the order.
+  - Underneith the customers information is displayed. By clicking edit information they will be taken to a form where they can change it, if for example they changed adress, phone number etc.
+
+- __New order page__
+
+  - The new order page contains a form where the customer can order their storage units.
+  - First, a list of the different products is displayed, and underneith the customer can pick their storage unit of choice in a dropdown list.
+  - Then they will pick a starting date, which cannot be in the past. 
+  - When they click 'Next', a modal will be shown where they can confirm their order by clicking 'Confirm'.
+
 
 ### Features Left to Implement
 
-- Another feature idea
+- Ability to rent a storage unit without having to create an account
+- Online payment method
+- Stock of individual storage units (at the moment the owner of the company wants to process orders manually, so if a customer books a storage unit that is unavailable he can reach out to them and make a deal on another one)
+- Order history on user panel
 
 ## Testing 
 
