@@ -41,8 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
     'cloudinary_storage',
+    'django.contrib.staticfiles',
     'cloudinary',
     'crispy_forms',
     'bootstrapform',
@@ -139,11 +139,11 @@ STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-CLOUDINARY_STORAGE = {
+""" CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'dtes0r4kj',
     'API_KEY': '885712242174876',
     'API_SECRET': os.environ.get('CLOUDINARY_SECRET_KEY')
-}
+} """
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
