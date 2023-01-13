@@ -95,6 +95,7 @@ Magasinet Ekorren is a fully responsive web site for renting storage units, as w
 - Online payment method
 - Stock of individual storage units (at the moment the owner of the company wants to process orders manually, so if a customer books a storage unit that is unavailable he can reach out to them and make a deal on another one)
 - Order history on user panel
+- Identity validation through swedish BankID
 
 ## Testing 
 
