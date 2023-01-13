@@ -213,16 +213,15 @@ def export_csv(request):
         'Stad',
         'Email',
         'Telefon',
-        'Personnr',
-        'Organisationsnr'])
+        'Personnr/orgnr'
+        ])
     for customer in Customer.objects.all().values_list(
         'fullname',
         'address',
         'zipcode', 'city',
         'email',
         'phone',
-        'personnr',
-        'orgnr'
+        'person_or_org_nr'
         ):
         writer.writerow(customer)
 
@@ -235,6 +234,25 @@ def not_registered(request):
 
 
 def send_order_confirmation(request, name, email, order):
+    template = render_to_string(
+        'order_confirmation_email.html',
+        {
+            'name': name,
+            'order': order
+        })
+
+    email = EmailMessage(
+        'Order confirmation from Magasinet Ekorren',
+        template,
+        'from@magasinetekorren.se',
+        [request.user.customer.email]
+    )
+
+    email.fail_silently = False
+    email.send()
+
+
+def send_order_deletion_notification(request, name, order):
     template = render_to_string(
         'order_confirmation_email.html',
         {

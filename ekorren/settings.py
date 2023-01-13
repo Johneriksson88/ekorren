@@ -151,7 +151,7 @@ DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ['https://*magasinet-ekorren.herokuapp.com/']
+CSRF_TRUSTED_ORIGINS = ['https://*magasinet-ekorren.herokuapp.com/', 'https://*8000-johneriksson88-ekorren-us6khvjs3ar.ws-eu82.gitpod.io/']
 
 
 CSRF_COOKIE_SECURE = False

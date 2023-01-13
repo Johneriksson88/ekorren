@@ -137,6 +137,10 @@ h6 {
     list-style: none;
 }
 
+#user-panel-icon:hover {
+    color: #c9913d
+}
+
 /* HERO IMAGE AND JUMBOTRON */
 
 .hero-right {

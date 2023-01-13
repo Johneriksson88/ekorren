@@ -55,11 +55,14 @@
       {% if user.is_authenticated %}
         <li><span class="text-white">Hello, <b>{{ request.user }}</b>! <a href="{% url 'user_panel' %}"
               class="user-panel" aria-label="Go to user panel"><i class="fa-solid fa-user-gear 
-              text-acorn-green"></i></a></span>
+              text-acorn-green" id="user-panel-icon"></i></a></span>
         </li>
         {% if user.is_superuser %}
           <li>
-            <a class="nav-link text-white" href="{% url 'admin:index' %}" aria-label="Go to admin panel"><b>Admin Panel</b></a>
+            <a class="nav-link text-white" href="{% url 'admin:index' %}" aria-label="Go to admin panel">Admin Panel</a>
+            <a class="nav-link text-white" href="{% url 'export_csv' %}" aria-label="Get customer database in csv format">
+              Download customer DB <i class="fa-solid fa-file-export"></i>
+            </a>
           </li>
         {% endif %}
           <li>
