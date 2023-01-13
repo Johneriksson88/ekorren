@@ -7,6 +7,18 @@
     box-sizing: border-box;
 }
 
+/* Fix whitespace on right side */
+
+html  {
+
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -18,6 +30,8 @@ body {
     padding-top: 5rem;
     padding-bottom: 5rem;
 }
+
+
 /* TEXT */
 
 a {
@@ -54,32 +68,16 @@ h6 {
     color: #053070;
 }
 
-
-/* VARIABLES */
-
-:root {
-
-    /* COLORS */
-
-    --bg-color-dark: #72310b;
-    --bg-color-dark-hover: #ad5e2f;
-    --bg-color-tan: #ce7f50;
-    --bg-color-light: #d9d2b1;
-    --bg-color-yellow: #c9d874;
-    --bg-color-orange: #68a500;
-    --bg-color-secondary: rgb(242, 236, 253);
-
-}
-
 /* CUSTOM BG-COLORS */
 
 .bg-grey {
-    background-color: var(--bg-color-secondary);
+    background-color: rgb(242, 236, 253);
 }
 
 .bg-info {
     background-color: #74cfbf !important;
 }
+
 /* NAVIGATION */
 
 .navbar {

@@ -69,18 +69,6 @@
           </li>
       {% endif %}
     </ul>
-
-    <!-- Flag icons for when a swedish page is implemented -->
-
-    <!--  <ul class="navbar-nav ml-auto">
-      <li class="nav-item m-1">
-        <img src="/static/images/icons/sweden.png" alt="Swedish flag">
-      </li>
-      <li class="nav-item m-1">
-        <img src="/static/images//icons/united-kingdom.png alt="English flag"">
-      </li>
-    </ul> -->
-
   </nav>
 
   <!-- Messages shows directly under navbar -->
@@ -93,28 +81,28 @@
   {% endblock %}
 
   <!-- Footer -->
+    <footer class="container-fluid d-flex flex-wrap justify-content-between align-items-center py-3 border-top px-2">
+      <p class="col-md-4 mb-0 ml-5 text-light">Copyright &copy; John Eriksson <span id="copyright"></span></p>
   
-  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top px-2">
-    <p class="col-md-4 mb-0 ml-5 text-light">Copyright &copy; John Eriksson <span id="copyright"></span></p>
-
-    <a href="/"
-      class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none" aria-label="Go to top of page">
-      <img class="pl-5" src="/static/images/acorn.png" alt="An acorn">
-    </a>
-
-    <ul class="nav col-md-4 justify-content-end" id="footer-nav">
-      <li class="nav-item"><a href="#" class="nav-link px-2" aria-label="Go to home page">Home</a></li>
-      <li class="nav-item"><a href="{% url 'index' %}#product-cards-section" class="nav-link px-2" aria-label="Go to product cards section">Storage Units</a>
-      </li>
-      <li class="nav-item"><a class="nav-link px-2" href="{% url 'index' %}#about-us-section" aria-label="To to about us and contact section">About & Contact</a></li>
-      {% if user.is_authenticated %}
-      <li class="nav-item"><a href="{% url 'user_panel' %}" class="nav-link px-2" aria-label="Go to user panel">My User Panel</a></li>
-      {% else %}
-      <li class="nav-item"><a href="{% url 'register' %}" class="nav-link px-2" aria-label="Go to sign up page">Register</a></li>
-      {% endif %}
-
-    </ul>
-  </footer>
+      <a href="/"
+        class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none" aria-label="Go to top of page">
+        <img class="pl-5" src="/static/images/acorn.png" alt="An acorn">
+      </a>
+  
+      <ul class="nav col-md-4 justify-content-end" id="footer-nav">
+        <li class="nav-item"><a href="#" class="nav-link px-2" aria-label="Go to home page">Home</a></li>
+        <li class="nav-item"><a href="{% url 'index' %}#product-cards-section" class="nav-link px-2" aria-label="Go to product cards section">Storage Units</a>
+        </li>
+        <li class="nav-item"><a class="nav-link px-2" href="{% url 'index' %}#about-us-section" aria-label="To to about us and contact section">About & Contact</a></li>
+        {% if user.is_authenticated %}
+        <li class="nav-item"><a href="{% url 'user_panel' %}" class="nav-link px-2" aria-label="Go to user panel">My User Panel</a></li>
+        {% else %}
+        <li class="nav-item"><a href="{% url 'register' %}" class="nav-link px-2" aria-label="Go to sign up page">Register</a></li>
+        {% endif %}
+  
+      </ul>
+    </footer>
+  
 
   <!-- JavaScript, Jquery -->
 
