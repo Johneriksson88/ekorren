@@ -166,7 +166,7 @@ h6 {
 }
 
 #hero-lead {
-    width: 30%;
+    width: 40%;
 }
 
 /* INFORMATION SECTION */
@@ -201,7 +201,11 @@ h6 {
     justify-content: center;
 }
 
-
+.card-img-top {
+    border-radius: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
 
 .card-header {
     width: 100%;
