@@ -179,10 +179,15 @@ def register_form(request):
 
 def delete_order(request, pk):
     order = Order.objects.get(pk=pk)
+    customer = request.user.customer
     order_id = order.id
     if request.method == 'POST':
         order.delete()
         messages.success(request, f"Order #{order_id} successfully deleted.")
+        send_order_deletion_notification(
+            request,
+            customer,
+            order_id)
         return redirect('user_panel')
     context = {'order': order}
     return render(request, 'delete_order.html', context)
@@ -254,17 +259,17 @@ def send_order_confirmation(request, name, email, order):
 
 def send_order_deletion_notification(request, name, order):
     template = render_to_string(
-        'order_confirmation_email.html',
+        'order_deletion_email.html',
         {
             'name': name,
             'order': order
         })
 
     email = EmailMessage(
-        'Order confirmation from Magasinet Ekorren',
+        'Order cancelled from Magasinet Ekorren',
         template,
         'from@magasinetekorren.se',
-        [request.user.customer.email]
+        ['to@magasinetekorren.se']
     )
 
     email.fail_silently = False
