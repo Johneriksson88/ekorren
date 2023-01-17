@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="rent storage uppsala shurgard greenstorage storage-unit moving">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-    type="text/css" />
+    type="text/css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
@@ -57,18 +57,18 @@
               class="user-panel" aria-label="Go to user panel"><i class="fa-solid fa-user-gear 
               text-acorn-green" id="user-panel-icon"></i></a></span>
         </li>
-        {% if user.is_superuser %}
+        <li>
+          <a class="btn btn-danger" id="loginout-btn" href="{% url 'logout' %}" aria-label="Log out"><b>Log out</b></a>
+      {% else %}
+          <a class="btn btn-primary" id="loginout-btn" href="{% url 'login' %}" aria-label="Log in"><b>Log in</b></a>
+      {% endif %}
+        </li>
+      {% if user.is_superuser %}
           <li>
             <a class="nav-link text-white" href="{% url 'admin:index' %}" aria-label="Go to admin panel">Admin Panel</a>
             <a class="nav-link text-white" href="{% url 'export_csv' %}" aria-label="Get customer database in csv format">
               Download customer DB <i class="fa-solid fa-file-export"></i>
             </a>
-          </li>
-        {% endif %}
-          <li>
-            <a class="btn btn-danger" id="loginout-btn" href="{% url 'logout' %}" aria-label="Log out"><b>Log out</b></a>
-            {% else %}
-            <a class="btn btn-primary" id="loginout-btn" href="{% url 'login' %}" aria-label="Log in"><b>Log in</b></a>
           </li>
       {% endif %}
     </ul>

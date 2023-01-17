@@ -24,7 +24,6 @@
                     <tr>
                         <th>Order no.</th>
                         <th>Storage unit</th>
-                        <th>Date ordered</th>
                         <th>Start date</th>
                         <th>Price</th>
                         <th>Remove</th>
@@ -33,7 +32,6 @@
                     <tr>
                         <td>#{{order.pk}}</td>
                         <td>{{order.storage_unit}}</td>
-                        <td>{{order.order_date}}</td>
                         <td>{{order.start_date}}</td>
                         <td>{{order.storage_unit.price}} kr</td>
                         <td><a href="{% url 'delete_order' order.pk %}" aria-label="Delete this order"><i
