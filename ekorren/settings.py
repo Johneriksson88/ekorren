@@ -156,9 +156,16 @@ CSRF_TRUSTED_ORIGINS = ['https://*magasinet-ekorren.herokuapp.com/', 'https://*8
 
 CSRF_COOKIE_SECURE = False
 
-EMAIL_HOST = 'smtp.mailtrap.io'
+""" EMAIL_HOST = 'smtp.mailtrap.io'
 EMAIL_HOST_USER = 'd7c7b2d303d617'
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-EMAIL_PORT = '2525'
+EMAIL_PORT = '2525' """
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'apikey'
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
 django_heroku.settings(locals())

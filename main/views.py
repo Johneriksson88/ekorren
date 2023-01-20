@@ -18,6 +18,7 @@ from datetime import datetime
 import csv
 from django.contrib.admin.views.decorators import staff_member_required
 from django.core.mail import EmailMessage
+from django.conf import settings
 
 
 def index(request):
@@ -239,6 +240,7 @@ def not_registered(request):
 
 
 def send_order_confirmation(request, name, email, order):
+    email = request.user.customer.email
     template = render_to_string(
         'order_confirmation_email.html',
         {
@@ -249,8 +251,8 @@ def send_order_confirmation(request, name, email, order):
     email = EmailMessage(
         'Order confirmation from Magasinet Ekorren',
         template,
-        'john.e.eriksson@gmail.com',
-        [request.user.customer.email]
+        settings.EMAIL_HOST_USER,
+        [email]
     )
 
     email.fail_silently = False
@@ -258,6 +260,7 @@ def send_order_confirmation(request, name, email, order):
 
 
 def send_order_deletion_notification(request, name, order):
+    email = request.user.customer.email
     template = render_to_string(
         'order_deletion_email.html',
         {
@@ -268,8 +271,9 @@ def send_order_deletion_notification(request, name, order):
     email = EmailMessage(
         'Order cancelled from Magasinet Ekorren',
         template,
-        'john.e.eriksson@gmail.com',
-        ['to@magasinetekorren.se']
+        settings.EMAIL_HOST_USER,
+        [email]
+        
     )
 
     email.fail_silently = False
