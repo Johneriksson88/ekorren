@@ -40,19 +40,21 @@ def index(request):
                 'You got a message from Magasinet Ekorren!',
                 'message',
 
-                # Below emails will be changed in the future as soon as the customer has set up an email host
+                # Below emails will be changed in the future as soon as the
+                # customer has set up an email host
 
                 'john.e.eriksson@gmail.com',
                 ['to@magasinetekorren.se'],
                 html_message=html
-                )
-            messages.success(request, 'Thank you for contacting us! We will get back to you shortly.')
+            )
+            messages.success(
+                request,
+                'Thank you for contacting us! We will get back to you shortly.')
             return redirect('index')
 
     else:
         form = ContactForm()
     return render(request, 'index.html', {'form': form})
-
 
 
 @login_required(login_url='login')
@@ -126,16 +128,18 @@ def customer_form(request):
         form = CustomerForm(request.POST, instance=customer)
         if form.is_valid():
             form.save()
-            messages.success(request, "Your information was successfully added!")
+            messages.success(
+                request, "Your information was successfully added!")
             return redirect('user_panel')
     context = {'form': form}
     return render(request, 'customer_form.html', context)
+
 
 @login_required(login_url='login')
 def order_form(request):
     units = StorageUnit.objects.all().values_list('name', 'size', 'price')
     customer = Customer.objects.get(user=request.user)
-    
+
     # Variables for sending confirmation email
     name = customer.fullname
     email = customer.email
@@ -146,13 +150,15 @@ def order_form(request):
             form.instance.customer = customer
             new_order = form.save()
             order_id = new_order.pk
-            messages.success(request, "Order successfully submitted! You will get an email confirmation shortly.")
+            messages.success(
+                request,
+                "Order successfully submitted! You will get an email confirmation shortly.")
             send_order_confirmation(
                 request,
                 name,
                 email,
                 order_id
-                )
+            )
             return redirect("user_panel")
 
     context = {'form': form, 'units': units}
@@ -165,13 +171,16 @@ def register_form(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            
+
             user = form.save()
             Customer.objects.create(
                 user=user
             )
             username = form.cleaned_data.get('username')
-            messages.success(request, 'Account successfully created for ' + username)
+            messages.success(
+                request,
+                'Account successfully created for ' +
+                username)
             return redirect('user_panel')
 
     context = {'form': form}
@@ -220,7 +229,7 @@ def export_csv(request):
         'Email',
         'Telefon',
         'Personnr/orgnr'
-        ])
+    ])
     for customer in Customer.objects.all().values_list(
         'fullname',
         'address',
@@ -228,7 +237,7 @@ def export_csv(request):
         'email',
         'phone',
         'person_or_org_nr'
-        ):
+    ):
         writer.writerow(customer)
 
     response['Content-Disposition'] = 'attatchment; filename="customers.csv"'
@@ -273,7 +282,7 @@ def send_order_deletion_notification(request, name, order):
         template,
         settings.EMAIL_HOST_USER,
         [email]
-        
+
     )
 
     email.fail_silently = False

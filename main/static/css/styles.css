@@ -143,30 +143,10 @@ h6 {
 
 /* HERO IMAGE AND JUMBOTRON */
 
-.hero-right {
+.hero-image {
     background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(/static/images/boxes_small.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-}
-
-.jumbotron-fluid {
-    background-image: url(/static/images/people_moving.jpg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 0;
-    padding-top: 29.41%;
-    color: white;
-    position: relative;
-}
-
-.jumbotron-layer {
-    background-color: rgba(248, 247, 216, 0.7);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
 }
 
 #hero-lead {

@@ -20,17 +20,24 @@ class CustomerForm(ModelForm):
 
     class Meta:
         model = Customer
-        fields = ('fullname', 'address', 'zipcode', 'city', 'email', 'phone', 'person_or_org_nr')
+        fields = (
+            'fullname',
+            'address',
+            'zipcode',
+            'city',
+            'email',
+            'phone',
+            'person_or_org_nr')
         widgets = {
 
             'fullname': forms.TextInput(attrs={
                 'class': "form-control",
                 'placeholder': 'John Doe'
-                }),
+            }),
             'address': forms.TextInput(attrs={
                 'class': "form-control",
                 'placeholder': 'King Street 1'
-                }),
+            }),
             """ 'zipcode': forms.TextInput(attrs={
                 'class': "form-control",
                 'placeholder': '123 45'
@@ -38,7 +45,7 @@ class CustomerForm(ModelForm):
             'city': forms.TextInput(attrs={
                 'class': "form-control",
                 'placeholder': 'Stockholm'
-                }),
+            }),
             """ 'email': forms.EmailInput(attrs={
                 'class': "form-control",
                 'placeholder': 'your@email.com'
@@ -46,18 +53,17 @@ class CustomerForm(ModelForm):
             'phone': forms.TextInput(attrs={
                 'class': "form-control",
                 'placeholder': '07xxxxxxxx'
-                }),
+            }),
             'person_or_org_nr': forms.TextInput(attrs={
                 'class': "form-control",
                 'placeholder': 'YYYYMMDDXXXX'
-                })
+            })
         }
 
         labels = {
             'fullname': 'Full name',
             'person_or_org_nr': 'Personnr/organisationsnr'
         }
-     
 
 
 class OrderForm(ModelForm):
@@ -71,7 +77,7 @@ class OrderForm(ModelForm):
         labels = {
             'storage_unit': 'Pick a unit'
         }
-    
+
     def clean(self):
         cleaned_data = super().clean()
         date = cleaned_data.get('start_date')
@@ -84,30 +90,30 @@ class ContactForm(forms.Form):
     name = forms.CharField(max_length=255, widget=forms.TextInput(attrs={
         'placeholder': 'Your name',
         'style': 'width: 80%;'
-        })
+    })
     )
     email = forms.EmailField(widget=forms.EmailInput(attrs={
         'placeholder': 'Your email',
         'style': 'width: 80%;'
-        })
+    })
     )
     message = forms.CharField(widget=forms.Textarea(attrs={
         'placeholder': 'Your message here',
         'style': 'width: 80%;'
-        })
+    })
     )
 
 
 class SignUpForm(UserCreationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={
         'placeholder': 'Username'
-        }))
+    }))
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={
         'placeholder': 'Enter password'
-        }))
+    }))
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={
         'placeholder': 'Re-enter password'
-        }))
+    }))
 
     def __init__(self, *args, **kwargs):
         super(SignUpForm, self).__init__(*args, **kwargs)
@@ -117,5 +123,3 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'password1', 'password2')
-
-

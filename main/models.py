@@ -53,9 +53,6 @@ class Customer(models.Model):
         return str(self.pk) + " " + self.fullname
 
 
-
-
-
 class Order(models.Model):
     order_date = models.DateField(auto_now=True)
     start_date = models.DateField()
@@ -67,5 +64,3 @@ class Order(models.Model):
 
     def __str__(self):
         return 'Order ' + str(self.pk)
-    
-    
