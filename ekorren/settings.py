@@ -160,7 +160,7 @@ CSRF_COOKIE_SECURE = False
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_HOST_USER = 'd7c7b2d303d617'
+EMAIL_HOST_USER = 'd51d048a476d43'
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = '2525'
 
