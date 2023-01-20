@@ -1,8 +1,10 @@
-# The Jet Reds website
+# Magasinet Ekorren
 
-![The Jet Reds - Am I Responsive Image](docs/readme_images/am_i_responsive.png)
+![Magasinet Ekorren - Am I Responsive Image](docs/readme_images/am_i_responsive.png)
 
 This website was created as a first portfolio project for Code Institute's Diploma in Web Application Development. The Jet Reds are a real band but, with their permission, I have created this website as I have an interest in and actively follow the band.
+
+This website was created for a company called Magasinet Ekorren ('The Squirrel Warehouse' roughly translated from Swedish to English)
 
 The website can be [found here](https://fatheed7.github.io/the-jet-reds/).
 
