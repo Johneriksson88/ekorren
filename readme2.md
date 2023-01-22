@@ -2,11 +2,11 @@
 
 ![Magasinet Ekorren - Am I Responsive Image](docs/readme_images/am_i_responsive.png)
 
-This website was created as a first portfolio project for Code Institute's Diploma in Web Application Development. The Jet Reds are a real band but, with their permission, I have created this website as I have an interest in and actively follow the band.
+This website was created for a company called Magasinet Ekorren ('The Squirrel Warehouse' roughly translated from Swedish to English). 
+The company provides storage units in various sizes for rent to persons and businesses. The website provides short and concise information about the storage units and how to rent them. It provides a service for creating an account, and managing the orders and customer information on a user panel page. 
+There is also an admin panel where the site owner can manage the database and collect an updated customer registry.
 
-This website was created for a company called Magasinet Ekorren ('The Squirrel Warehouse' roughly translated from Swedish to English)
-
-The website can be [found here](https://fatheed7.github.io/the-jet-reds/).
+The website can be [found here](https://magasinet-ekorren.herokuapp.com/).
 
 ## Table of Contents
 
@@ -39,104 +39,105 @@ The website can be [found here](https://fatheed7.github.io/the-jet-reds/).
   - [Images](#images)
   - [Content](#content)
 
+#
+
 ## UX and UI
 
 - ### Site Owner Goals
 
-  The goal of the site for the owner is to:
+  The website was developed together with the site owner to ensure the main goals of the site was met:
 
-  1. Keep fans up to date with the bands latest releases.
-  2. Provide some background information about the band, and the type of music they play.
-  3. Make fans aware of any upcoming events, including venue, date and time.
+  - Provide information as a marketing tool to get new customers
+  - Let the customer rent a storage unit online
+  - Present information in a professional and accessible way
+  - Ease process of updating the customer database for the product owners invoice program
+  - Deploy automated emails for confirmation and notification to the customer and the product owner
 
 #
 
 - ### User Stories
 
-  - #### First Time Visitor Goals
+Agile development practices such as user stories were managed by using GitHub's "Issues" tab in the GitHub repository.
 
-    1. As a first time user, I want to easily understand the type of music played by the band.
-    2. As a first time user, I want to be able to easily navigate around the site to find the content I'm looking for.
-    3. As a first time user, I'd like to see reviews, to see the opinions of others about the band.
+The GitHub project can be accessed [here](https://github.com/users/Johneriksson88/projects/4/views/1).
+The Issues page can be acceessed [here](https://github.com/Johneriksson88/ekorren/issues)
 
-  - #### Returning Visitor Goals
+User stories were divided into three categories:
 
-    1. As a returning visitor, I want to find information about any new releases by the band.
-    2. As a returning visitor, I want to easily find information about any upcoming shows.
-    3. As a returning visitor, I want to find the best way to follow the band on social media.
+  - Visitor - a prospective customer enquiring information to make a decision to rent a storage unit
+  - Customer - a customer which has decided to rent a storage unit from Magasinet Ekorren
+  - Admin - the site owner
 
-  - #### Commercial Visitor Goals
+  - #### Visitor Goals
 
-    1. As a commercial visitor, I want to easily contact the band with any booking enquiries.
+    1. As a visitor I can access information about contact, directions and practical information so that I can learn more about the company, their products and how to get in touch with them.
+    2. As a visitor I can see arguments for why I would want to rent a storage unit from Magasinet Ekorren so that I can make a decision to rent or not to rent a storage unit.
+    3. As a visitor I can access information about the different products and their prices so that I can make a decision to rent or not rent a storage unit.
+
+  - #### Customer Goals
+
+    1. As a customer/visitor I can get clear messages on top of the page so that I get feedback on what I've done.
+    2. As a customer I can view my orders so that I know what and how many storage units I'm renting.
+    3. As a customer I can edit my contact information so that my contact and invoice details are up to date.
+    4. As a customer I can delete orders so that I can cancel my rental of storage unit/units.
+    5. As a customer I can delete my account so that I can choose not to be a customer any more.
+    6. As a customer I can register an account so that I can update my information and manage/make new orders.
+    7. As a customer I can rent a storage unit directly from the web site so that I can quickly act on my decision to rent a storage unit from Magasinet Ekorren.
+
+  - #### Admin goals
+
+    1. As an admin I can login to an admin account so that I can access the admin panel.
+    2. As an admin I can get an email notification when a new order is submitted so that I can manually process it.
+    3. As an admin I can get an email notification when an order is deleted so that I can cancel the invoicing for that order.
+    4. As an admin I can download the customer registry so that I can view it and import it to my invoice software.
 
   #
 
   ## Wireframes
 
-  The wireframes for this site were created using Balasmiq, with each section and subsection noted. I endeavoured to create a single page website and, as such, wireframes are available for desktop view, tablet view and mobile view.
+  The wireframes for this site were created using Balasmiq. The end product ended up a little bit different from the original wireframe, due to considerations and ideas changing as the creative process flowed on. I only made a wireframe for the landing page, as to get a big picture feel of how the website should look and feel.
 
-  The sections below show individual wireframes for different devices, with a combined image being available [here](docs/wireframes/collective_wireframe.png).
+  ![Wireframe](main/static/readme/magasinet_ekorren_wireframe.png)
 
-  The directory containing the wireframe images can be found [here](https://github.com/Fatheed7/the-jet-reds/tree/main/docs/wireframes).
-
-    <details>
-
-    <summary>Desktop Wireframe</summary>
-
-  ![Desktop Wireframe Image](docs/wireframes/desktop_wireframe.png)
-    </details>
-
-     <details>
-    <summary>Tablet Wireframe</summary>
-
-  ![Tablet Wireframe Image](docs/wireframes/tablet_wireframe.png)
-    </details>
-
-     <details>
-    <summary>Mobile Wireframe</summary>
-
-  ![Mobile Wireframe Image](docs/wireframes/mobile_wireframe.png)
-    </details>
 
 ## Design
 
 - ## Imagery
 
-  All of the images used on this website were chosen from the gallery of images currently available on [The Jet Reds Website](https://www.thejetreds.co.uk/gallery/). The main images used were for the Carousel at the top of the page and were used as they clearly show the lineup of the band, but do not detract from the footer within the carousel and contrast well with the opacity of this section.
+  - ### Logo
+    The company logo in the left part of the header has an acorn icon from [flaticon.com](https://www.flaticon.com/). Since the squirrel ('ekorre' in Swedish) is part of the company name, and it repesents the nature of storing and collecting things in one place (think of a squirrel gathering acorns), the acorn felt appropriate for part of the logo. It was the lowest common denominator between the business (storage) and the name (ekorre) and felt natural.
+  - ### Hero image
+      The hero image of cardboard boxes were purchased from [shutterstock](https://www.shutterstock.com/). They are supposed to represent the nature of storing things in boxes, and provide a fairly uniform color without taking up too much visual capital. This image was the closest option to having a monocolor or gradient background, but with the benefit of having appropriate objects for the business.
+  - ### Product cards
+      The images for the product cards on the landing page was purchased from [shutterstock](https://www.shutterstock.com/). They are possibly temporary as the site owner wanted to create more personal image representations of the different sizes storage units themselves, but has not done so yet.
+  - ### Why us section
+      The "why us" section contains 4 icons from [flaticon.com](https://www.flaticon.com/). They were chosen to visually represent the 4 given benefits of renting a storage unit from Magasinet Ekorren. If a visitor were to quickly scroll through the page, the icons being circled to give a badge-like appearance catches the visitor eye and tells a clear story of why Magasinet Ekorren would benefit them.
 
-  The images in the About section was chosen as an "in action" shot, showing vocalist Craig Redpath performing live, but it was also chosen as it fits well between the bracket like borders of the about section, giving the impression of sound waves.
 
-  Both images used in the Media section are the actual artwork used for the album and single described on the site, and are used for this reason.
-
-  The image for the Event section was chosen as it sticks with the theme of basic colours of the website, and matches the black and white images used in the about section. Additionally, whilst the image shows members of the band in action, the image is not too busy and does not distract from the main elements of the Event section.
 
 - ## Colours
 
-  The colours of the website were chosen to constrast with the brightness of the header and carousel images, but to blend in with the images used in other sections. This allowed contrasting colours to be chosen which results in good readability for users. These colours were also tested using the 'Rendering' function within Google Chrome to ensure readability for users with all forms of colour blindness.
+  From the start the colors were picked from a squirrel themed palette i found [here](https://colorpalettes.net/tag/colour-of-squirrel-coat/) to represent the colors of the squirrel. At the end of the project when doing the lighthouse testing, I realized that the contrasts using these colors did not pass through the availabilaty-test. After playing around with the Chrome developer tools for testing contrast and availability, i found completely different colors that felt modern, fresh and most of all accessable to the visually impaired and color blind. So essentially accessability dictated the color choices of the entire website.
 
-  - #9B3545 - This colour was used for the header and footer of the website and was chosen due to the red theme within the bands name, but also due to the colour contrast against the default navbar text colour. A text using the Colour Contrast Analyser can be seen [here](docs/readme_images/header_colours.png).
+  Inspiration for color choices can come from a million different places, and I think this shows that a simple thing as playing around with an accessability tool can work at least as well as looking at a color palette.
 
-  - #d1d1d1 - This colour was used as the background for the Media and Contact sections due to it conflicting with the colours of other sections, and against the main body elements.
-
-  - #fff - This plain white colour was chosen for the about section due to its immediate contrast with the carousel images at the top of the page and due to it matching with the black and white nature of the image within the section.
-
-  - rgba(255, 255, 255, 0.7) - This colour was used for the Single and Album containers in the Media section. A white colour was chosen to contrast against the grey background, but some opacity was applied to make this colour more subtle than previous white colours used.
+  To separate the sections on the landing page i chose to have every other section (Get started and Why rent from us) have a contrasting background color of #74cfbf to the other white ones. I did this to clearly signal that the visitor is looking at another section.
 
 - ## Fonts
 
-  The fonts Roboto & Lato were chosen from the options available from Google Fonts.
+  The fonts Cinzel Decorative, Bevan and Lato were chosen from the options available from Google Fonts.
 
-  [Roboto](https://fonts.google.com/specimen/Roboto) was chosen as the main font for the website due to it "allowing letters to be settled into their natural width. This makes for a more natural reading rhythm", as described in the About section for the font on the [Google Fonts website](https://fonts.google.com/specimen/Roboto#about).
+  [Cinzel Decorative](https://fonts.google.com/specimen/Cinzel+Decorative?query=cinzel) is only used for the company logo in the header. I thought it looked elegant, modern and the wavy swirls of the capital "M" in "Magasinet" looked almost like a squirrels tail.
 
-  [Lato](https://fonts.google.com/specimen/Lato) was chosen due to the rounder nature of the font and was primarily used for the headings of each section, as well as the main content within the Events section.
+  [Bevan](https://fonts.google.com/specimen/Bevan?query=bevan) was chosen for the headings. It is a bold display font that i think clearly defines a new section of the page with its boldness and thickness.
 
-  These fonts were chosen with user accessibility and readability in mind, with a backup on sans-serif chosen for any instances where these fonts may not be available.
+  [Lato](https://fonts.google.com/specimen/Lato?query=lato) was the given choice for all the body text. It is a very popular and familiar font for people browsing the web. The description says: "The semi-rounded details of the letters give Lato a feeling of warmth, while the strong structure provides stability and seriousness", and i felt that these keywords jived with the website as a whole.
 
 - ## Favicon
 
-  The website [Favicon.io](https://favicon.io/) was used to generate the favicon image for the website. The colour #DC3545 was used for the background of the image. This was originally consistent with the colour used for the header and footer of the website, but this was then changed to #9B3545 for colour contrast reasons. I decided to stick with the originally created Favicon as it still matches the overall theme of the site and is more noticable than the alternative colour. The text was chosen to be white as this contrasts well with the chosen colour, with the font Khmer chosen for readability. Due to the limited space available the initials of the band, TJR, were chosen for the favicon. This is beneficial as it stands out and is easy identifiable when multiple tabs are open.
+  The favicon is the same icon as in the logo, and was the clear candidate for representing Magasinet Ekorren as explained in the [logo](#logo) paragraph.
 
-  ![Mobile Wireframe Image](docs/readme_images/favicon.png)
+  ![favicon](main/static/images/acorn.png)
 
 ## Features
 
@@ -399,9 +400,11 @@ The site was created using Visual Studio Code and GitHub, and deployed to GitHub
 
 The website was tested using the tools made available by the [World Wide Web Consortium](https://www.w3.org/), also known as "W3C".
 
-The two tools used were the [Markup Validation Service](https://validator.w3.org/#validate_by_uri) and the [CSS Validation Service](https://jigsaw.w3.org/css-validator/#validate_by_uri). Both tools were used to test the website by URL and also by direct input, with the results shown below.
+The two tools used were the [Markup Validation Service](https://validator.w3.org/#validate_by_uri) and the [CSS Validation Service](https://jigsaw.w3.org/css-validator/#validate_by_uri).
 
-No errors were returned for all HTML or CSS across all tests. Some warnings were displayed.
+In using the "Validate by URI" function in the HTML validator, I found that the validator was throwing errors related to the jinja templating language mixed with the HTML (for example for and if statements as "{% if x == y %}"). The solution i found was to open the page in a browser, righ click anywhere on the page and press "Check page source", and copying the output HTML directly from there and put it in the "Validate by Direct Input"  function. This way i get the fully rendered HTML without the jinja template tags.
+
+No errors were returned for all HTML or CSS across all tests.
 
  <details>
   <summary>HTML Validation by URL</summary>
@@ -433,31 +436,35 @@ No errors were returned for all HTML or CSS across all tests. Some warnings were
 
 - ## Manual Testing
 
-  The site was tested manually across a range of devices to ensure all links and styling work correctly and to ensure responsiveness across a range of devices. All features on the page were tested, especially the javascript element, to ensure functionality was not impacted in any way. Testing was carried out on multiple browsers such as Google Chrome, Microsoft Edge, Mozilla Firefox, Safari and Opera. Testing was carried out on an Apple iPhone, Apple iPhone 13, Samsung Galaxy S20 FE, Samsung Galaxy A51, Apple iPad Pro & Windows 10 Desktops.
+  The site was tested manually across a range of devices to ensure all links and styling work correctly and to ensure responsiveness across a range of devices. All features on the page were tested, especially the form validation, to ensure user feedback worked properly and no faulty inputs could be made. Testing was carried out on multiple browsers such as Google Chrome, Microsoft Edge, Mozilla Firefox, Safari and Opera. Testing was carried out on an Apple iPhone 12, Apple iPhone 13, Huawei P20, iPad Mini and Windows 10 Desktops.
 
   The website was also tested in Internet Explorer 11, where some performance and layout issues are present. I was unable to resolve these as Internet Explorer 11 is not supported by Bootstrap 5.
-
-  [LambdaTest.com](https://www.lambdatest.com/) was used for cross browser testing.
 
   #
 
   - ## Lighthouse Testing
 
-  ![Lighthouse Test Result Image](docs/readme_images/lighthouse.png)
+  ![Lighthouse Test Result Image](main/static/readme/lighthouse_summary.png)
 
   A test was ran using Lighthouse within Google Chrome to verify performance and accessibility standards were met and to ensure best practices were followed.
 
-  The full report can be viewed [here](docs/lighthouse.pdf).
+  The following steps were done to improve the score on the Lighthouse test:
+
+    - Contrasting text and background colors were altered until complying with AAA-standars, with help from Google Dev Tools for maximum readability.
+    - Images were compressed by using [TinyPNG](https://tinypng.com/).
+    - The 'loading = "lazy"' attribute was added to all images, to get them to load when they are scrolled down to, instead of them all loading when the page initially loads.
+
+  The full report can be viewed [here](main/static/readme/lighthouse_expanded.pdf).
 
   #
 
   - ## Wave Testing
 
-  ![Wave Test Result Image](docs/readme_images/wave.png)
+  ![Wave Test Result Image](main/static/readme/wave_test.png)
 
   A further test was ran using the Web Accessibility Evaluation Tool (WAVE) to ensure no errors were returned and to verify that no constrast issues existed on the site. This was an important step to ensure that users with disabilities were not negatively impacted by the design of the site and that the relevant standards have been met.
 
-  A full version of the test can be viewed [here](https://wave.webaim.org/report#/https://fatheed7.github.io/the-jet-reds/).
+  The contrast warning seemed to be a bug in the validator, since i could not find the element where the warning occurred. 
 
   #
 
