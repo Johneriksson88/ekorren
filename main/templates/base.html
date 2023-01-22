@@ -17,7 +17,6 @@
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
   <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
   <title>Ekorren Förråd - hyr förråd i Uppsala</title>
-
 </head>
 
 <body>
@@ -58,9 +57,9 @@
               text-acorn-green" id="user-panel-icon"></i></a></span>
         </li>
         <li>
-          <a class="btn btn-danger" id="loginout-btn" href="{% url 'logout' %}" aria-label="Log out"><b>Log out</b></a>
+          <a class="btn btn-danger loginout-btn" href="{% url 'logout' %}" aria-label="Log out"><b>Log out</b></a>
       {% else %}
-          <a class="btn btn-primary" id="loginout-btn" href="{% url 'login' %}" aria-label="Log in"><b>Log in</b></a>
+          <a class="btn btn-primary loginout-btn" href="{% url 'login' %}" aria-label="Log in"><b>Log in</b></a>
       {% endif %}
         </li>
       {% if user.is_superuser %}
@@ -94,8 +93,7 @@
   
       <ul class="nav col-md-4 justify-content-end" id="footer-nav">
         <li class="nav-item"><a href="#" class="nav-link px-2" aria-label="Go to home page">Home</a></li>
-        <li class="nav-item"><a href="{% url 'index' %}#product-cards-section" class="nav-link px-2" aria-label="Go to product cards section">Storage Units</a>
-        </li>
+        <li class="nav-item"><a href="{% url 'index' %}#product-cards-section" class="nav-link px-2" aria-label="Go to product cards section">Storage Units</a></li>
         <li class="nav-item"><a class="nav-link px-2" href="{% url 'index' %}#about-us-section" aria-label="To to about us and contact section">About & Contact</a></li>
         {% if user.is_authenticated %}
         <li class="nav-item"><a href="{% url 'user_panel' %}" class="nav-link px-2" aria-label="Go to user panel">My User Panel</a></li>

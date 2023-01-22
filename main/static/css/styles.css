@@ -127,7 +127,7 @@ h6 {
     font-weight: bold;
 }
 
-#loginout-btn {
+.loginout-btn {
     padding: 3px;
     margin-left: 5px;
     border: 1px solid black;
