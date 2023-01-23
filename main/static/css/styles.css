@@ -212,6 +212,7 @@ h6 {
     }
 }
 
+
 /* WHY US SECTION */
 
 #why-us-section {
@@ -385,6 +386,7 @@ input.error {
     border-radius: 3px;
     margin-top: 3px;
 }
+
 
 label.error.fail-alert {
     border: 2px solid red;

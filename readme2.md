@@ -6,6 +6,8 @@ This website was created for a company called Magasinet Ekorren ('The Squirrel W
 The company provides storage units in various sizes for rent to persons and businesses. The website provides short and concise information about the storage units and how to rent them. It provides a service for creating an account, and managing the orders and customer information on a user panel page. 
 There is also an admin panel where the site owner can manage the database and collect an updated customer registry.
 
+The project is a part of the [Code Institute Full Stack Developer Program](https://codeinstitute.net/se/full-stack-software-development-diploma/) and is my fourth "portfolio project".
+
 The website can be [found here](https://magasinet-ekorren.herokuapp.com/).
 
 ## Table of Contents
@@ -16,9 +18,9 @@ The website can be [found here](https://magasinet-ekorren.herokuapp.com/).
   - [Wireframes](#wireframes)
 - [Design](#design)
   - [Imagery](#imagery)
-      -[Logo](#logo)
-      -[Hero image](#hero-image)
-      -[Why us section](#why-us-section)
+    -[Logo](#logo)
+    -[Hero image](#hero-image)
+    -[Why us section](#why-us-section)
   - [Colours](#colours)
   - [Fonts](#fonts)
   - [Favicon](#favicon)
@@ -46,7 +48,7 @@ The website can be [found here](https://magasinet-ekorren.herokuapp.com/).
 
 ## UX and UI
 
-- ### Site Owner Goals
+### Site Owner Goals
 
   The website was developed together with the site owner to ensure the main goals of the site was met:
 
@@ -58,49 +60,62 @@ The website can be [found here](https://magasinet-ekorren.herokuapp.com/).
 
 #
 
-- ### User Stories
+### User Stories
 
 Agile development practices such as user stories were managed by using GitHub's "Issues" tab in the GitHub repository.
 
-The GitHub project can be accessed [here](https://github.com/users/Johneriksson88/projects/4/views/1).
-The Issues page can be acceessed [here](https://github.com/Johneriksson88/ekorren/issues)
+The GitHub project can be found [here](https://github.com/users/Johneriksson88/projects/4/views/1).
+The Issues page can be found [here](https://github.com/Johneriksson88/ekorren/issues).
 
 User stories were divided into three categories:
 
   - Visitor - a prospective customer enquiring information to make a decision to rent a storage unit
   - Customer - a customer which has decided to rent a storage unit from Magasinet Ekorren
-  - Admin - the site owner
+  - Admin - the site owner/administrator
 
-  - #### Visitor Goals
+### Visitor Goals
 
-    [1](https://github.com/Johneriksson88/ekorren/issues/3). As a visitor I can access information about contact, directions and practical information so that I can learn more about the company, their products and how to get in touch with them.
+  [1](https://github.com/Johneriksson88/ekorren/issues/3). As a visitor I can access information about contact, directions and practical information so that I can learn more about the company, their products and how to get in touch with them.
 
-    [2](https://github.com/Johneriksson88/ekorren/issues/2). As a visitor I can see arguments for why I would want to rent a storage unit from Magasinet Ekorren so that I can make a decision to rent or not to rent a storage unit.
+  [2](https://github.com/Johneriksson88/ekorren/issues/2). As a visitor I can see arguments for why I would want to rent a storage unit from Magasinet Ekorren so that I can make a decision to rent or not to rent a storage unit.
 
-    [3](https://github.com/Johneriksson88/ekorren/issues/1). As a visitor I can access information about the different products and their prices so that I can make a decision to rent or not rent a storage unit.
+  [3](https://github.com/Johneriksson88/ekorren/issues/1). As a visitor I can access information about the different products and their prices so that I can make a decision to rent or not rent a storage unit.
 
-  - #### Customer Goals
+### Customer Goals
 
-    [1](https://github.com/Johneriksson88/ekorren/issues/14). As a customer/visitor I can get clear messages on top of the page so that I get feedback on what I've done.
-    [2](https://github.com/Johneriksson88/ekorren/issues/11). As a customer I can view my orders so that I know what and how many storage units I'm renting.
-    [3](https://github.com/Johneriksson88/ekorren/issues/10). As a customer I can edit my contact information so that my contact and invoice details are up to date.
-    [4](https://github.com/Johneriksson88/ekorren/issues/9). As a customer I can delete orders so that I can cancel my rental of storage unit/units.
-    [5](https://github.com/Johneriksson88/ekorren/issues/8). As a customer I can delete my account so that I can choose not to be a customer any more.
-    [6](https://github.com/Johneriksson88/ekorren/issues/5). As a customer I can register an account so that I can update my information and manage/make new orders.
-    [7](https://github.com/Johneriksson88/ekorren/issues/4). As a customer I can rent a storage unit directly from the web site so that I can quickly act on my decision to rent a storage unit from Magasinet Ekorren.
+  [1](https://github.com/Johneriksson88/ekorren/issues/14). As a customer/visitor I can get clear messages on top of the page so that I get feedback on what I've done.
 
-  - #### Admin goals
+  [2](https://github.com/Johneriksson88/ekorren/issues/11). As a customer I can view my orders so that I know what and how many storage units I'm renting.
 
-    [1](https://github.com/Johneriksson88/ekorren/issues/7). As an admin I can login to an admin account so that I can access the admin panel.
-    [2](https://github.com/Johneriksson88/ekorren/issues/12). As an admin I can get an email notification when a new order is submitted so that I can manually process it.
-    [3](https://github.com/Johneriksson88/ekorren/issues/13). As an admin I can get an email notification when an order is deleted so that I can cancel the invoicing for that order.
-    [4](https://github.com/Johneriksson88/ekorren/issues/6). As an admin I can download the customer registry so that I can view it and import it to my invoice software.
+  [3](https://github.com/Johneriksson88/ekorren/issues/10). As a customer I can edit my contact information so that my contact and invoice details are up to date.
+
+  [4](https://github.com/Johneriksson88/ekorren/issues/9). As a customer I can delete orders so that I can cancel my rental of storage unit/units.
+
+  [5](https://github.com/Johneriksson88/ekorren/issues/8). As a customer I can delete my account so that I can choose not to be a customer any more.
+
+  [6](https://github.com/Johneriksson88/ekorren/issues/5). As a customer I can register an account so that I can update my information and manage/make new orders.
+
+  [7](https://github.com/Johneriksson88/ekorren/issues/4). As a customer I can rent a storage unit directly from the web site so that I can quickly act on my decision to rent a storage unit from Magasinet Ekorren.
+
+### Admin goals
+
+  [1](https://github.com/Johneriksson88/ekorren/issues/7). As an admin I can login to an admin account so that I can access the admin panel.
+
+  [2](https://github.com/Johneriksson88/ekorren/issues/12). As an admin I can get an email notification when a new order is submitted so that I can manually process it.
+  
+  [3](https://github.com/Johneriksson88/ekorren/issues/13). As an admin I can get an email notification when an order is deleted so that I can cancel the invoicing for that order.
+
+  [4](https://github.com/Johneriksson88/ekorren/issues/6). As an admin I can download the customer registry so that I can view it and import it to my invoice software.
 
   #
 
   ## Wireframes
 
-  The wireframes for this site were created using Balasmiq. The end product ended up a little bit different from the original wireframe, due to considerations and ideas changing as the creative process flowed on. I only made a wireframe for the landing page, as to get a big picture feel of how the website should look and feel.
+  The wireframe for this website were created using Balasmiq. The end product ended up a little bit different from the original wireframe, due to considerations and ideas changing as the creative process flowed on. I only made a wireframe for the landing page, as to get a big picture feel of how the website should look and feel. The user panel and subsequent pages was design on the fly experimenting with different bootstrap components.
+
+  The initial idea was to have a true one page website with the order form on the bottom of the page, but after experimenting it felt more logical to have this step separated from the landing page which i wanted to be purely informational, and leading a potential customer to ordering with calls to action.
+
+  Also, as I realized that I needed to have a login function where the user could perform full CRUD functionality on the database - as per the assessment criteria of the project - it made even more sense to have the order form on another page.
 
   ![Wireframe](main/static/readme/magasinet_ekorren_wireframe.png)
 
@@ -239,8 +254,8 @@ User stories were divided into three categories:
 
 - ## About & Contact section
 
-  - The decision to include the Find us, About and Contact sections into one was for the navbar to have a minimum number of links. Having only three links decreases cluttering and looks less confusing to the visitor. Since the three sections are higly related i saw no problem in collecting them into one section.
-  - The three sections are vertically stacked on all viewport widths and divided into cards with a rounded edge and a shadow, to have them appear to float on the page. This way they stick out from the white background and look easier on the eye.
+  The decision to include the Find us, About and Contact sections into one was for the navbar to have a minimum number of links. Having only three links decreases cluttering and looks less confusing to the visitor. This was also a suggestion from my mentor. Since the three sections are highly related i saw no problem in collecting them into one section.
+  The three sections are vertically stacked on all viewport widths and divided into cards. They all share styles with a rounded edge and a shadow, to have them appear to float on the page. This way they stick out from the white background and look easier on the eye.
 
   - ### Find us
     - The Find us header has a map icon from [fontawesome](https://fontawesome.com/) which visually reinforces what the section presents.
@@ -254,6 +269,13 @@ User stories were divided into three categories:
     - The text is a short presentation of the company, their values and a short paragraph about the storage units.
     
   ![About us](main/static/readme/about_us.png)
+
+  - ### Contact Us
+    - The contact us section contains of a phone number, email adress and a contact form.
+    - The phone number is a direct call link (in html *a href="**tel**:0706499977"*) and the email is a direct mail link.
+    - The concat form consists of a Name field, an Email field and a Message field. The field labels are missing, which from the beginning was a happy accident due to the loading of the form with template tags. I decided to keep it that way to minimize the amount of visual space taken up by the form. You could say the labels are in the placeholders of the fields.
+
+  ![Contact Us](main/static/readme/contact_us.png)
 
 #
 
@@ -277,13 +299,13 @@ This section covers all technology components and choices.
 ### Technology Choices
 
 - [GitHub](https://github.com/)
-	- version control and hosting during development
+	- version control and hosting during development.
 - [GitPod](https://gitpod.io/)
-  - in-browser editor
+  - in-browser editor.
 - [HTML 5.2](https://www.w3.org/TR/html52/)
 	- to create the content.
 - [Bootstrap 5.2.2](https://getbootstrap.com/)
-	- to style the content, provide the layout and some JavaScript functionality
+	- to style the content, provide the layout and some JavaScript functionality.
 - [jQuery 3.6.0](https://jquery.com/)
   - to manipulate the DOM.
 - [CSS 3](https://www.w3schools.com/css/default.asp)
@@ -295,19 +317,19 @@ This section covers all technology components and choices.
 - [Code Institute GitPod Full Template](https://github.com/Code-Institute-Org/gitpod-full-template)
 	- the template i started my project with.
 - [Cloudinary](https://cloudinary.com/)
-  - a cloud storage service that i used for static files and images
+  - a cloud storage service that i used for static files and images.
 - [Jinja 3.1 ](https://jinja.palletsprojects.com/en/3.1.x/)
-	- to be able to write Python code mixed with the HTML
+	- to be able to write Python code mixed with the HTML.
 - [GitHub](https://github.com/)
 	- project repository.
 - [Heroku](https://heroku.com/)
 	- for deployment and hosting.
 - [Balsamiq](https://balsamiq.com/wireframes/)
-  - to create the wireframe
+  - to create the wireframe.
 - [Lucidchart](https://www.lucidchart.com/)
-  - to create a flowchart
+  - to create a flowchart.
 - [Autopep8](https://pypi.org/project/autopep8/)
-  - to correctly format all Python code.
+  - to correctly format all Python code to PEP8 standards.
 - [ElephantSQL](https://www.elephantsql.com/)
   - database hosting.
 
@@ -326,17 +348,15 @@ This section covers all technology components and choices.
 **Log into heroku**
 
 3. Log into [Heroku](https://dashboard.heroku.com/apps) or create a new account and log in
-
 4. In the top right-hand corner click "New" and choose the option Create new app, if you are a new user, the "Create new app" button will appear in the middle of the screen
-
 5. Write app name - it has to be unique
 6. Choose Region
 7. Click "Create App"
 
-**The page of your project opens.**
+**The page of your project opens**
 
-8. **IMPORTANT** - Make sure all secret keys and passwords are kept in an env.py file in your root directory. 
-  Access them by using e.g.: 
+8. **IMPORTANT** - Make sure all secret keys and passwords are kept in an env.py file in your root directory. Put the reference to env.py in the gitignore file as to not accidentally share it with others.
+  Access the variables by using e.g.: 
   ```
   os.environ.get('SECRET_KEY')
   ```
@@ -402,53 +422,123 @@ In local development my URL changed day by day (e.g. https://8000-johneriksson88
 
 ## Testing
 
-- ## Validator Testing
+### **HTML and CSS**
 
-The website was tested using the tools made available by the [World Wide Web Consortium](https://www.w3.org/), also known as "W3C".
+The HTML and CSS was tested using the tools made available by the [World Wide Web Consortium](https://www.w3.org/), also known as "W3C".
 
 The two tools used were the [Markup Validation Service](https://validator.w3.org/#validate_by_uri) and the [CSS Validation Service](https://jigsaw.w3.org/css-validator/#validate_by_uri).
 
-In using the "Validate by URI" function in the HTML validator, I found that the validator was throwing errors related to the jinja templating language mixed with the HTML (for example for and if statements as "{% if x == y %}"). The solution i found was to open the page in a browser, righ click anywhere on the page and press "Check page source", and copying the output HTML directly from there and put it in the "Validate by Direct Input"  function. This way i get the fully rendered HTML without the jinja template tags.
+All HTML-files and the styles.css-file were tested without any errors.
 
-No errors were returned for all HTML or CSS across all tests.
+### **HTML Validator Problems**
 
- <details>
-  <summary>HTML Validation by URL</summary>
+In using the "Validate by URI" function in the HTML validator, I found that the validator was throwing errors related to the jinja templating language mixed with the HTML (for example for and if statements as "{% if x == y %}"). The solution i found was to open the page in a browser, righ click anywhere on the page and press "Check page source", and copying the output HTML directly from there and put it in the "Validate by Direct Input"  function. This way i get the fully rendered HTML without the jinja template tags and the validation threw no errors.
 
-![HTML Validation by URL](docs/readme_images/validation/markup_url.png)
+### **JavaScript**
 
-  </details>
- <details>
-  <summary>HTML Validation by Direct Input</summary>
+The script.js-file was tested in the [jshint](https://jshint.com/) tester without any errors or warnings.
 
-![HTML Validation by Direct Input](docs/readme_images/validation/markup_direct.png)
+### **Python**
 
-  </details>
+All python-files were tested for syntax errors in the [Python syntax checker](https://extendsclass.com/python-tester.html).
 
-  <details>
-  <summary>CSS Validation by URL</summary>
+I got only one error which was in views.py:
+```
+Syntax errors detected :
 
-![CSS Validation by URL](docs/readme_images/validation/css_url.png)
+Line 196:
+messages.success(request, f"Order #{order_id} successfully deleted.")
+^
+SyntaxError: invalid syntax
+```
 
-  </details>
- <details>
-  <summary>CSS Validation by Direct Input</summary>
-
-![CSS Validation by Direct Input](docs/readme_images/validation/css_direct.png)
-
-  </details>
+Asking friends and fellow students there was no apparent error with the code (note that the debugger does not throw this error) and as it works as intended i left the code as it was.
 
 #
 
-- ## Manual Testing
+## **Manual Testing**
 
-  The site was tested manually across a range of devices to ensure all links and styling work correctly and to ensure responsiveness across a range of devices. All features on the page were tested, especially the form validation, to ensure user feedback worked properly and no faulty inputs could be made. Testing was carried out on multiple browsers such as Google Chrome, Microsoft Edge, Mozilla Firefox, Safari and Opera. Testing was carried out on an Apple iPhone 12, Apple iPhone 13, Huawei P20, iPad Mini and Windows 10 Desktops.
+The site was tested manually across a range of devices to ensure all links and styling work correctly and to ensure responsiveness across a range of devices. All features on the page were tested, especially the form validation, to ensure user feedback worked properly and no faulty inputs could be made. 
 
-  The website was also tested in Internet Explorer 11, where some performance and layout issues are present. I was unable to resolve these as Internet Explorer 11 is not supported by Bootstrap 5.
+Testing was carried out on multiple browsers such as Google Chrome, Microsoft Edge, Mozilla Firefox, Safari and Opera. Testing was carried out on an Apple iPhone 12, Apple iPhone 13, Huawei P20, iPad Mini and Windows 10 Desktops.
 
-  #
+### **Manual tests**
 
-  - ## Lighthouse Testing
+The manual testing was divided up into the websites different functions:
+
+  1. Log in/log out
+  2. Create account
+  3. Contact form
+  4. User panel
+  5. Order form
+  6. Customer form
+
+#
+
+1. **Log in/log out**
+
+| Expected outcome | Test | Result |
+| ----------- | ----------- | ----------- |
+| Clicking the Log in button takes me to the login page | Click the login button | PASS |
+| Logging in with an invalid username gives me a feedback message | Enter an invalid username | PASS |
+| Logging in with an invalid password gives me a feedback message | Enter an invalid password | PASS |
+| Clicking any "Rent now" button on the landing page takes me to the log in page if I'm not logged in | Click every "Rent now" button on the landing page while logged out | PASS |
+| Clicking any "Rent now" button on the landing page takes me to the order form if I'm logged in | Click every "Rent now" button on the landing page while logged in | PASS |
+| Logging in as a new customer takes me to the customer form | Create an new user and log in | PASS |
+| Logging in as an existing customer takes me to the user panel | Log in as an existing user | PASS |
+
+2. **Create account**
+
+| Expected outcome | Test | Result |
+| ----------- | ----------- | ----------- |
+| Clicking the "Sign up" link on the log in page takes me to the register form | Click "Sign up" on log in page | PASS |
+| Trying to register an account with an existing username gives me a feedback message | Create an account with an existing username | PASS |
+| Trying to enter a password that does not match Django standards for a safe password gives me a feedback message | Create an account with the password "asd" | PASS |
+| Trying to enter a different password in the "repeat password" input box gives me a feedback message | Create an account with the password "asd" and repeat password "asdf" | PASS |
+| Successfully filling the register form takes me to the login page and gives me feedback that my account was created | Create an account with correct username and password | PASS |
+
+3. **Contact form**
+
+| Expected outcome | Test | Result |
+| ----------- | ----------- | ----------- |
+| Submitting the form without input gives me a feedback message | Click "Send" without entering anything into the form | PASS |
+| Submitting the form without entering a name gives me a feedback message | Fill all form fields but name field | PASS |
+| Submitting the form without entering an email gives me a feedback message | Fill all form fields but email field | PASS |
+| Submitting the form entering an invalid email address gives me a feedback message | Enter an email without an "@" symbol | PASS |
+| Submitting the form without entering a message gives me a feedback message | Fill all form fields but message field | PASS |
+| Submitting the form with valid input gives me feedback that a message was sent and takes me to the landing page | Enter valid input in the form | PASS |
+
+4. **User panel**
+
+| Expected outcome | Test | Result |
+| ----------- | ----------- | ----------- |
+| The user panel displays my current orders and contact information | Go to user panel as a user with current orders | PASS |
+| If i haven't made any orders yet, I am informed in the "My orders" list | Go to user panel as a user without any orders | PASS |
+| Deleting an order takes me to a confirmation page where the relevant order information is displayed | Click the trash can icon next to any order | PASS |
+| Confirming the deletion of an order gives me a feedback message with the relevant order number | Delete any order and click confirm | PASS |
+
+5. **Order form**
+
+| Expected outcome | Test | Result |
+| ----------- | ----------- | ----------- |
+| Not selecting a storage unit in the dropdown list gives me a feedback message | Submit the order without a selected storage unit | PASS |
+| Not selecting a start date gives me a feedback message | Submit the order without a selected start date | PASS |
+| Selecting a start date that is back in time gives me a feedback message | Submit the order with a start date back in time selected | PASS |
+| Sucessfully filling the order form takes me to a confirmation page where the order details are displayed | Enter correct input in order form | PASS |
+
+6. **Customer form**
+
+| Expected outcome | Test | Result |
+| ----------- | ----------- | ----------- |
+| Submitting any or all fields without imput gives me a feedback message | Submit the form without input, then one time leaving one field at a time empty | PASS |
+| Submitting the form entering an invalid email address gives me a feedback message | Enter an email without an "@" symbol | PASS |
+| Submitting the form entering an invalid Swedish zipcode gives me a feedback message | Enter a zipcode with only 4 digits | PASS | 
+|  |  |  |
+|  |  |  |
+
+#
+
+## **Lighthouse Testing**
 
   ![Lighthouse Test Result Image](main/static/readme/lighthouse_summary.png)
 
@@ -456,43 +546,28 @@ No errors were returned for all HTML or CSS across all tests.
 
   The following steps were done to improve the score on the Lighthouse test:
 
-    - Contrasting text and background colors were altered until complying with AAA-standars, with help from Google Dev Tools for maximum readability.
-    - Images were compressed by using [TinyPNG](https://tinypng.com/).
-    - The 'loading = "lazy"' attribute was added to all images, to get them to load when they are scrolled down to, instead of them all loading when the page initially loads.
+  - Contrasting text and background colors were altered until complying with AAA-standars, with help from Google Dev Tools for maximum readability.
+  - Images were compressed by using [TinyPNG](https://tinypng.com/).
+  - The 'loading = "lazy"' attribute was added to all images, to get them to load when they are scrolled down to, instead of them all loading when the page initially loads.
 
   The full report can be viewed [here](main/static/readme/lighthouse_expanded.pdf).
 
   #
 
-  - ## Wave Testing
+## **Wave Testing**
 
   ![Wave Test Result Image](main/static/readme/wave_test.png)
 
   A further test was ran using the Web Accessibility Evaluation Tool (WAVE) to ensure no errors were returned and to verify that no constrast issues existed on the site. This was an important step to ensure that users with disabilities were not negatively impacted by the design of the site and that the relevant standards have been met.
 
-  The contrast warning seemed to be a bug in the validator, since i could not find the element where the warning occurred. 
+  - The contrast warning seemed to be a bug in the validator, since i could not find the element where the warning occurred.
+  - The Alerts related to the hierarchy of the header elements not appearing in falling order. I decided to ignore these alerts since i was happy with how the headings visually represented their respective elements.
 
   #
 
-- ## Bugs
+## Bugs
 
-  - ## Section Header obscured on page scrolling
-
-    A bug was discovered that resulted in the header of a section being obscured if the user clicked a link on the navbar. On clicking the link, the page would scroll, but it did not account for the space taken up by the navbar itself, obscuring the header as seen in the image below.
-
-    ![Header Bug Before Resolution](docs/readme_images/header_bug.png)
-
-    Research was carried out on this bug and a resolution was found in an existing CSS property on the documentation made available on the [Mozilla MDN Web Docs website](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-margin-top).
-
-    The below code was added to the ID tags of each link and was used to define the scroll snap area on each section of the page. Adding this code resolved this issue as seen in the below image.
-
-    Code used to resolve display issue:
-
-    ```
-    scroll-margin-top: 3.7rem;
-    ```
-
-    ![Header Bug After Resolution](docs/readme_images/header_bug_resolved.png)
+  
 
 ## Credits
 

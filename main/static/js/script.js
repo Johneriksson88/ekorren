@@ -32,6 +32,8 @@ $(document).ready(function () {
     $('#id_storage_unit').attr('aria-label', 'Pick a storage unit');
     $('#id_start_date').attr('aria-label', 'Pick a start date');
 
+    // Hide error div if it has no content
+    $('.help-block:empty').hide();
 
 });
 

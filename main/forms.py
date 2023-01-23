@@ -105,7 +105,7 @@ class ContactForm(forms.Form):
 
 
 class SignUpForm(UserCreationForm):
-    username = forms.CharField(widget=forms.TextInput(attrs={
+    """ username = forms.CharField(widget=forms.TextInput(attrs={
         'placeholder': 'Username'
     }))
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={
@@ -113,7 +113,7 @@ class SignUpForm(UserCreationForm):
     }))
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={
         'placeholder': 'Re-enter password'
-    }))
+    })) """
 
     def __init__(self, *args, **kwargs):
         super(SignUpForm, self).__init__(*args, **kwargs)
