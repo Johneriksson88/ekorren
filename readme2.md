@@ -16,6 +16,9 @@ The website can be [found here](https://magasinet-ekorren.herokuapp.com/).
   - [Wireframes](#wireframes)
 - [Design](#design)
   - [Imagery](#imagery)
+      -[Logo](#logo)
+      -[Hero image](#hero-image)
+      -[Why us section](#why-us-section)
   - [Colours](#colours)
   - [Fonts](#fonts)
   - [Favicon](#favicon)
@@ -70,26 +73,28 @@ User stories were divided into three categories:
 
   - #### Visitor Goals
 
-    1. As a visitor I can access information about contact, directions and practical information so that I can learn more about the company, their products and how to get in touch with them.
-    2. As a visitor I can see arguments for why I would want to rent a storage unit from Magasinet Ekorren so that I can make a decision to rent or not to rent a storage unit.
-    3. As a visitor I can access information about the different products and their prices so that I can make a decision to rent or not rent a storage unit.
+    [1](https://github.com/Johneriksson88/ekorren/issues/3). As a visitor I can access information about contact, directions and practical information so that I can learn more about the company, their products and how to get in touch with them.
+
+    [2](https://github.com/Johneriksson88/ekorren/issues/2). As a visitor I can see arguments for why I would want to rent a storage unit from Magasinet Ekorren so that I can make a decision to rent or not to rent a storage unit.
+
+    [3](https://github.com/Johneriksson88/ekorren/issues/1). As a visitor I can access information about the different products and their prices so that I can make a decision to rent or not rent a storage unit.
 
   - #### Customer Goals
 
-    1. As a customer/visitor I can get clear messages on top of the page so that I get feedback on what I've done.
-    2. As a customer I can view my orders so that I know what and how many storage units I'm renting.
-    3. As a customer I can edit my contact information so that my contact and invoice details are up to date.
-    4. As a customer I can delete orders so that I can cancel my rental of storage unit/units.
-    5. As a customer I can delete my account so that I can choose not to be a customer any more.
-    6. As a customer I can register an account so that I can update my information and manage/make new orders.
-    7. As a customer I can rent a storage unit directly from the web site so that I can quickly act on my decision to rent a storage unit from Magasinet Ekorren.
+    [1](https://github.com/Johneriksson88/ekorren/issues/14). As a customer/visitor I can get clear messages on top of the page so that I get feedback on what I've done.
+    [2](https://github.com/Johneriksson88/ekorren/issues/11). As a customer I can view my orders so that I know what and how many storage units I'm renting.
+    [3](https://github.com/Johneriksson88/ekorren/issues/10). As a customer I can edit my contact information so that my contact and invoice details are up to date.
+    [4](https://github.com/Johneriksson88/ekorren/issues/9). As a customer I can delete orders so that I can cancel my rental of storage unit/units.
+    [5](https://github.com/Johneriksson88/ekorren/issues/8). As a customer I can delete my account so that I can choose not to be a customer any more.
+    [6](https://github.com/Johneriksson88/ekorren/issues/5). As a customer I can register an account so that I can update my information and manage/make new orders.
+    [7](https://github.com/Johneriksson88/ekorren/issues/4). As a customer I can rent a storage unit directly from the web site so that I can quickly act on my decision to rent a storage unit from Magasinet Ekorren.
 
   - #### Admin goals
 
-    1. As an admin I can login to an admin account so that I can access the admin panel.
-    2. As an admin I can get an email notification when a new order is submitted so that I can manually process it.
-    3. As an admin I can get an email notification when an order is deleted so that I can cancel the invoicing for that order.
-    4. As an admin I can download the customer registry so that I can view it and import it to my invoice software.
+    [1](https://github.com/Johneriksson88/ekorren/issues/7). As an admin I can login to an admin account so that I can access the admin panel.
+    [2](https://github.com/Johneriksson88/ekorren/issues/12). As an admin I can get an email notification when a new order is submitted so that I can manually process it.
+    [3](https://github.com/Johneriksson88/ekorren/issues/13). As an admin I can get an email notification when an order is deleted so that I can cancel the invoicing for that order.
+    [4](https://github.com/Johneriksson88/ekorren/issues/6). As an admin I can download the customer registry so that I can view it and import it to my invoice software.
 
   #
 
@@ -143,254 +148,255 @@ User stories were divided into three categories:
 
 - ## Header
 
-![The Jet Reds Website Navbar](docs/readme_images/navbar.png)
+![Magasinet Ekorren header](main/static/readme/header.png)
 
-- The Navbar has a fixed position at the head of the page which sits above all other content. This was chosen over a sticky position mainly for browers compatibility, but it's function does not vary in any significant way to a fixed position.
-- To ensure the content sat below the header, a margin was added to the top of the page. More information about this can be found in the [Bugs](#bugs) section.
-- Sass was used to override the default colour of the links, with a shadow added to contrast against the background colour of the navbar.
+- The header consists of a [bootstrap component](https://getbootstrap.com/docs/4.0/components/navbar/) which is slightly modified to fit the logo, navbar and login/logout and account related links.
+- The navbar has a fixed position at the head of the page which sits above all other content. This was chosen over a sticky position mainly for browers compatibility, but it's function does not vary in any significant way to a fixed position.
+- The header is fully responsive and collapses the three navbar links and instead shows a clickable "hamburger menu" for viewport widths of 991px and smaller.
 
-#
+![Header collapsed](main/static/readme/header_collapsed.png)
 
-- The Navbar was coloured using the Bootstrap 'Danger' colour which was used due to the red colour which is relevant to the bands' name.
+- ### Logo
+    - The logo is described [here](#logo).
 
-![Bootstrap Danger Colour Image](docs/readme_images/colour.png)
+- ### Navigation links
+    - There are 3 main navigation links:
+      - **Home** - leads to the top of the landing page.
+      - **Storage Units** - leads to the product cards section on the landing page.
+      - **About & Contact** - leads to the About & Contact section on the landing page.
+    
 
-#
+    ![Header logged in](main/static/readme/header_logged_in.png)
 
-- The logo was provided by The Jet Reds and, due to the unique font used, was retained in an image format, with CSS added to alter size as required. The logo is also a hyperlink which returns the user to the top of the website. The image can be found [here](assets/img/jr_logo.png).
-
-#
-
-- The Navbar contains links to other section on the website. They are designed to be displayed as clickable links, with an overline attribute applied to the element when the user hovers over a link.
-
-![Navbar Mouseover Image](docs/readme_images/navbar_mouseover.png)
-
-- The displayed links disappear on screens with a resolution width below 768 pixels and are replaced with a hamburger menu.
-
-![Navbar Hamburger Menu Image](docs/readme_images/navbar_hamburger.png)
-
-#
-
-- ## Carousel
-
-  - Rather than using a static hero image, I opted to add a carousel below the header which automatically rotates after a set amount of time has elapsed, but also features controls on either side to allow navigation between images.
-
-  The images used can be found below.
-
-     <details>
-
-    <summary>Carousel Image One</summary>
-
-  ![Desktop Wireframe Image](assets/img/JR_carousel_image1.jpg)
-    </details>
-
-     <details>
-
-    <summary>Carousel Image Two</summary>
-
-  ![Desktop Wireframe Image](assets/img/JR_carousel_image2.jpg)
-    </details>
-
-     <details>
-
-    <summary>Carousel Image Three</summary>
-
-  ![Desktop Wireframe Image](assets/img/JR_carousel_image3.jpg)
-    </details>
-
-  #
-
-  - A div has been placed at the foot of the carousel containing real reviews of the band. The div has been coloured black with an opacity of 0.7. This has been done to contrast against the bright background of the images, but also to also some visibility so the full image can still be seen.
-
-  #
-
-  ![Navbar Hamburger Menu Image](docs/readme_images/carousel_review.png)
-
-  #
-
-  - The div containing the reviews is automatically hidden for screens with a resultion width below 768 pixels to allow full visibility of the images.
+    - On the right of the header are the dynamic login and account related links.
+      - **Log in** - This button is showed only if a user is _not_ logged in, and leads to the login page.
+      - **Log out** - This button is showed only if a user _is_ logged in and logs out the user and redirects to the landing page.
+      - **Hello, _username_** - This is a dynamic message which greets the user and tells them they are logged in. It is only showed if a user is logged in.
+      - ![User panel icon](main/static/readme/user_panel_icon.png) **User panel icon** - This is the link to get to the user panel. It is only showed if a user is logged in.
+      ![Admin header](main/static/readme/header_admin.png)
+      - **Admin panel** - This is a link to the Django admin panel, where the admin can manage the database. This is only showed if a superuser is logged in.
+      - **Download Customer DB** - This is a direct download link that downloads the current customer database in a CSV-file format. This is only showed if a superuser is logged in.
 
 #
 
-- ## All Sections
+- ## Messages
 
-- All sections begin with a shadow applied to the Section tag itself, which is replicated throughout the site. This effect was added to give the appearance of each section of the website being layered on top of the section below it, and to add some seperation between sections, instead of an immediate colour change.
-
-#
-
-![Navbar Hamburger Menu Image](docs/readme_images/section_header.png)
+  - Directly below the header is a hidden div for messages. Here the user gets feedback when for example an account has been created, an order has been made or deleted. The message div is a part of the base template, hence it will show on whatever page the user is. The message dissappears after 5 seconds, coded with some custom JavaScript.
+  ![Messages](main/static/readme/messages.png)
 
 #
 
-- The header of the each section is made up of several elements which make it appear to be protruding from the section above.
+- ## Lead
 
-  - The About section colour has been set to light gray with an opacity of 0.7. This has been done to contrast the white background, but also allows visibility of the shadow from the section element, making it appear as if a seperate shadow is being cast on the header.
-  - The colour of all other sections have been set to white gray with an opacity of 0.9. This has been done to contrast the grey background or the blacka and white image of the event section, but also allows visibility of the shadow from the section element, making it appear as if a seperate shadow is being cast on the header.
-  - A border radius of 50% has been applied to the bottom left and right corners of the header, giving it a curved appearance.
-  - A further shadow has been applied to the header to accentuate it and make it apparent that this sits below the preceding section, but above the content below.
+  - Below the header and eventual messages is a lead paragraph. This space is reserved to display offers to the visitor with the intent to catch their interest in making a decision to rent a storage unit. The lead has a contrasting background color of #f7ba5b to pop out between the header and hero section.
 
 #
 
-- ## About Section
+- ## Hero Section
 
-  - The main feature of the About section is an image of vocalist Craig Redpath. This image has been set as the background of the middle column and centered, with a padding of 50% applied to the top of the image. This has been done to ensure the content remains in the center of the page, with any overlap hidden. The image used is actually larger in size to allow some flexibility, with more or less of the image being shown depending on device type.
+  - The hero section is designed to quickly communicate what Magasinet Ekorren is about. The "Rent now"-button is a call to action so the visitor quickly can get to business renting a storage unit. At the bottom is a lead paragraph with the starting price highlighted by green, which communicates the competative prices that Magasinet Ekorren actually has.
+  - The hero image is described [here](#hero-image).
 
-  #
-
-  ![Navbar Hamburger Menu Image](docs/readme_images/about_centered.png)
-
-  #
-
-  - To the left of the About section image is information the members of the band. This section has had a border radius of 10% applied, with a border of 2 pixels being applied to the right side, to give an appearance similar to a bracket, but also to highlight the edge of the section at lower resolutions.
+  ![Hero section](main/static/readme/hero_section.png)
 
   #
 
-  - To the right of the About section image is information about the band, the type of music they play, their inspirations and some additional information about the band members. This section has also had a border radius of 10% applied, with a border of 2 pixels being applied to the left side, to give an appearance similar to a bracket, but also to highlight the edge of the section at lower resolutions.
+- ## Instructions section 
+
+  - The Instructions section is intended to show the visitor how easy it would be for them to go ahead and rent a storage unit from Magasinet Ekorren. 
+  - Originally there were six steps, but after some feedback from friends i narrowed it down to three to emphasize how simple it is. 
+  - As with most of the landing page, this section further informs the visitor and helps them towards a decision.
+  - This section has a contrasting background color to the two adjacent sections to help separate them.
+  - On bigger screens the list is displayed inline, and on smaller screens the list items are stacked vertically.
+
+  ![Instructions section](main/static/readme/instructions.png)
 
   #
 
-  - Below a screen resolution width of 992 pixels the image in the center of the About section is hidden, with the remaining sections displayed side by side. An example of this can be seen below.
+- ## Product cards section
 
-  <details>
-    <summary>About Section Below 992 Pixels</summary>
+  - The product cards section is designed to clearly inform the visitor of the four different products that are available to them.
+  - Every card has a header, a corresponding image to the size of the storage unit, information about size and price, and lastly a button which calls to action with the text "Rent now".
+  - The "Rent now"-button leads to the order form if a user is logged in, or the login page if no user is logged in.
+  - The images are explained [here](#product-cards)
+  - The cards fluently follows the screen widths, moving cards down a row, from four on one row on bigger screens, down to one on each row on the smallest screens.
 
-  ![Mobile Wireframe Image](docs/readme_images/below_992.png)
-  </details>
-
-  #
-
-  - Below a screen resolution width of 768 pixels the image in the center of the About section remains hidden, with the remaining sections stacked on top of each other.An example of this can be seen below.
-
-  <details>
-    <summary>About Section Below 768 Pixels</summary>
-
-  ![Mobile Wireframe Image](docs/readme_images/below_768.png)
-  </details>
-
-#
-
-- ## Media Section
-
-  - The Media section is made up of two subsections detailing the latest single and album releases by the band. Both sections have been given the same white background colour as the header, but with a slightly lower opacity of 0.7. This differentiates them from the header slightly, but still offsets them easily against the grey background.
+  ![Product cards](main/static/readme/product_cards.png)
 
   #
 
-  ![Mobile Wireframe Image](docs/readme_images/single_section.png)
+- ## Why us section
+
+  - The Why us section is there to give the visitor four reasons why they would want to rent a storage unit from Magasinet Ekorren.
+  - It is designed to quickly catch the eye of the visitor, without having too much text that could cause them to scroll by it.
+  - Like the instructions section, it has a contrasting background color to separate it from its adjacent sections.
+  - The images is explained [here](#why-us-section)
+  - The "badges" follows screen widths from all on one row on bigger screens, two on two rows on medium screens, and lastly one on each row on smaller screens.
+
+  ![Why us section](main/static/readme/why_us_section.png)
 
   #
 
-  - The 'Latest Single Info' section contains the single artwork on the left side, with text information about the single on the right. The image remains centered within the left column until the resolution width is below 768 pixels, at which point the image moves to the top of the section and the text information is displayed below.
+- ## About & Contact section
 
-  <details>
-    <summary>Single Section Below 768 Pixels</summary>
+  - The decision to include the Find us, About and Contact sections into one was for the navbar to have a minimum number of links. Having only three links decreases cluttering and looks less confusing to the visitor. Since the three sections are higly related i saw no problem in collecting them into one section.
+  - The three sections are vertically stacked on all viewport widths and divided into cards with a rounded edge and a shadow, to have them appear to float on the page. This way they stick out from the white background and look easier on the eye.
 
-  ![Mobile Wireframe Image](docs/readme_images/single_responsive.png)
-  </details>
+  - ### Find us
+    - The Find us header has a map icon from [fontawesome](https://fontawesome.com/) which visually reinforces what the section presents.
+    - The map is an embedded google map, with a link to quickly get directions to the storage unit facility.
+    - The iframe element has the attribute of 'loading="lazy"' to force it to load once the visitor scrolls down to it, as opposed to when the whole page loads.
 
-  #
+  ![Find us](main/static/readme/find_us.png)
 
-  - The 'Latest Album Info' section contains the album artwork on the right side, with text information about the album on the left. The image remains centered within the right column until the resolution width is below 768 pixels. At this point the original image is hidden, and a new image appears at the top of the section, with the text information displayed below.
-
-  <details>
-  <summary>Album Section Above 768 Pixels</summary>
-
-  ![Mobile Wireframe Image](docs/readme_images/album_desktop.png)
-  </details>
-    <details>
-    <summary>Album Section Below 768 Pixels</summary>
-
-  ![Mobile Wireframe Image](docs/readme_images/album_responsive.png)
-  </details>
-
-#
-
-- ## Events Section
-
-  - The Events section has a background of guitarist Dan Richards on the left, with vocalist Craig Redpath on the right wearing a guitar strap showing the bands name. This has been set with a fixed position so different parts of the image are shown as the user scrolls down the page. This also contrasts against the rest of the website which has fixed colours. The image used for this section can be found [here](assets/img/event_image.jpg).
-
-  #
-
-  ![Mobile Wireframe Image](docs/readme_images/events_section.png)
-
-  #
-
-  - The main feature of the Events section are the five divs containing information for venues, locations, dates and times of upcoming events, although they are all fictional. A margin of 2 pixels was applied to each div to space each event slightly apart from eachother and avoid having a large block of colour in the center of the page.
-
-  #
-
-  - The background of the Events section has been set to White with an opacity of 0.9 to make the content stand out from the black and white image behind and to ensure readability of the content.
-
-#
-
-- ## Contact Section
-
-  - The contact section features a form asking for four bits of information - Name, email address, the reason for contact and any further information the user wishes to provide.
-
-  #
-
-  ![Mobile Wireframe Image](docs/readme_images/form.png)
-
-  #
-
-  - The form was set to require all fields to be completed as the 'Reason of Contact' options have been left intentionally vague to prompt the user to submit information.
-
-  #
-
-  ![Mobile Wireframe Image](docs/readme_images/form_validation.png)
-
-  #
-
-  - Both the Submit and Reset buttons were set to bright colours as a call to action to the user, but also to match with the original carousel image displayed when the page is loaded which contains those bright colours prominently.
-
-  #
-
-  ![Mobile Wireframe Image](docs/readme_images/form_buttons.png)
-
-  #
-
-  - A small amount of Javascript was written to remove the default function of the Submit button and replace it with a modal response. The code for this can be found [here](assets/js/main.js).
-
-  #
-
-  - The form has been designed in an appropriate manner with the required information and name tags applied, but does not submit the information, or display another page. Instead, a modal is displayed thanking the user for their contact and advising a response will be received soon, with two seperate buttons available to close the modal.
-
-  #
-
-  ![Mobile Wireframe Image](docs/readme_images/form_modal.png)
+  - ### About us
+    - The About us section header has an information "i" icon to represent that the visitor can find information about the company here.
+    - The text is a short presentation of the company, their values and a short paragraph about the storage units.
+    
+  ![About us](main/static/readme/about_us.png)
 
 #
 
 - ## Footer
 
-  - The Footer is made of three seperate sections.
+  - The Footer is divided into three parts:
+    - Copyright text on the left with a script updating the year to the current one.
+    - An acorn in the middle to give it some color and wrap the end of the page nicely.
+    - Navigation links to the right with an added link to register if the visitor is not logged in or to the user panel if the user is logged in.
+  - The footer is fixed to the bottom of the viewheight window by means of the bootstrap "fixed-bottom" class.
+  - It has the same background color of #505677 as the header to create continuity in the design.
 
-  #
+  ![Footer](main/static/readme/footer.png)
 
-  ![Mobile Wireframe Image](docs/readme_images/footer.png)
+#
 
-  #
+## Technology
 
-  - On the far left a link is displayed which, when clicked, will return the user to the top of the page.
-  - In the center, three Font Awesome icons are displayed linking to the Facebook, Twitter and Instagram profiles for the band. All links open in a new tab.
-  - On the far left is a text statement containing the phrase "It goes On & On" which is a slogan used by the band.
+This section covers all technology components and choices.
 
-  #
+### Technology Choices
 
-  - The footer was coloured using the Bootstrap 'Danger' colour which was used due to the red colour which is relevant to the bands' name and to match the colour of the Navbar.
+- [GitHub](https://github.com/)
+	- version control and hosting during development
+- [GitPod](https://gitpod.io/)
+  - in-browser editor
+- [HTML 5.2](https://www.w3.org/TR/html52/)
+	- to create the content.
+- [Bootstrap 5.2.2](https://getbootstrap.com/)
+	- to style the content, provide the layout and some JavaScript functionality
+- [jQuery 3.6.0](https://jquery.com/)
+  - to manipulate the DOM.
+- [CSS 3](https://www.w3schools.com/css/default.asp)
+  - additional styling and layout.
+- [Django 4.1.3](https://docs.djangoproject.com/en/4.1/)
+  - the main bulk of the project used Djangos Python-based built-in features.
+- [Python](https://www.python.org/)
+	- an interpreted, high-level, and general-purpose programming language.
+- [Code Institute GitPod Full Template](https://github.com/Code-Institute-Org/gitpod-full-template)
+	- the template i started my project with.
+- [Cloudinary](https://cloudinary.com/)
+  - a cloud storage service that i used for static files and images
+- [Jinja 3.1 ](https://jinja.palletsprojects.com/en/3.1.x/)
+	- to be able to write Python code mixed with the HTML
+- [GitHub](https://github.com/)
+	- project repository.
+- [Heroku](https://heroku.com/)
+	- for deployment and hosting.
+- [Balsamiq](https://balsamiq.com/wireframes/)
+  - to create the wireframe
+- [Lucidchart](https://www.lucidchart.com/)
+  - to create a flowchart
+- [Autopep8](https://pypi.org/project/autopep8/)
+  - to correctly format all Python code.
+- [ElephantSQL](https://www.elephantsql.com/)
+  - database hosting.
+
 
 #
 
 ## Deployment
 
-The site was created using Visual Studio Code and GitHub, and deployed to GitHub pages for testing using the below process:
+### Deployment to heroku
 
-    i. Navigate to the repository on GitHub.com
-    ii. Select 'Settings' from the navigation bar near the top of the page.
-    iii. Select 'Pages' from the sidebar on the left of the page.
-    iv. Under the 'Sources' heading, select the 'Branch' dropdown menu and select the main branch.
-    v. Once selected, click the 'Save' button to the right of the dropdown menu.
-    vi. Deployment should be confirmed by a message on a green background - The message should have a green tick mark followed by "Your site is published at" followed by the web address.
-    vii. Confirm deployment by navigating to the displayed web address.
+**In your terminal** 
+
+1. Add the list of requirements by running the command "pip3 freeze --local > requirements.txt"
+2. Git add and git commit the changes made
+
+**Log into heroku**
+
+3. Log into [Heroku](https://dashboard.heroku.com/apps) or create a new account and log in
+
+4. In the top right-hand corner click "New" and choose the option Create new app, if you are a new user, the "Create new app" button will appear in the middle of the screen
+
+5. Write app name - it has to be unique
+6. Choose Region
+7. Click "Create App"
+
+**The page of your project opens.**
+
+8. **IMPORTANT** - Make sure all secret keys and passwords are kept in an env.py file in your root directory. 
+  Access them by using e.g.: 
+  ```
+  os.environ.get('SECRET_KEY')
+  ```
+
+9. Click "Settings" from the menu on the top of the page
+
+10. Go to section "Config Vars" and click button "Reveal Config Vars". 
+
+11. Add the below variables to the list
+
+    * DATABASE_URL as provided by ElephantSQL
+    * SECRET_KEY is the django secret key and can be generated [here](https://miniwebtool.com/django-secret-key-generator/). 
+    * Cloudinary URL can be obtained from [cloudinary](https://cloudinary.com/). Follow the steps on the website to register. 
+
+**Go back to your code**
+
+12. Procfile needs to be created in your app and contain:
+```
+web: gunicorn PROJECT_NAME.wsgi
+```
+
+13. In settings in your base app add the Heroku URL to ALLOWED_HOSTS
+
+14. Add and commit the changes in your code and push to github
+
+**Final step - deployment**
+
+15. Next go to "Deploy" in the menu bar on the top 
+
+16. Go to section "deployment method", choose "GitHub"
+
+17. New section will appear "Connect to GitHub" - Search for the repository to connect to
+
+18. Type the name of your repository and click "search"
+
+19. Once Heroku finds your repository - click "connect"
+
+20. Scroll down to the section "Automatic Deploys"
+
+21. Click "Enable automatic deploys" or choose "Deploy branch" and manually deploy
+
+22. Click "Deploy branch"
+
+Once the program runs you should see the message "the app was sussesfully deployed".
+
+
+### Deployment problems
+
+Initially deploying served some problems. A big one was that my static files didn't load. This is because i didn't have initial serving of the static files.
+After using [this](https://dev.to/successhycenth/uploading-images-to-cloudinary-storage-from-a-django-drf-application-c40) guide i got it to work.
+
+Another hassle during development was that i got this browser error every now and then:
+```
+Forbidden (403) CSRF verification failed. Request aborted.
+```
+
+Django requires CSRF-tokens (Cross Site Request Forgery) in their forms as a security measure to safely handle requests. Read more on CSRF [here](https://docs.djangoproject.com/en/4.1/ref/csrf/).
+In the django settings.py-file you need to explicitly state trusted origins for unsafe requests (e.g POST).
+In local development my URL changed day by day (e.g. https://8000-johneriksson88-ekorren-us6khvjs3ar.ws-eu83.gitpod.io/), and when testing my forms and submitting, I was presented with the error above. I soon learned that i had to change the CSRF_TRUSTED_ORIGINS settings variable as my URL changed. 
+
 
 #
 
