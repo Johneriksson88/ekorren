@@ -43,7 +43,7 @@ def index(request):
                 # Below emails will be changed in the future as soon as the
                 # customer has set up an email host
 
-                'john.e.eriksson@gmail.com',
+                'from@magasinetekorren.se',
                 ['to@magasinetekorren.se'],
                 html_message=html
             )
@@ -249,7 +249,7 @@ def not_registered(request):
 
 
 def send_order_confirmation(request, name, email, order):
-    email = request.user.customer.email
+    user_email = request.user.customer.email
     template = render_to_string(
         'order_confirmation_email.html',
         {
@@ -260,8 +260,8 @@ def send_order_confirmation(request, name, email, order):
     email = EmailMessage(
         'Order confirmation from Magasinet Ekorren',
         template,
-        settings.EMAIL_HOST_USER,
-        [email]
+        'from@magasinetekorren.se',
+        ['to@magasinetekorren.se'],
     )
 
     email.fail_silently = False
@@ -269,7 +269,7 @@ def send_order_confirmation(request, name, email, order):
 
 
 def send_order_deletion_notification(request, name, order):
-    email = request.user.customer.email
+    user_email = request.user.customer.email
     template = render_to_string(
         'order_deletion_email.html',
         {
@@ -280,8 +280,8 @@ def send_order_deletion_notification(request, name, order):
     email = EmailMessage(
         'Order cancelled from Magasinet Ekorren',
         template,
-        settings.EMAIL_HOST_USER,
-        [email]
+        'from@magasinetekorren.se',
+        ['to@magasinetekorren.se'],
 
     )
 
