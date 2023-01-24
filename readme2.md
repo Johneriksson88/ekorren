@@ -281,7 +281,7 @@ User stories were divided into three categories:
 
 - ## Footer
 
-  - The Footer is divided into three parts:
+  The Footer is divided into three parts:
     - Copyright text on the left with a script updating the year to the current one.
     - An acorn in the middle to give it some color and wrap the end of the page nicely.
     - Navigation links to the right with an added link to register if the visitor is not logged in or to the user panel if the user is logged in.
@@ -291,6 +291,49 @@ User stories were divided into three categories:
   ![Footer](main/static/readme/footer.png)
 
 #
+
+- ## User panel
+
+  The user panel is the main page for the customer to handle their orders and information. The page is only available to registered users using the Django decorator `@login_required` in front of the view function. Here the user can perform full CRUD(**C**reate, **Read**, **U**pdate, **D**elete) functionality.
+
+  ### Header
+  The header has a heading saying "My account" to inform the user where they are. To the right is a red button for deleting the account.
+
+  ### My Orders section 
+  - The order section is formatted with the [bootstrap cards](https://getbootstrap.com/docs/4.0/components/card/) component.
+  - The header has a color of #f7ba5b to clearly define the top of the card.
+  - Underneith is a table formatted with the [bootstrap table](https://getbootstrap.com/docs/4.1/content/tables/) component. The table displays all the orders of the user, with the rows order no., storage unit, start date and remove. Remove is represented by a red trash can icon and takes the user to a order deletion confirmation page where they have to confirm that they want to delete the order and are informed that it will terminate the rental of that storage unit.
+  - On the bottom of the card is a blue "New order" button which takes the user to the order form where they can make new orders.
+
+  ### My information section
+  - The my information section is a separate card that displays the users contact information in a unordered list form.
+  - In the header is a "Edit" button which takes the user to another page where they can edit their contact information in a form.
+  - The form uses the same Django form as the customer form, so the validation is the same for the two.
+
+#
+
+- ## Log in page
+  - The login page is a small "card" with a username and a password field.
+  - The design for the login and register page was derived from Youtuber [Dennis Ivys](https://www.youtube.com/c/DennisIvy?app=desktop) tutorial on [Django user registration](https://www.youtube.com/watch?v=tUqUdu0Sjyc&t=694s&ab_channel=DennisIvy).
+  - I liked the design so much i decided to use it, and he openly shares the code for it [here](https://jsfiddle.net/ivanov11/dghm5cu7/).
+  - The log in button logs in the user through the [Django login class](https://docs.djangoproject.com/en/4.1/topics/auth/default/#how-to-log-a-user-in) and takes them to the user panel.
+  - On the bottom is a "Sign up" link for new users to register.
+
+- ## Registration page
+  - The registration page is reached by clicking the "Sign up" link on the login page.
+  - The form takes a username, a password and a repeat password.
+  - The form validation is handled by [Django forms](https://docs.djangoproject.com/en/4.1/ref/forms/) and wont' accept an existing username, a password below 8 characters without a capital letter and number, the same repeat password or empty fields.
+  - The design for the registration page follows the same [tutorial](https://www.youtube.com/watch?v=tUqUdu0Sjyc&t=694s&ab_channel=DennisIvy) as the login page. His original source code for the registration page can be found [here](https://jsfiddle.net/ivanov11/hzf0jxLg/)
+
+
+- #Registration
+
+- ## Send email
+
+  When a visitor uses the contact form, creates or makes/deletes an order an email is sent using the Django [send_mail](https://docs.djangoproject.com/en/4.1/topics/email/) class. These emails are intended to go to the site owner so they can process the order manually and contact the customer in case there is a problem or question about the order. The site owner wanted it this way for them to not lose a sale if a customer e.g. booked a storage unit type that was not available. Then they could contact the customer and work out a deal on a different storage unit type. This is also the reason there is no inventory on the storage units.
+  Magasinet Ekorren is a small scale business with a small base of customers, so making everything automated for its own sake made no sense.
+
+  At the moment all emails go to an SMTP test server on the free service [Mailtrap](https://mailtrap.io/). This is to make sure the email functionality works and that the emails are sent. To this day the site owner has not set up a paid SMTP service, which is required to securely and professionally send emails to real life email addresses. This is why the emails still go to this test server.
 
 ## Technology
 
@@ -321,7 +364,7 @@ This section covers all technology components and choices.
 - [Jinja 3.1 ](https://jinja.palletsprojects.com/en/3.1.x/)
 	- to be able to write Python code mixed with the HTML.
 - [GitHub](https://github.com/)
-	- project repository.
+	- project repository and version control.
 - [Heroku](https://heroku.com/)
 	- for deployment and hosting.
 - [Balsamiq](https://balsamiq.com/wireframes/)
@@ -332,6 +375,8 @@ This section covers all technology components and choices.
   - to correctly format all Python code to PEP8 standards.
 - [ElephantSQL](https://www.elephantsql.com/)
   - database hosting.
+- [Mailtrap](https://mailtrap.io/)
+  - SMTP server for email testing.
 
 
 #
@@ -472,6 +517,7 @@ The manual testing was divided up into the websites different functions:
   4. User panel
   5. Order form
   6. Customer form
+  7. Send email
 
 #
 
@@ -516,6 +562,8 @@ The manual testing was divided up into the websites different functions:
 | If i haven't made any orders yet, I am informed in the "My orders" list | Go to user panel as a user without any orders | PASS |
 | Deleting an order takes me to a confirmation page where the relevant order information is displayed | Click the trash can icon next to any order | PASS |
 | Confirming the deletion of an order gives me a feedback message with the relevant order number | Delete any order and click confirm | PASS |
+| Clicking the "Delete account" takes me to a confirmation page to make sure i have to confirm the deletion | Click "Delete account" being logged in as a user  | PASS |
+| Clicking "Delete" on the confirmation page logs the user out, deletes the user from the database and shows a feedback message | Click "Delete" on the account deletion confirmation page | PASS |
 
 5. **Order form**
 
@@ -532,9 +580,15 @@ The manual testing was divided up into the websites different functions:
 | ----------- | ----------- | ----------- |
 | Submitting any or all fields without imput gives me a feedback message | Submit the form without input, then one time leaving one field at a time empty | PASS |
 | Submitting the form entering an invalid email address gives me a feedback message | Enter an email without an "@" symbol | PASS |
-| Submitting the form entering an invalid Swedish zipcode gives me a feedback message | Enter a zipcode with only 4 digits | PASS | 
-|  |  |  |
-|  |  |  |
+| Submitting the form entering an invalid Swedish zipcode gives me a feedback message | Enter a zipcode with only 4 digits | PASS |
+
+7. **Send email**
+
+| Expected outcome | Test | Result |
+| ----------- | ----------- | ----------- |
+| Sending an email from the contact form successfully sends an email to the Mailtrap SMTP test email | Fill the concact form and hit "Send" | PASS |
+| When making a new order an email notification is sent to the Mailtrap SMTP test email | Make a new order in the User panel | PASS |
+| When deleting an order an email notification is sent to the Mailtrap SMTP test email | Delete an order in the User panel | PASS |
 
 #
 
@@ -549,6 +603,7 @@ The manual testing was divided up into the websites different functions:
   - Contrasting text and background colors were altered until complying with AAA-standars, with help from Google Dev Tools for maximum readability.
   - Images were compressed by using [TinyPNG](https://tinypng.com/).
   - The 'loading = "lazy"' attribute was added to all images, to get them to load when they are scrolled down to, instead of them all loading when the page initially loads.
+  - Add alt text to all images and aria-labels to all links.
 
   The full report can be viewed [here](main/static/readme/lighthouse_expanded.pdf).
 
@@ -567,7 +622,44 @@ The manual testing was divided up into the websites different functions:
 
 ## Bugs
 
-  
+
+### Database server bugs
+
+The database is hosted by [ElephantSQL](https://customer.elephantsql.com/). Towards the projects end i started getting this error:
+
+```
+OperationalError at /login/
+connection to server at "mouse.db.elephantsql.com" (13.49.141.18), port 5432 failed: FATAL:  too many connections for role "database_name"
+```
+
+After some googling i learned that the free plan on ElephanSQL is to have a maximum of 5 open connections at the same time on their free plan. Looking at the [Django documentation](https://docs.djangoproject.com/en/2.1/ref/databases/#persistent-connections) on persistent connections i learned that i could time out the connections after a set amount of time. 
+I added the CONN_MAX_AGE setting to the database settings in setting.py like this:
+```
+DATABASES = {
+    'default': {
+        'HOST': dj_database_url.parse(os.environ.get('DATABASE_URL')),
+        'CONN_MAX_AGE': 0
+    }
+}
+
+```
+
+Setting CONN_MAX_AGE to 0 terminates the connections immediately, since there is no reason to keep them open after a request. This seems to have fixed the problem.
+
+In the future I am likely to change the database host to a paid service. This is a decision that the site owner will have to take.
+
+
+### Email SMTP server bugs
+
+When sending an email, either via the contact form on the landing page or making/deleting and order, I sometimes got the following error:
+```
+Error: SMTP Sender Refused
+(530, b'5.7.0 Authentication Required)
+```
+
+After googling the error this seemed to be caused on the server side of the [Mailtrap](https://mailtrap.io/) SMTP server i use. I have not found the exact cause of this bug since i can't reproduce it. I found that going into Mailtrap and resetting the credentials for the API made the error go away. I will put a pin in this error since I feel that I have no control over it and that it may come back. Changing to another SMTP service could solve the problem. 
+
+In the future, I will change the email settings from the test server to a paid SMTP server plan that can send emails to other recipients than the test server. This is a decision that is on the site owners table, and I am waiting to implement it as soon as i get a go ahead from them.
 
 ## Credits
 
@@ -586,7 +678,7 @@ The manual testing was divided up into the websites different functions:
   - [Colour Contrast Analyser](https://www.tpgi.com/color-contrast-checker/) - Used to check colour contrast to ensure usability for users with visual impairements.
   - [Favicon.io](https://favicon.io) - Used to generate Favicon image.
   - [Font Awesome](https://fontawesome.com/) - Used for Social Media icons in footer.
-  - [GitHub](https://github.com/) - Used for version control and hosting.
+  - [GitHub](https://github.com/) - Used for version control and hosting during.
   - [Google Fonts](https://fonts.google.com/) - Used to import and alter fonts on the page.
   - [JQuery](https://en.wikipedia.org/wiki/JQuery) - Used to override default submit functionality and display modal instead.
   - [LambdaTest](https://www.lambdatest.com/) - Used for Cross Site Browser Testing.

@@ -87,16 +87,11 @@ WSGI_APPLICATION = 'ekorren.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-""" DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
- """
-
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    'default': {
+        'HOST': dj_database_url.parse(os.environ.get('DATABASE_URL')),
+        'CONN_MAX_AGE': 0
+    }
 }
 
 # Password validation
@@ -160,7 +155,7 @@ CSRF_COOKIE_SECURE = False
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_HOST_USER = 'd51d048a476d43'
+EMAIL_HOST_USER = 'd573062fa22237'
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = '2525'
 
