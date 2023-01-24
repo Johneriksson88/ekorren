@@ -107,61 +107,121 @@ User stories were divided into three categories:
 
   [4](https://github.com/Johneriksson88/ekorren/issues/6). As an admin I can download the customer registry so that I can view it and import it to my invoice software.
 
-  #
+#
 
-  ## Wireframes
+## Wireframes
 
-  The wireframe for this website were created using Balasmiq. The end product ended up a little bit different from the original wireframe, due to considerations and ideas changing as the creative process flowed on. I only made a wireframe for the landing page, as to get a big picture feel of how the website should look and feel. The user panel and subsequent pages was design on the fly experimenting with different bootstrap components.
+The wireframe for this website were created using Balasmiq. The end product ended up a little bit different from the original wireframe, due to considerations and ideas changing as the creative process flowed on. I only made a wireframe for the landing page, as to get a big picture feel of how the website should look and feel. The user panel and subsequent pages was design on the fly experimenting with different bootstrap components.
 
-  The initial idea was to have a true one page website with the order form on the bottom of the page, but after experimenting it felt more logical to have this step separated from the landing page which i wanted to be purely informational, and leading a potential customer to ordering with calls to action.
+The initial idea was to have a true one page website with the order form on the bottom of the page, but after experimenting it felt more logical to have this step separated from the landing page which i wanted to be purely informational, and leading a potential customer to ordering with calls to action.
 
-  Also, as I realized that I needed to have a login function where the user could perform full CRUD functionality on the database - as per the assessment criteria of the project - it made even more sense to have the order form on another page.
+Also, as I realized that I needed to have a login function where the user could perform full CRUD functionality on the database - as per the assessment criteria of the project - it made even more sense to have the order form on another page.
 
-  ![Wireframe](main/static/readme/magasinet_ekorren_wireframe.png)
+![Wireframe](main/static/readme/magasinet_ekorren_wireframe.png)
 
+#
 
 ## Design
 
-- ## Imagery
+## Imagery
 
-  - ### Logo
-    The company logo in the left part of the header has an acorn icon from [flaticon.com](https://www.flaticon.com/). Since the squirrel ('ekorre' in Swedish) is part of the company name, and it repesents the nature of storing and collecting things in one place (think of a squirrel gathering acorns), the acorn felt appropriate for part of the logo. It was the lowest common denominator between the business (storage) and the name (ekorre) and felt natural.
-  - ### Hero image
-      The hero image of cardboard boxes were purchased from [shutterstock](https://www.shutterstock.com/). They are supposed to represent the nature of storing things in boxes, and provide a fairly uniform color without taking up too much visual capital. This image was the closest option to having a monocolor or gradient background, but with the benefit of having appropriate objects for the business.
-  - ### Product cards
-      The images for the product cards on the landing page was purchased from [shutterstock](https://www.shutterstock.com/). They are possibly temporary as the site owner wanted to create more personal image representations of the different sizes storage units themselves, but has not done so yet.
-  - ### Why us section
-      The "why us" section contains 4 icons from [flaticon.com](https://www.flaticon.com/). They were chosen to visually represent the 4 given benefits of renting a storage unit from Magasinet Ekorren. If a visitor were to quickly scroll through the page, the icons being circled to give a badge-like appearance catches the visitor eye and tells a clear story of why Magasinet Ekorren would benefit them.
+### Logo
+  The company logo in the left part of the header has an acorn icon from [flaticon.com](https://www.flaticon.com/). Since the squirrel ('ekorre' in Swedish) is part of the company name, and it repesents the nature of storing and collecting things in one place (think of a squirrel gathering acorns), the acorn felt appropriate for part of the logo. It was the lowest common denominator between the business (storage) and the name (ekorre) and felt natural.
 
+### Hero image
+  The hero image of cardboard boxes were purchased from [shutterstock](https://www.shutterstock.com/). They are supposed to represent the nature of storing things in boxes, and provide a fairly uniform color without taking up too much visual capital. This image was the closest option to having a monocolor or gradient background, but with the benefit of having appropriate objects for the business.
 
+### Product cards
+  The images for the product cards on the landing page was purchased from [shutterstock](https://www.shutterstock.com/). They are possibly temporary as the site owner wanted to create more personal image representations of the different sizes storage units themselves, but has not done so yet.
 
-- ## Colours
+### Why us section
+  The "why us" section contains 4 icons from [flaticon.com](https://www.flaticon.com/). They were chosen to visually represent the 4 given benefits of renting a storage unit from Magasinet Ekorren. If a visitor were to quickly scroll through the page, the icons being circled to give a badge-like appearance catches the visitor eye and tells a clear story of why Magasinet Ekorren would benefit them.
 
-  From the start the colors were picked from a squirrel themed palette i found [here](https://colorpalettes.net/tag/colour-of-squirrel-coat/) to represent the colors of the squirrel. At the end of the project when doing the lighthouse testing, I realized that the contrasts using these colors did not pass through the availabilaty-test. After playing around with the Chrome developer tools for testing contrast and availability, i found completely different colors that felt modern, fresh and most of all accessable to the visually impaired and color blind. So essentially accessability dictated the color choices of the entire website.
+#
 
-  Inspiration for color choices can come from a million different places, and I think this shows that a simple thing as playing around with an accessability tool can work at least as well as looking at a color palette.
+## Colours
 
-  To separate the sections on the landing page i chose to have every other section (Get started and Why rent from us) have a contrasting background color of #74cfbf to the other white ones. I did this to clearly signal that the visitor is looking at another section.
+From the start the colors were picked from a squirrel themed palette i found [here](https://colorpalettes.net/tag/colour-of-squirrel-coat/) to represent the colors of the squirrel. At the end of the project when doing the lighthouse testing, I realized that the contrasts using these colors did not pass through the availabilaty-test. After playing around with the Chrome developer tools for testing contrast and availability, i found completely different colors that felt modern, fresh and most of all accessable to the visually impaired and color blind. So essentially accessability dictated the color choices of the entire website.
 
-- ## Fonts
+Inspiration for color choices can come from a million different places, and I think this shows that a simple thing as playing around with an accessability tool can work at least as well as looking at a color palette.
 
-  The fonts Cinzel Decorative, Bevan and Lato were chosen from the options available from Google Fonts.
+To separate the sections on the landing page i chose to have every other section (Get started and Why rent from us) have a contrasting background color of #74cfbf to the other white ones. I did this to clearly signal that the visitor is looking at another section.
 
-  [Cinzel Decorative](https://fonts.google.com/specimen/Cinzel+Decorative?query=cinzel) is only used for the company logo in the header. I thought it looked elegant, modern and the wavy swirls of the capital "M" in "Magasinet" looked almost like a squirrels tail.
+#
 
-  [Bevan](https://fonts.google.com/specimen/Bevan?query=bevan) was chosen for the headings. It is a bold display font that i think clearly defines a new section of the page with its boldness and thickness.
+## Fonts
 
-  [Lato](https://fonts.google.com/specimen/Lato?query=lato) was the given choice for all the body text. It is a very popular and familiar font for people browsing the web. The description says: "The semi-rounded details of the letters give Lato a feeling of warmth, while the strong structure provides stability and seriousness", and i felt that these keywords jived with the website as a whole.
+The fonts Cinzel Decorative, Bevan and Lato were chosen from the options available from Google Fonts.
 
-- ## Favicon
+  - [Cinzel Decorative](https://fonts.google.com/specimen/Cinzel+Decorative?query=cinzel) is only used for the company logo in the header. I thought it looked elegant, modern and the wavy swirls of the capital "M" in "Magasinet" looked almost like a squirrels tail.
 
-  The favicon is the same icon as in the logo, and was the clear candidate for representing Magasinet Ekorren as explained in the [logo](#logo) paragraph.
+  - [Bevan](https://fonts.google.com/specimen/Bevan?query=bevan) was chosen for the headings. It is a bold display font that i think clearly defines a new section of the page with its boldness and thickness.
 
-  ![favicon](main/static/images/acorn.png)
+  - [Lato](https://fonts.google.com/specimen/Lato?query=lato) was the given choice for all the body text. It is a very popular and familiar font for people browsing the web. The description says: "The semi-rounded details of the letters give Lato a feeling of warmth, while the strong structure provides stability and seriousness", and i felt that these keywords jived with the website as a whole.
+
+#
+
+## Favicon
+
+The favicon is the same icon as in the logo, and was the clear candidate for representing Magasinet Ekorren as explained in the [logo](#logo) paragraph.
+
+![favicon](main/static/images/acorn.png)
+
+#
+
+## Database Models
+
+The database schema were planned out on pen and paper. It was implemented in the models.py file as three different models:
+
+### Customer model
+
+The customer model holds the registered customer, with a one-to-one field connected with the User model. It holds the information relevant for the site owner to invoice and contact the customer.
+All models have a primary key automatically generated by Django (BigAutoField), which is why it is not listed below. This took me a while to find out because it is happening behind the scenes.
+
+| Name | Field type |
+| ----------- | ----------- |
+| user | OneToOneField(User) |
+| fullname | CharField |
+| address | CharField |
+| zipcode | CharField |
+| city | CharField |
+| email | EmailField |
+| phone | CharField |
+| person_or_org_nr | Charfield |
+
+### User model
+
+The user model is not defined in models.py, as it uses the ready made Django class.
+The form only uses the username, password1 and password2 fields.
+The user object came in handy when trying to access the logged in used and its subsequent customer object in the code by using `request.user`.
+
+### Storage Unit model
+
+The storage unit model holds the seven different types of storage units that a customer can rent. These are used in a dropdown list in the order form for the customer to pick from.
+
+| Name | Field type |
+| ----------- | ----------- |
+| name | CharField |
+| size | CharField |
+| floor | CharField |
+| price | IntegerField |
+
+### Order model
+
+The order model stores the orders for the site owner to manually process. The storage_unit foreign key connects the order to which storage unit was ordered, and the customer foreign key to the customer who made the order.
+
+| Name | Field type |
+| ----------- | ----------- |
+| order_date | DateField |
+| start_date | DateField |
+| storage_unit | ForeignKey(StorageUnit) |
+| customer | ForeignKey(Customer) |
+
+#
 
 ## Features
 
-- ## Header
+### Header
 
 ![Magasinet Ekorren header](main/static/readme/header.png)
 
@@ -171,66 +231,64 @@ User stories were divided into three categories:
 
 ![Header collapsed](main/static/readme/header_collapsed.png)
 
-- ### Logo
-    - The logo is described [here](#logo).
+### Logo
+The logo is described [here](#logo).
 
-- ### Navigation links
-    - There are 3 main navigation links:
-      - **Home** - leads to the top of the landing page.
-      - **Storage Units** - leads to the product cards section on the landing page.
-      - **About & Contact** - leads to the About & Contact section on the landing page.
+### Navigation links
+There are 3 main navigation links:
+  - **Home** - leads to the top of the landing page.
+  - **Storage Units** - leads to the product cards section on the landing page.
+  - **About & Contact** - leads to the About & Contact section on the landing page.
     
+  ![Header logged in](main/static/readme/header_logged_in.png)
 
-    ![Header logged in](main/static/readme/header_logged_in.png)
-
-    - On the right of the header are the dynamic login and account related links.
-      - **Log in** - This button is showed only if a user is _not_ logged in, and leads to the login page.
-      - **Log out** - This button is showed only if a user _is_ logged in and logs out the user and redirects to the landing page.
-      - **Hello, _username_** - This is a dynamic message which greets the user and tells them they are logged in. It is only showed if a user is logged in.
-      - ![User panel icon](main/static/readme/user_panel_icon.png) **User panel icon** - This is the link to get to the user panel. It is only showed if a user is logged in.
-      ![Admin header](main/static/readme/header_admin.png)
-      - **Admin panel** - This is a link to the Django admin panel, where the admin can manage the database. This is only showed if a superuser is logged in.
-      - **Download Customer DB** - This is a direct download link that downloads the current customer database in a CSV-file format. This is only showed if a superuser is logged in.
-
-#
-
-- ## Messages
-
-  - Directly below the header is a hidden div for messages. Here the user gets feedback when for example an account has been created, an order has been made or deleted. The message div is a part of the base template, hence it will show on whatever page the user is. The message dissappears after 5 seconds, coded with some custom JavaScript.
-  ![Messages](main/static/readme/messages.png)
+In the right side of the header are the dynamic log in/log out and account related links:
+  - **Log in** - This button is showed only if a user is _not_ logged in, and leads to the login page.
+  - **Log out** - This button is showed only if a user _is_ logged in and logs out the user and redirects to the landing page.
+  - **Hello, _username_** - This is a dynamic message which greets the user and tells them they are logged in. It is only showed if a user is logged in.
+  - ![User panel icon](main/static/readme/user_panel_icon.png) **User panel icon** - This is the link to get to the user panel. It is only showed if a user is logged in.
+  ![Admin header](main/static/readme/header_admin.png)
+  - **Admin panel** - This is a link to the Django admin panel, where the admin can manage the database. This is only showed if a superuser is logged in.
+  - **Download Customer DB** - This is a direct download link that downloads the current customer database in a CSV-file format. This is only showed if a superuser is logged in.
 
 #
 
-- ## Lead
+## Messages
 
-  - Below the header and eventual messages is a lead paragraph. This space is reserved to display offers to the visitor with the intent to catch their interest in making a decision to rent a storage unit. The lead has a contrasting background color of #f7ba5b to pop out between the header and hero section.
+Directly below the header is a hidden div for messages. Here the user gets feedback when for example an account has been created, an order has been made or deleted. The message div is a part of the base template, hence it will show on whatever page the user is. The message dissappears after 5 seconds, coded with some custom JavaScript.
+![Messages](main/static/readme/messages.png)
 
 #
 
-- ## Hero Section
+## Lead
 
-  - The hero section is designed to quickly communicate what Magasinet Ekorren is about. The "Rent now"-button is a call to action so the visitor quickly can get to business renting a storage unit. At the bottom is a lead paragraph with the starting price highlighted by green, which communicates the competative prices that Magasinet Ekorren actually has.
-  - The hero image is described [here](#hero-image).
+Below the header and eventual messages is a lead paragraph. This space is reserved to display offers to the visitor with the intent to catch their interest in making a decision to rent a storage unit. The lead has a contrasting background color of #f7ba5b to pop out between the header and hero section.
 
-  ![Hero section](main/static/readme/hero_section.png)
+#
 
-  #
+## Hero Section
 
-- ## Instructions section 
+The hero section is designed to quickly communicate what Magasinet Ekorren is about. The "Rent now"-button is a call to action so the visitor quickly can get to business renting a storage unit. At the bottom is a lead paragraph with the starting price highlighted by green, which communicates the competative prices that Magasinet Ekorren actually has.
+The hero image is described [here](#hero-image).
 
-  - The Instructions section is intended to show the visitor how easy it would be for them to go ahead and rent a storage unit from Magasinet Ekorren. 
-  - Originally there were six steps, but after some feedback from friends i narrowed it down to three to emphasize how simple it is. 
-  - As with most of the landing page, this section further informs the visitor and helps them towards a decision.
-  - This section has a contrasting background color to the two adjacent sections to help separate them.
-  - On bigger screens the list is displayed inline, and on smaller screens the list items are stacked vertically.
+![Hero section](main/static/readme/hero_section.png)
 
-  ![Instructions section](main/static/readme/instructions.png)
+#
 
-  #
+## Instructions section 
 
-- ## Product cards section
+The Instructions section is intended to show the visitor how easy it would be for them to go ahead and rent a storage unit from Magasinet Ekorren. Originally there were six steps, but after some feedback from friends i narrowed it down to three to emphasize how simple it is. As with most of the landing page, this section further informs the visitor and helps them towards a decision.
 
-  - The product cards section is designed to clearly inform the visitor of the four different products that are available to them.
+This section has a contrasting background color to the two adjacent sections to help separate them. On bigger screens the list is displayed inline, and on smaller screens the list items are stacked vertically.
+
+![Instructions section](main/static/readme/instructions.png)
+
+#
+
+## Product cards section
+
+The product cards section is designed to clearly inform the visitor of the four different products that are available to them.
+  
   - Every card has a header, a corresponding image to the size of the storage unit, information about size and price, and lastly a button which calls to action with the text "Rent now".
   - The "Rent now"-button leads to the order form if a user is logged in, or the login page if no user is logged in.
   - The images are explained [here](#product-cards)
@@ -240,9 +298,9 @@ User stories were divided into three categories:
 
   #
 
-- ## Why us section
+## Why us section
 
-  - The Why us section is there to give the visitor four reasons why they would want to rent a storage unit from Magasinet Ekorren.
+The Why us section is there to give the visitor four reasons why they would want to rent a storage unit from Magasinet Ekorren.
   - It is designed to quickly catch the eye of the visitor, without having too much text that could cause them to scroll by it.
   - Like the instructions section, it has a contrasting background color to separate it from its adjacent sections.
   - The images is explained [here](#why-us-section)
@@ -252,88 +310,97 @@ User stories were divided into three categories:
 
   #
 
-- ## About & Contact section
+## About & Contact section
 
   The decision to include the Find us, About and Contact sections into one was for the navbar to have a minimum number of links. Having only three links decreases cluttering and looks less confusing to the visitor. This was also a suggestion from my mentor. Since the three sections are highly related i saw no problem in collecting them into one section.
   The three sections are vertically stacked on all viewport widths and divided into cards. They all share styles with a rounded edge and a shadow, to have them appear to float on the page. This way they stick out from the white background and look easier on the eye.
 
-  - ### Find us
-    - The Find us header has a map icon from [fontawesome](https://fontawesome.com/) which visually reinforces what the section presents.
-    - The map is an embedded google map, with a link to quickly get directions to the storage unit facility.
-    - The iframe element has the attribute of 'loading="lazy"' to force it to load once the visitor scrolls down to it, as opposed to when the whole page loads.
+### Find us
+  - The Find us header has a map icon from [fontawesome](https://fontawesome.com/) which visually reinforces what the section presents.
+  - The map is an embedded google map, with a link to quickly get directions to the storage unit facility.
+  - The iframe element has the attribute of 'loading="lazy"' to force it to load once the visitor scrolls down to it, as opposed to when the whole page loads.
 
-  ![Find us](main/static/readme/find_us.png)
+![Find us](main/static/readme/find_us.png)
 
-  - ### About us
-    - The About us section header has an information "i" icon to represent that the visitor can find information about the company here.
-    - The text is a short presentation of the company, their values and a short paragraph about the storage units.
+### About us
+  - The About us section header has an information "i" icon to represent that the visitor can find information about the company here.
+  - The text is a short presentation of the company, their values and a short paragraph about the storage units.
     
   ![About us](main/static/readme/about_us.png)
 
-  - ### Contact Us
-    - The contact us section contains of a phone number, email adress and a contact form.
-    - The phone number is a direct call link (in html *a href="**tel**:0706499977"*) and the email is a direct mail link.
-    - The concat form consists of a Name field, an Email field and a Message field. The field labels are missing, which from the beginning was a happy accident due to the loading of the form with template tags. I decided to keep it that way to minimize the amount of visual space taken up by the form. You could say the labels are in the placeholders of the fields.
+### Contact Us
+  - The contact us section contains of a phone number, email adress and a contact form.
+  - The phone number is a direct call link (in html *a href="**tel**:0706499977"*) and the email is a direct mail link.
+  - The concat form consists of a Name field, an Email field and a Message field. The field labels are missing, which from the beginning was a happy accident due to the loading of the form with template tags. I decided to keep it that way to minimize the amount of visual space taken up by the form. You could say the labels are in the placeholders of the fields.
 
   ![Contact Us](main/static/readme/contact_us.png)
 
 #
 
-- ## Footer
+## Footer
 
-  The Footer is divided into three parts:
-    - Copyright text on the left with a script updating the year to the current one.
-    - An acorn in the middle to give it some color and wrap the end of the page nicely.
-    - Navigation links to the right with an added link to register if the visitor is not logged in or to the user panel if the user is logged in.
+The Footer is divided into three parts:
+  - Copyright text on the left with a script updating the year to the current one.
+  - An acorn in the middle to give it some color and wrap the end of the page nicely.
+  - Navigation links to the right with an added link to register if the visitor is not logged in or to the user panel if the user is logged in.
   - The footer is fixed to the bottom of the viewheight window by means of the bootstrap "fixed-bottom" class.
   - It has the same background color of #505677 as the header to create continuity in the design.
 
-  ![Footer](main/static/readme/footer.png)
+![Footer](main/static/readme/footer.png)
 
 #
 
-- ## User panel
+## User panel
 
-  The user panel is the main page for the customer to handle their orders and information. The page is only available to registered users using the Django decorator `@login_required` in front of the view function. Here the user can perform full CRUD(**C**reate, **Read**, **U**pdate, **D**elete) functionality.
+The user panel is the main page for the customer to handle their orders and information. The page is only available to registered users using the Django decorator `@login_required` in front of the view function. Here the user can perform full CRUD(**C**reate, **Read**, **U**pdate, **D**elete) functionality.
 
-  ### Header
-  The header has a heading saying "My account" to inform the user where they are. To the right is a red button for deleting the account.
+### Header
+The header has a heading saying "My account" to inform the user where they are. To the right is a red button for deleting the account.
 
-  ### My Orders section 
-  - The order section is formatted with the [bootstrap cards](https://getbootstrap.com/docs/4.0/components/card/) component.
-  - The header has a color of #f7ba5b to clearly define the top of the card.
-  - Underneith is a table formatted with the [bootstrap table](https://getbootstrap.com/docs/4.1/content/tables/) component. The table displays all the orders of the user, with the rows order no., storage unit, start date and remove. Remove is represented by a red trash can icon and takes the user to a order deletion confirmation page where they have to confirm that they want to delete the order and are informed that it will terminate the rental of that storage unit.
-  - On the bottom of the card is a blue "New order" button which takes the user to the order form where they can make new orders.
+### My Orders section 
+- The order section is formatted with the [bootstrap cards](https://getbootstrap.com/docs/4.0/components/card/) component.
+- The header has a color of #f7ba5b to clearly define the top of the card.
+- Underneith is a table formatted with the [bootstrap table](https://getbootstrap.com/docs/4.1/content/tables/) component. The table displays all the orders of the user, with the rows order no., storage unit, start date and remove. Remove is represented by a red trash can icon and takes the user to a order deletion confirmation page where they have to confirm that they want to delete the order and are informed that it will terminate the rental of that storage unit.
+- On the bottom of the card is a blue "New order" button which takes the user to the order form where they can make new orders.
 
-  ### My information section
-  - The my information section is a separate card that displays the users contact information in a unordered list form.
-  - In the header is a "Edit" button which takes the user to another page where they can edit their contact information in a form.
-  - The form uses the same Django form as the customer form, so the validation is the same for the two.
+### My information section
+- The my information section is a separate card that displays the users contact information in a unordered list form.
+- In the header is a "Edit" button which takes the user to another page where they can edit their contact information in a form.
+- The form uses the same Django form as the customer form, so the validation is the same for the two.
 
 #
 
-- ## Log in page
+## Log in page
   - The login page is a small "card" with a username and a password field.
   - The design for the login and register page was derived from Youtuber [Dennis Ivys](https://www.youtube.com/c/DennisIvy?app=desktop) tutorial on [Django user registration](https://www.youtube.com/watch?v=tUqUdu0Sjyc&t=694s&ab_channel=DennisIvy).
   - I liked the design so much i decided to use it, and he openly shares the code for it [here](https://jsfiddle.net/ivanov11/dghm5cu7/).
   - The log in button logs in the user through the [Django login class](https://docs.djangoproject.com/en/4.1/topics/auth/default/#how-to-log-a-user-in) and takes them to the user panel.
   - On the bottom is a "Sign up" link for new users to register.
 
-- ## Registration page
+## Registration page
   - The registration page is reached by clicking the "Sign up" link on the login page.
   - The form takes a username, a password and a repeat password.
   - The form validation is handled by [Django forms](https://docs.djangoproject.com/en/4.1/ref/forms/) and wont' accept an existing username, a password below 8 characters without a capital letter and number, the same repeat password or empty fields.
   - The design for the registration page follows the same [tutorial](https://www.youtube.com/watch?v=tUqUdu0Sjyc&t=694s&ab_channel=DennisIvy) as the login page. His original source code for the registration page can be found [here](https://jsfiddle.net/ivanov11/hzf0jxLg/)
 
+#
 
-- #Registration
+## Send email
 
-- ## Send email
+When a visitor uses the contact form, creates or makes/deletes an order an email is sent using the Django [send_mail](https://docs.djangoproject.com/en/4.1/topics/email/) class. These emails are intended to go to the site owner so they can process the order manually and contact the customer in case there is a problem or question about the order. The site owner wanted it this way for them to not lose a sale if a customer e.g. booked a storage unit type that was not available. Then they could contact the customer and work out a deal on a different storage unit type. This is also the reason there is no inventory on the storage units.
+Magasinet Ekorren is a small scale business with a small base of customers, so making everything automated for its own sake made no sense.
 
-  When a visitor uses the contact form, creates or makes/deletes an order an email is sent using the Django [send_mail](https://docs.djangoproject.com/en/4.1/topics/email/) class. These emails are intended to go to the site owner so they can process the order manually and contact the customer in case there is a problem or question about the order. The site owner wanted it this way for them to not lose a sale if a customer e.g. booked a storage unit type that was not available. Then they could contact the customer and work out a deal on a different storage unit type. This is also the reason there is no inventory on the storage units.
-  Magasinet Ekorren is a small scale business with a small base of customers, so making everything automated for its own sake made no sense.
+At the moment all emails go to an SMTP test server on the free service [Mailtrap](https://mailtrap.io/). This is to make sure the email functionality works and that the emails are sent. To this day the site owner has not set up a paid SMTP service, which is required to securely and professionally send emails to real life email addresses. This is why the emails still go to this test server.
 
-  At the moment all emails go to an SMTP test server on the free service [Mailtrap](https://mailtrap.io/). This is to make sure the email functionality works and that the emails are sent. To this day the site owner has not set up a paid SMTP service, which is required to securely and professionally send emails to real life email addresses. This is why the emails still go to this test server.
+#
+
+## Features Left to Implement
+
+- Ability to rent a storage unit without having to create an account
+- Online payment method
+- Order history on user panel
+- Identity validation through swedish BankID
+- Uniform form validation on all pages (right now the different validation messages does not have the same appearance)
 
 ## Technology
 
@@ -451,17 +518,7 @@ Once the program runs you should see the message "the app was sussesfully deploy
 ### Deployment problems
 
 Initially deploying served some problems. A big one was that my static files didn't load. This is because i didn't have initial serving of the static files.
-After using [this](https://dev.to/successhycenth/uploading-images-to-cloudinary-storage-from-a-django-drf-application-c40) guide i got it to work.
-
-Another hassle during development was that i got this browser error every now and then:
-```
-Forbidden (403) CSRF verification failed. Request aborted.
-```
-
-Django requires CSRF-tokens (Cross Site Request Forgery) in their forms as a security measure to safely handle requests. Read more on CSRF [here](https://docs.djangoproject.com/en/4.1/ref/csrf/).
-In the django settings.py-file you need to explicitly state trusted origins for unsafe requests (e.g POST).
-In local development my URL changed day by day (e.g. https://8000-johneriksson88-ekorren-us6khvjs3ar.ws-eu83.gitpod.io/), and when testing my forms and submitting, I was presented with the error above. I soon learned that i had to change the CSRF_TRUSTED_ORIGINS settings variable as my URL changed. 
-
+After double checking my code against [this](https://dev.to/successhycenth/uploading-images-to-cloudinary-storage-from-a-django-drf-application-c40) guide I got it to work.
 
 #
 
@@ -622,6 +679,16 @@ The manual testing was divided up into the websites different functions:
 
 ## Bugs
 
+### CSRF verification failed
+
+An error that contiuously popped up during development was this:
+```
+Forbidden (403) CSRF verification failed. Request aborted.
+```
+
+Django requires CSRF-tokens (Cross Site Request Forgery) in their forms as a security measure to safely handle requests. Read more on CSRF [here](https://docs.djangoproject.com/en/4.1/ref/csrf/).
+In the django settings.py-file you need to explicitly state trusted origins for unsafe requests (e.g POST).
+In local development my URL changed day by day (e.g. https://8000-johneriksson88-ekorren-us6khvjs3ar.ws-eu83.gitpod.io/), and when testing my forms and submitting, I was presented with the error above. I soon learned that i had to change the CSRF_TRUSTED_ORIGINS settings variable as my URL changed. 
 
 ### Database server bugs
 
@@ -648,7 +715,6 @@ Setting CONN_MAX_AGE to 0 terminates the connections immediately, since there is
 
 In the future I am likely to change the database host to a paid service. This is a decision that the site owner will have to take.
 
-
 ### Email SMTP server bugs
 
 When sending an email, either via the contact form on the landing page or making/deleting and order, I sometimes got the following error:
@@ -663,63 +729,72 @@ In the future, I will change the email settings from the test server to a paid S
 
 ## Credits
 
-- ## Languages
+### Images & Icons
 
-  - [HTML5](https://en.wikipedia.org/wiki/HTML5)
-  - [CSS](https://en.wikipedia.org/wiki/CSS)
-  - [Javascript](https://en.wikipedia.org/wiki/JavaScript)
+  [FOTOGRID](https://www.shutterstock.com/sv/g/fotogri)
 
-- ## Frameworks, Libraries and Tools
-
-  - [Am I Responsive](http://ami.responsivedesign.is/) - Used to verify responsiveness of website on different devices.
-  - [Balsamiq](https://balsamiq.com/) - Used to generate Wireframe images.
-  - [Bootstrap](https://getbootstrap.com/) - Main framework used for the site, with a focus on responsiveness.
-  - [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - Used for overall development and tweaking, including testing responsiveness and performance.
-  - [Colour Contrast Analyser](https://www.tpgi.com/color-contrast-checker/) - Used to check colour contrast to ensure usability for users with visual impairements.
-  - [Favicon.io](https://favicon.io) - Used to generate Favicon image.
-  - [Font Awesome](https://fontawesome.com/) - Used for Social Media icons in footer.
-  - [GitHub](https://github.com/) - Used for version control and hosting during.
-  - [Google Fonts](https://fonts.google.com/) - Used to import and alter fonts on the page.
-  - [JQuery](https://en.wikipedia.org/wiki/JQuery) - Used to override default submit functionality and display modal instead.
-  - [LambdaTest](https://www.lambdatest.com/) - Used for Cross Site Browser Testing.
-  - [Lite-Server](https://www.npmjs.com/package/lite-server) - Used to host website locally to aid testing before updates were commited to GitHub.
-  - [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) - Used for consistent code formatting.
-  - [Sass](https://sass-lang.com/) - Used to override existing Bootstrap variables to enhance readability.
-  - [Slack](https://slack.com/) - Used for support and advice from the Code Insitute Community.
-  - [TinyPNG](https://tinypng.com/) - Used to compress images to reduce filesize without a reduction in quality.
-  - [Visual Studio Code](https://code.visualstudio.com/) - Application used for development of this site.
-  - [W3C](https://www.w3.org/) - Used for HTML & CSS Validation.
-  - [WAVE](https://wave.webaim.org/) - Used for Accessibility evaluation.
-
-- ## Images
-
-  - [The Jet Reds](https://www.thejetreds.co.uk/)
-
-    - The Jet Reds Logo
-    - Album Artwork
-    - Single Artwork
+  - The four images on the product cards 
 
   #
 
-  - [Sop Rodchenvko](https://www.soprodchenvko.com/)
+  [r.classen](https://www.shutterstock.com/sv/g/rclassenlayouts)
 
-    - About Section Image
-    - Event Section Background
-
-  #
-
-  - [Dave Thompson Imaging](https://www.facebook.com/DaveThompsonImaging)
-
-    - Carousel Images
+  - Hero image
 
   #
 
-- ## Content
+  [Fontawesome](https://fontawesome.com/icons)
 
-  - As this site is based on a real band, some content on this site is based on content from the band, with permission. The content used is as follows:
+  - All icons apart from the acorn and the four icons in the "Why us" section
+  
+  #
 
-    - The non-photographic content displayed is taken from the band themselves and is the artwork used on their single and album releases.
-    - All photos are real photographs of the band. Details of the photographers is listed in the [Images](#images) section.
-    - The text content of the 'What We Do', 'Latest Single' & Latest Album' sections are descriptions written by the band themselves and are featured on [the bands website](https://www.thejetreds.co.uk/).
+  [Pixel Perfect](https://www.flaticon.com/authors/pixel-perfect)
 
-  - The gig venues listed in the Events section are all real venues, but the dates and times of the events are all fictional.
+  - Acorn in logo, flaticon and footer
+  
+  #
+
+  [Freepik](https://www.flaticon.com/authors/freepik)
+    
+  - Calendar icon
+  - Unloading truck icon
+  - Open lock icon
+
+  #
+
+  [Good Ware](https://www.flaticon.com/authors/good-ware)
+    
+  - Security camera icon
+
+
+### Content
+
+  **Text**
+  
+  - All text was written by me, John Eriksson, with inspiration and information from the original [Magasinet Ekorren website](https://www.forraduppsala.se/).
+
+  #
+
+  [Google maps](https://www.google.com/maps)
+
+  - Embedded map
+
+  **Log in page and register page**
+
+  - The design was derived from Youtuber [Dennis Ivy](https://www.youtube.com/c/DennisIvy?app=desktop)s tutorial on [Django user registration](https://www.youtube.com/watch?v=tUqUdu0Sjyc&t=694s&ab_channel=DennisIvy).
+
+  **Cookie alert**
+
+  - The cookie alert was derived from GitHub user [Wruczek](https://github.com/Wruczek/)s [Bootstrap Cookie Alert](https://github.com/Wruczek/Bootstrap-Cookie-Alert/).
+
+#
+
+## My thoughts
+
+As this was my first time working with Django, the whole project was a learning process. There are some parts that I could improve on, and I'm sure I will in the future as I finish the course. The nature of having a deadline between home and work life put time constraints on the project that i simply couldn't control. I am happy with the project and it works as intended.
+
+Working with Django is for me a double edged sword. I love the "batteries included" part of Django, which keeps me from having to "invent the wheel" over and over again. For example the User model together with the auth library for log in, registration etc. was a breeze to work with.
+On the other hand, I feel that there's so much happening under the hood that I have no idea how they work. It's almost like magic. For example, the database felt like some kind of mystical being just existing and working in the background. It wasn't until i had some problems with it I had to dive in under the hood to see what was happening.
+
+To summarize, Django is a very handy tool for quickly creating fully working applications, but for the inquisitive programmer who is learning it skips many parts that could be useful to know.
