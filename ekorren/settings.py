@@ -90,7 +90,8 @@ WSGI_APPLICATION = 'ekorren.wsgi.application'
 DATABASES = {
     'default': {
         'HOST': dj_database_url.parse(os.environ.get('DATABASE_URL')),
-        'CONN_MAX_AGE': 0
+        'CONN_MAX_AGE': 0,
+        'MAX_CONNECTIONS': 30
     }
 }
 
